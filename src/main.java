@@ -1,0 +1,16 @@
+
+
+public class main {
+
+	public static void main( String[] args ) {
+		// TODO Auto-generated method stub
+		
+		SistemaEncomienda sistema = new SistemaEncomienda();
+		sistema.comenzar();
+		System.out.println("hello world!");
+		System.out.println();
+		
+
+	}
+
+}
