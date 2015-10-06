@@ -24,7 +24,28 @@ public class Encomienda {
 	Sucursal sucursalDestino;
 	String volumen;
 	int peso;
+
 	int prioridad;
 	EstadoEncomienda estadoEncomienda;
+
 	
+	
+	public EstadoEncomienda getEstadoEncomienda() {
+		return estadoEncomienda;
+	}
+	public void setEstadoEncomienda(EstadoEncomienda estadoEncomienda) {
+		this.estadoEncomienda = estadoEncomienda;
+	}
+	public Sucursal getSucursalOrigen() {
+		return sucursalOrigen;
+	}
+	public void setSucursalOrigen(Sucursal sucursalOrigen) {
+		this.sucursalOrigen = sucursalOrigen;
+	}
+	public Sucursal getSucursalDestino() {
+		return sucursalDestino;
+	}
+	public void setSucursalDestino(Sucursal sucursalDestino) {
+		this.sucursalDestino = sucursalDestino;
+	}
 }
