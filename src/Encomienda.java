@@ -1,5 +1,5 @@
 
-enum EstadoEncomienda {enOrigen, enDestino, enTransito, Entregado};
+enum EstadoEncomienda {EnOrigen, EnDestino, EnTransito, Entregado};
 
 public class Encomienda {
 
@@ -18,7 +18,7 @@ public class Encomienda {
 		this.volumen = volumen;
 		this.peso = peso;
 		this.prioridad = prioridad;
-		this.estadoEncomienda = enOrigen;
+		this.estadoEncomienda = EstadoEncomienda.EnOrigen;
 	}
 	Sucursal sucursalOrigen;
 	Sucursal sucursalDestino;

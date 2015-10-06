@@ -7,5 +7,9 @@ public class Sucursal {
 	Operador operador;
 	Cajero cajero;
 	ArrayList<Camion> listaCamiones;
+	
+	public void enviarMensaje(){
+		
+	}
 
 }
