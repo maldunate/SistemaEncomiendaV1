@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 
-import javax.print.DocFlavor.STRING;
-
 public class SistemaEncomienda {
 
 	ArrayList<Pedido> listaPedidos;
@@ -18,13 +16,12 @@ public class SistemaEncomienda {
 	}
 	
 	public Pedido InsertarPedido (){
-		ArrayList<Encomienda> listaEncomienda = null;
-		return new Pedido(listaEncomienda, new Cliente());
+		return null; //Pedido
 	}
 	
 	public void Simulacion(){
-		Camion camion1 = new Camion();
-		listaSucursales.add(new Sucursal())
+		//Camion camion1 = new Camion();
+		//listaSucursales.add(new Sucursal())
 		
 	}
 }

@@ -11,7 +11,7 @@ public class Encomienda {
 	 * @param prioridad
 	 * @param estadoEncomienda
 	 */
-	public Encomienda( Sucursal sucursalOrigen, Sucursal sucursalDestino, String volumen, int peso, int prioridad ) {
+	public Encomienda( Sucursal sucursalOrigen, Sucursal sucursalDestino, int volumen, int peso, int prioridad ) {
 		super();
 		this.sucursalOrigen = sucursalOrigen;
 		this.sucursalDestino = sucursalDestino;
@@ -22,7 +22,7 @@ public class Encomienda {
 	}
 	Sucursal sucursalOrigen;
 	Sucursal sucursalDestino;
-	String volumen;
+	int volumen;
 	int peso;
 
 	int prioridad;

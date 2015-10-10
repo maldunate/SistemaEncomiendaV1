@@ -8,7 +8,7 @@ public class Operador extends Persona{
 		// TODO Auto-generated constructor stub
 	}
 
-	public void InsertarEncomienda ( Encomienda encomienda ){
+	public void InsertarEncomienda ( Encomienda encomienda ){ //metodo que inserta las encomiendas en los camiones y manda los camiones a la sucursal cuando alcanzan su capacidad
 		for (Camion camion : sucursal.listaCamiones) {
 			if (camion.enCamion.size() < camion.capacidad && encomienda.estadoEncomienda == EstadoEncomienda.EnOrigen && camion.sucursalDestino == encomienda.sucursalDestino) {
 				camion.enCamion.add(encomienda);
@@ -24,7 +24,7 @@ public class Operador extends Persona{
     	return null;
 	}
     
-    public void EnviarCamion( Camion camion ){
+    public void EnviarCamion( Camion camion ){ // envia a los camiones
     	camion.estadoCamion = EstadoCamion.EnDestino;
     	camion.sucursalDestino.listaCamiones.add(camion);
     	sucursal.listaCamiones.remove(camion);
@@ -35,7 +35,7 @@ public class Operador extends Persona{
     	*/
     }
     
-    public void RecibirCamion (){
+    public void RecibirCamion (){ //recibe a los camiones y los manda de vuelta
     	for (Camion camion : sucursal.listaCamiones) {
 			if (camion.estadoCamion == EstadoCamion.EnDestino) {
 				for (Encomienda encomienda : camion.enCamion) {
