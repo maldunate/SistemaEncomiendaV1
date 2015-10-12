@@ -51,5 +51,12 @@ public class Operador extends Persona{
 			}
 		}
     }
+    
+    public void EnviarMensaje( Mensaje mensaje){
+    	mensaje.destinatario.listaMensajes.add(mensaje);
+    }
 
+    public void BorrarMensaje( Mensaje mensaje){
+    	this.sucursal.listaMensajes.remove(mensaje);
+    }	
 }
