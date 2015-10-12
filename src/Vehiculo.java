@@ -18,5 +18,29 @@ public abstract class Vehiculo {
 		this.sucursalOrigen = sucursalOrigen;
 		this.sucursalDestino = sucursalDestino;
 	}
+	public String getPatente() {
+		return patente;
+	}
+	public void setPatente(String patente) {
+		this.patente = patente;
+	}
+	public int getCapacidad() {
+		return capacidad;
+	}
+	public void setCapacidad(int capacidad) {
+		this.capacidad = capacidad;
+	}
+	public Sucursal getSucursalOrigen() {
+		return sucursalOrigen;
+	}
+	public void setSucursalOrigen(Sucursal sucursalOrigen) {
+		this.sucursalOrigen = sucursalOrigen;
+	}
+	public Sucursal getSucursalDestino() {
+		return sucursalDestino;
+	}
+	public void setSucursalDestino(Sucursal sucursalDestino) {
+		this.sucursalDestino = sucursalDestino;
+	}
 	
 }

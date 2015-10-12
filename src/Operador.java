@@ -47,7 +47,13 @@ public class Operador extends Persona{
 					}
 				}
 				// SI EL CAMION SE QUEDA CON UNA ENCOMIENDA, ENTONCES HAY QUE CREAR UN MENSAJE
+				if (camion.enCamion.size() > 0){
+					Mensaje m1 = new Mensaje("Encomienda enviada a sucursal equivocada", camion.getSucursalOrigen(), camion.getSucursalDestino());
+					EnviarMensaje(m1);
+				}
 				camion.setEstadoCamion(EstadoCamion.EnOrigen);
+				camion.getSucursalOrigen().listaCamiones.add(camion);
+				camion.getSucursalDestino().listaCamiones.remove(camion);
 			}
 		}
     }
