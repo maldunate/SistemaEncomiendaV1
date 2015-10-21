@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Ir a Bienvenida" />
+            <MenuItem mnemonicParsing="false" text="Ir atras..." />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="45.0" layoutY="44.0" prefHeight="91.0" prefWidth="551.0" text="Haz ingresado como operador, seleccione acción a efectuar:" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Label>
+            <Button layoutX="156.0" layoutY="278.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="346.0" text="Insertar y despachar encomiendas">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Button layoutX="156.0" layoutY="213.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="346.0" text="Entrar a sistema de recepción de camiones">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Button layoutX="156.0" layoutY="150.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="346.0" text="Entrar a sistema de mensajes">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+      </children>
+    </AnchorPane>
+  </children>
+  <stylesheets>
+    <URL value="@BasicApplication.css" />
+  </stylesheets>
+</VBox>
