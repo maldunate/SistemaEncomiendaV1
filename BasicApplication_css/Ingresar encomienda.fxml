@@ -17,6 +17,8 @@
             <MenuItem mnemonicParsing="false" text="Ir a Bienvenida" />
             <MenuItem mnemonicParsing="false" text="Ir atras..." />
             <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Enviar un mensaje..." />
+                  <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem mnemonicParsing="false" text="Quit" />
           </items>
         </Menu>
