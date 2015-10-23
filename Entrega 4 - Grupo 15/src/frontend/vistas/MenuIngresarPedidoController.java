@@ -3,10 +3,13 @@ package frontend.vistas;
 import frontend.MainApp;
 import javafx.application.Application;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 
 public class MenuIngresarPedidoController  {
 
+	@FXML
+	private ComboBox listaClientes;
 	
 	private MainApp mainApp;
 	

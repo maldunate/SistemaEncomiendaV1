@@ -4,13 +4,31 @@ import backend.main;
 import frontend.MainApp;
 import javafx.application.Application;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class InsertarDespacharController {
 
 	private MainApp mainApp;
+
+	@FXML
+	private Label volumenTotal;
 	
+	@FXML
+	private Label nombreSucursalActual;
 	
+	@FXML
+	private Label sucursalDestino;
+	
+	@FXML
+	private Label volumenOcupado;
+	
+	@FXML
+	private ComboBox listaCamiones;
+	
+	@FXML
+	private ComboBox listaEncomiendas;
 	
 	public InsertarDespacharController() {
 		

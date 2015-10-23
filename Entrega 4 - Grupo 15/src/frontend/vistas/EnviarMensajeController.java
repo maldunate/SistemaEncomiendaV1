@@ -3,11 +3,24 @@ package frontend.vistas;
 import frontend.MainApp;
 import javafx.application.Application;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class EnviarMensajeController {
 
 private MainApp mainApp;
+	
+	@FXML
+	private ComboBox combo; //listaSucursales
+	
+	@FXML
+	private TextArea mensaje;
+	
+	@FXML
+	private TextField asunto;
+	
 	
 	public EnviarMensajeController() {
 		
