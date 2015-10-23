@@ -1,7 +1,12 @@
 package backend;
 import java.util.ArrayList;
 
-public class SistemaEncomienda {
+public class SistemaEncomienda implements java.io.Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private static SistemaEncomienda INSTANCE = new SistemaEncomienda(); 
 	

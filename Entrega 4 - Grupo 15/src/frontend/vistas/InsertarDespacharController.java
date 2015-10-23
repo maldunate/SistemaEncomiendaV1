@@ -49,8 +49,8 @@ public class InsertarDespacharController {
 	
 	@FXML
 	private void handlerIngresarEncomienda(){
-		mainApp.mostrarMessage("Haz insertado exitosamente la encomienda");//encomienda x
-		mainApp.mostrarMenuOperador();
+		//mainApp.mostrarMessage("Haz insertado exitosamente la encomienda");//encomienda x
+		mainApp.mostrarInsertarEncomiendaCamion();
 
 	
 	}

@@ -1,5 +1,6 @@
 package frontend;
 
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,16 +13,21 @@ import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
+import backend.Deserialize;
+import backend.SerializeDemo;
+import backend.SistemaEncomienda;
 import frontend.vistas.CajeroOperadorController;
 import frontend.vistas.EncomiendaActualController;
 import frontend.vistas.EnviarMensajeController;
 import frontend.vistas.InsertarDespacharController;
+import frontend.vistas.InsertarEncomiendaCamionController;
 import frontend.vistas.InsertarEncomiendasController;
 import frontend.vistas.MenuCajeroController;
 import frontend.vistas.MenuIngresarClienteController;
 import frontend.vistas.MenuIngresarPedidoController;
 import frontend.vistas.MenuOperadorController;
 import frontend.vistas.RecibirCamionController;
+import frontend.vistas.RootLayoutController;
 import frontend.vistas.SistemaController;
 import frontend.vistas.VerMensajeController;
 
@@ -30,12 +36,18 @@ public class MainApp extends Application {
 	private Stage primaryStage;
 	private BorderPane rootLayout;
 	public String sucursalActual;
-//	public SistemaEncomienda sist = new SistemaEncomienda();
+	public SistemaEncomienda sist = null;
 	
 	@Override
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Sistema de Encomiendas");
+		//try {
+		//	Deserialize.deserialize(sist.getInstance());
+		//} catch (Throwable e) {
+		//	// TODO Auto-generated catch block
+		//	e.printStackTrace();
+		//}
 		
 		initRootLayout();
 		
@@ -47,7 +59,11 @@ public class MainApp extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("vistas/RootLayout.fxml"));
             rootLayout = (BorderPane) loader.load();
-
+            
+            
+            RootLayoutController controllerView = loader.getController();
+            controllerView.setMainApp(this);
+            
             // Cargar escena de la venta principal
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
@@ -275,6 +291,27 @@ public class MainApp extends Application {
         }
 	}
 	
+	public void mostrarInsertarEncomiendaCamion(){
+        try {
+            // Load bienvenida
+        	
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("vistas/InsertarEncomiendaCamion.fxml"));
+            AnchorPane generico = (AnchorPane)loader.load();
+
+            // Poner la vista del login en el centro de la ventana principal
+            rootLayout.setCenter(generico);
+
+            // Dar acceso al controlador de bienvenida
+            InsertarEncomiendaCamionController controllerView = loader.getController();
+            controllerView.setMainApp(this);
+           
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+	
 	public void mostrarEnviarMensaje(){
         try {
             // Load bienvenida
@@ -336,6 +373,11 @@ public class MainApp extends Application {
 	            JOptionPane.showMessageDialog(null, message);
 	        }
 	    });
+	}
+	
+	public void close(){
+		//SerializeDemo.serialize(sist);
+		System.exit(0);
 	}
 	
 	
