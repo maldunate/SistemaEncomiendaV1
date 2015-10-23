@@ -1,0 +1,25 @@
+package frontend.vistas;
+
+
+import backend.*;
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+
+public class SistemaController extends Application {
+
+	@FXML
+	private ComboBox<Sucursal> listaSucursales;
+	
+	public void start(Stage primaryStage) {
+		
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
+}
