@@ -3,10 +3,12 @@ package backend;
 
 public class main {
 
-	public static void main( String[] args ) {
+	public  static SistemaEncomienda sistema;
+	
+	public void main( String[] args ) {
 		// TODO Auto-generated method stub
+		sistema = new SistemaEncomienda();
 		
-		SistemaEncomienda sistema = new SistemaEncomienda();
 		//sistema.comenzar();
 		//System.out.println("hello world!");
 		//System.out.println();

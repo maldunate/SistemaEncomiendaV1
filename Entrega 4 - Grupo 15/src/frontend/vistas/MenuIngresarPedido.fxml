@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.vistas.MenuIngresarPedidoController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="45.0" layoutY="44.0" prefHeight="45.0" prefWidth="551.0" text="Datos pedido" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="53.0" layoutY="165.0" prefHeight="45.0" prefWidth="164.0" text="Cliente: " textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="listaClientes" layoutX="157.0" layoutY="153.0" prefHeight="45.0" prefWidth="429.0" promptText="Lista de clientes en sistema..." />
+      <Button layoutX="157.0" layoutY="276.0" mnemonicParsing="false" onAction="#handlerIngresarEncomiendas" prefHeight="45.0" prefWidth="346.0" text="Ingresar encomiendas">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

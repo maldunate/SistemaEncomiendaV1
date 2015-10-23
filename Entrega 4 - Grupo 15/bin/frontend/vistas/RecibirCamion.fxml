@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.vistas.RecibirCamionController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="23.0" prefHeight="45.0" prefWidth="391.0" text="Camiones sucursal" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="46.0" layoutY="75.0" prefHeight="45.0" prefWidth="164.0" text="Camión: " textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="listaCamiones" editable="true" layoutX="180.0" layoutY="75.0" prefHeight="31.0" prefWidth="315.0" promptText="Lista de camiones de la sucursal en sucursal..." />
+      <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="46.0" layoutY="125.0" prefHeight="45.0" prefWidth="164.0" text="Sucursal Destino: " textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="direccionFinalEncomienda" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="296.0" layoutY="178.0" prefHeight="45.0" prefWidth="287.0" text="seleccionar encomienda..." textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="46.0" layoutY="232.0" prefHeight="45.0" prefWidth="224.0" text="Encomiendas en camion: " textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="46.0" layoutY="178.0" prefHeight="45.0" prefWidth="237.0" text="Dirección final encomienda:" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="listaEncomiendas" editable="true" layoutX="298.0" layoutY="232.0" prefHeight="45.0" prefWidth="287.0" promptText="Lista encomiendas" visibleRowCount="3" AnchorPane.bottomAnchor="123.0" AnchorPane.leftAnchor="298.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="232.0" />
+      <Button layoutX="346.0" layoutY="319.0" mnemonicParsing="false" onAction="#handlerRecibir" prefHeight="45.0" prefWidth="164.0" text="Recibir">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Label fx:id="nombreSucursalActual" contentDisplay="CENTER" layoutX="378.0" layoutY="23.0" prefHeight="45.0" prefWidth="195.0" text="SucursalX" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <Button layoutX="123.0" layoutY="319.0" mnemonicParsing="false" onAction="#handlerEncomiendaActual" prefHeight="45.0" prefWidth="164.0" text="Ver encomienda actual" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label fx:id="sucursalDestino" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="205.0" layoutY="125.0" prefHeight="45.0" prefWidth="379.0" text="SucursalY" textAlignment="RIGHT" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

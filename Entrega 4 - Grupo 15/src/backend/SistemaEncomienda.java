@@ -3,6 +3,8 @@ import java.util.ArrayList;
 
 public class SistemaEncomienda {
 
+	private static SistemaEncomienda INSTANCE = new SistemaEncomienda(); 
+	
 	ArrayList<Pedido> listaPedidos;
 	ArrayList<Sucursal> listaSucursales;
 	ArrayList<Cliente> listaClientes;
@@ -13,6 +15,9 @@ public class SistemaEncomienda {
 	
 	
 	public SistemaEncomienda() {
+		listaPedidos = new ArrayList<>();
+		listaSucursales = new ArrayList<>();
+		listaClientes = new ArrayList<>();
 		crearSucursales();
 	}
 
@@ -20,10 +25,22 @@ public class SistemaEncomienda {
 		System.out.println("comienza el sistema");
 	}
 	
+	public static SistemaEncomienda getInstance(){
+		return INSTANCE;
+	}
 	public Pedido InsertarPedido (){
 		return null; //Pedido
 	}
 	
+	public ArrayList<String> getSucursalesNombre(){
+		
+		ArrayList<String> lista = new ArrayList<>();
+		for (Sucursal s : listaSucursales) {
+			lista.add(s.nombre);
+		}
+		
+		return lista;
+	}
 	public void Simulacion(){
 		//Camion camion1 = new Camion();
 		//listaSucursales.add(new Sucursal())
@@ -37,18 +54,18 @@ public class SistemaEncomienda {
 		listaSucursales.add(s1);
 		
 		Sucursal s2 = new Sucursal(1, direccion[1], "La Reina", new Operador("Manuel2"), new Cajero("Lucas2",this));
-		s1.cajero.setSucursal(s2);
-		s1.operador.setSucursal(s2);
+		s2.cajero.setSucursal(s2);
+		s2.operador.setSucursal(s2);
 		listaSucursales.add(s2);
 		
 		Sucursal s3 = new Sucursal(2, direccion[2], "Chicureo", new Operador("Manuel3"), new Cajero("Lucas3",this));
-		s1.cajero.setSucursal(s3);
-		s1.operador.setSucursal(s3);
+		s3.cajero.setSucursal(s3);
+		s3.operador.setSucursal(s3);
 		listaSucursales.add(s3);
 		
 		Sucursal s4 = new Sucursal(3, direccion[3], "San Joaquin", new Operador("Manuel4"), new Cajero("Lucas4",this));
-		s1.cajero.setSucursal(s4);
-		s1.operador.setSucursal(s4);
+		s4.cajero.setSucursal(s4);
+		s4.operador.setSucursal(s4);
 		listaSucursales.add(s4);
 		
 		for (Sucursal s : listaSucursales) {
@@ -80,8 +97,8 @@ public class SistemaEncomienda {
 		this.listaClientes = listaClientes;
 	}
 
-	public String[] getDireccion() {
-		return direccion;
+	public String getDireccion(int i) {
+		return direccion[i];
 	}
 
 	public void setDireccion(String[] direccion) {
