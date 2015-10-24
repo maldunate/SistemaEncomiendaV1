@@ -49,6 +49,69 @@ public class SistemaEncomienda implements java.io.Serializable {
 		
 		return lista;
 	}
+	public ArrayList<String> getCamionesNombre(Sucursal sucursal){
+		
+		ArrayList<String> lista = new ArrayList<>();
+		for (Camion s : sucursal.listaCamiones) {
+			lista.add(s.patente);
+		}
+		
+		return lista;
+	}
+
+	public ArrayList<String> getMensajesAsuntos(Sucursal sucursal){
+		
+		ArrayList<String> lista = new ArrayList<>();
+		
+		for (Mensaje mensaje : sucursal.listaMensajes) {
+			lista.add(mensaje.asunto);
+		}
+		
+		return lista;
+	} 
+	
+	public ArrayList<Mensaje> getMensajes(Sucursal sucursal){
+		
+		ArrayList<Mensaje> lista = new ArrayList<>();
+		
+		for (Mensaje mensaje : sucursal.listaMensajes) {
+			lista.add(mensaje);
+		}
+		
+		return lista;
+	} 
+	
+	public Sucursal compararSucursal(String comboText){
+		
+		for(Sucursal s : listaSucursales){
+			if(s.nombre == comboText){
+				return s;
+			}
+		}
+		return null;
+	}
+	
+	public Mensaje devolverMensaje(String mens, Sucursal suc1, Sucursal suc2, String asunto){
+		Mensaje mensaje = new Mensaje(mens, suc1, suc2, asunto);
+		return mensaje;
+	}
+	
+	public void enviarMensaje(Sucursal sucursal, Mensaje mensaje){
+		for(Sucursal s : listaSucursales){
+			if(s == sucursal){
+				s.listaMensajes.add(mensaje);
+			}
+		}
+	}
+	
+	public void eliminarMensaje(Sucursal sucursal, Mensaje mensaje){
+		for(Sucursal s : listaSucursales){
+			if(s == sucursal){
+				s.listaMensajes.remove(mensaje);
+			}
+		}
+	}
+	
 	
 	public ArrayList<String> getClientesNombre(){
 		

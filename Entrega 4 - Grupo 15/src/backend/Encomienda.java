@@ -29,7 +29,7 @@ public class Encomienda {
 	Sucursal sucursalDestino;
 	int volumen;
 	int peso;
-	String nombre;
+	public String nombre;
 
 	int prioridad;
 	EstadoEncomienda estadoEncomienda;

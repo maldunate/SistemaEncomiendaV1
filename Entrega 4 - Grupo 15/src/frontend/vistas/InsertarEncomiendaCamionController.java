@@ -1,5 +1,11 @@
 package frontend.vistas;
 
+import java.util.ArrayList;
+
+import backend.Camion;
+import backend.Encomienda;
+import backend.SistemaEncomienda;
+import backend.Sucursal;
 import frontend.MainApp;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -10,6 +16,9 @@ import javafx.stage.Stage;
 public class InsertarEncomiendaCamionController {
 
 	private MainApp mainApp;
+	
+	Camion cam = null;
+	
 	
 	@FXML
 	private ComboBox listaEncomiendas;
@@ -58,13 +67,22 @@ public class InsertarEncomiendaCamionController {
 
 	@FXML
     private void initialize() {
-    	
-	
+	/*	ArrayList<String> encomiendasPosibles = new ArrayList<>();
+    	for (Encomienda s : cam.getSucursalOrigen().getListaEncomiendas()) {
+    		System.out.println(s);
+			if(s.getSucursalDestino().equals(cam.getSucursalDestino())){
+				encomiendasPosibles.add(s.nombre);
+				System.out.println(s);
+			}
+		}
 		
+		listaEncomiendas.getItems().addAll(encomiendasPosibles);
+	*/	
     }
 	
 	
-	public void setMainApp(MainApp mainApp) {
+	public void setMainApp(MainApp mainApp, Camion camion) {
         this.mainApp = mainApp;  
+        this.cam = camion;
     }
 }

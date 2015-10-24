@@ -13,6 +13,7 @@ import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
+import backend.Camion;
 import backend.Deserialize;
 import backend.Pedido;
 import backend.SerializeDemo;
@@ -290,7 +291,7 @@ public class MainApp extends Application {
         }
 	}
 	
-	public void mostrarInsertarEncomiendaCamion(){
+	public void mostrarInsertarEncomiendaCamion(Camion camion){
         try {
             // Load bienvenida
         	
@@ -303,7 +304,7 @@ public class MainApp extends Application {
 
             // Dar acceso al controlador de bienvenida
             InsertarEncomiendaCamionController controllerView = loader.getController();
-            controllerView.setMainApp(this);
+            controllerView.setMainApp(this, camion);
            
             
         } catch (IOException e) {

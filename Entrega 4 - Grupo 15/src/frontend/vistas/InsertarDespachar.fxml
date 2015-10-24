@@ -34,7 +34,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <ComboBox fx:id="listaCamiones" editable="true" layoutX="180.0" layoutY="75.0" prefHeight="31.0" prefWidth="315.0" promptText="Lista de camiones de la sucursal en sucursal..." />
+      <ComboBox fx:id="listaCamiones" onAction="#handlerListaCamiones" editable="true" layoutX="180.0" layoutY="75.0" prefHeight="31.0" prefWidth="315.0" promptText="Lista de camiones de la sucursal en sucursal..." />
       <Button layoutX="225.0" layoutY="312.0" mnemonicParsing="false" onAction="#handlerIngresarEncomienda" prefHeight="60.0" prefWidth="195.0" text="Ingresar una encomienda en este camión" textAlignment="CENTER" wrapText="true" />
       <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="46.0" layoutY="125.0" prefHeight="45.0" prefWidth="164.0" text="Sucursal Destino: " textAlignment="CENTER" wrapText="true">
          <font>
@@ -67,11 +67,6 @@
             <Font name="System Bold" size="23.0" />
          </font>
       </Label>
-      <Button layoutX="41.0" layoutY="319.0" mnemonicParsing="false" onAction="#handlerEncomiendaActual" prefHeight="45.0" prefWidth="164.0" text="Ver encomienda actual" textAlignment="CENTER" wrapText="true">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
       <Label fx:id="volumenOcupado" alignment="TOP_RIGHT" contentDisplay="CENTER" layoutX="473.0" layoutY="170.0" prefHeight="45.0" prefWidth="88.0" text="0" textAlignment="RIGHT" wrapText="true">
          <font>
             <Font size="18.0" />

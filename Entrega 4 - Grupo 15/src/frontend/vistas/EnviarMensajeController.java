@@ -1,6 +1,9 @@
 package frontend.vistas;
 
 import backend.SistemaEncomienda;
+
+//import backend.*;
+
 import frontend.MainApp;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -33,12 +36,15 @@ private MainApp mainApp;
 
 	@FXML
 	private void handlerEnviar(){
-		mainApp.mostrarMessage("Haz enviado un mensaje");
-		
-		//rellenar
-
-		mainApp.mostrarMenuComo(SistemaEncomienda.getInstance().getSucursalActual());
+		if(combo.getValue() != "Sucursal"){
+			SistemaEncomienda.getInstance().enviarMensaje(SistemaEncomienda.getInstance().compararSucursal(combo.getValue().toString()), SistemaEncomienda.getInstance().devolverMensaje(mensaje.getText(), SistemaEncomienda.getInstance().compararSucursal(combo.getValue().toString()), SistemaEncomienda.getInstance().compararSucursal(SistemaEncomienda.getInstance().getSucursalActual()), asunto.getText()));
+			mainApp.mostrarMenuComo(SistemaEncomienda.getInstance().getSucursalActual());
+			mainApp.mostrarMessage("Haz enviado un mensaje");
+		}else{
+			mainApp.mostrarMessage("Elige una sucursal");
+		}
 	}
+	
 	
 	@FXML
 	private void handlerCancelar(){
@@ -47,8 +53,13 @@ private MainApp mainApp;
 	
 	@FXML
     private void initialize() {
-    	
+		combo.setValue("Sucursal");
+    	mostrarSucursales();
     }
+	
+	private void mostrarSucursales(){
+		combo.getItems().addAll(SistemaEncomienda.getInstance().getSucursalesNombre());
+	}
 	
 	
 	public void setMainApp(MainApp mainApp) {

@@ -5,12 +5,14 @@ public class Mensaje {
 	public String texto;
 	public Sucursal destinatario;
 	public Sucursal origen;
+	public String asunto;
 	
-	public Mensaje(String texto, Sucursal destinatario, Sucursal origen) {
+	public Mensaje(String texto, Sucursal destinatario, Sucursal origen, String asunto) {
 		super();
 		this.texto = texto;
 		this.destinatario = destinatario;
 		this.origen = origen;
+		this.asunto = asunto;
 	}
 
 	public Sucursal getDestinatario() {

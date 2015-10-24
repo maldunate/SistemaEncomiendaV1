@@ -1,5 +1,8 @@
 package frontend.vistas;
 
+import backend.Camion;
+import backend.SistemaEncomienda;
+import backend.Sucursal;
 import backend.main;
 import frontend.MainApp;
 import javafx.application.Application;
@@ -12,6 +15,8 @@ public class InsertarDespacharController {
 
 	private MainApp mainApp;
 
+	Camion cam = null;
+	
 	@FXML
 	private Label volumenTotal;
 	
@@ -30,6 +35,8 @@ public class InsertarDespacharController {
 	@FXML
 	private ComboBox listaEncomiendas;
 	
+	Sucursal suc = null;
+	
 	public InsertarDespacharController() {
 		
 	}
@@ -42,7 +49,16 @@ public class InsertarDespacharController {
 	
 	@FXML
     private void initialize() {
-    	
+		
+		for (Sucursal s : SistemaEncomienda.getInstance().getListaSucursales()) {
+			if(s.getNombre().equals(SistemaEncomienda.getInstance().getSucursalActual())){
+				suc = s;
+				break;
+			}
+		}
+		
+		listaCamiones.getItems().addAll(SistemaEncomienda.getInstance().getCamionesNombre(suc));
+		nombreSucursalActual.setText(SistemaEncomienda.getInstance().getSucursalActual());
 	
 		
     }
@@ -50,9 +66,30 @@ public class InsertarDespacharController {
 	@FXML
 	private void handlerIngresarEncomienda(){
 		//mainApp.mostrarMessage("Haz insertado exitosamente la encomienda");//encomienda x
-		mainApp.mostrarInsertarEncomiendaCamion();
+		mainApp.mostrarInsertarEncomiendaCamion(cam);
 
 	
+	}
+	
+	@FXML
+	private void handlerListaCamiones(){
+		Update();
+	
+	}
+	
+	public void Update(){
+		
+		for (Camion c : suc.getListaCamiones()) {
+			if(c.getPatente().equals(listaCamiones.getValue().toString())){
+				cam = c;
+				break;
+			}
+		}
+		volumenTotal.setText(Integer.toString(cam.getCapacidad()));
+		volumenOcupado.setText(Integer.toString(cam.calcularCapacidad()));
+		sucursalDestino.setText(cam.getSucursalDestino().getNombre());
+		listaEncomiendas.getItems().addAll(cam.getEncomiendaNombres());
+		
 	}
 	
 	@FXML
