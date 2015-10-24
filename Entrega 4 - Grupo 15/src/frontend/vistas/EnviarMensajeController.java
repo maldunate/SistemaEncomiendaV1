@@ -1,5 +1,6 @@
 package frontend.vistas;
 
+import backend.SistemaEncomienda;
 import frontend.MainApp;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -36,7 +37,7 @@ private MainApp mainApp;
 		
 		//rellenar
 
-		mainApp.mostrarMenuComo(mainApp.sucursalActual);
+		mainApp.mostrarMenuComo(SistemaEncomienda.getInstance().getSucursalActual());
 	}
 	
 	@FXML

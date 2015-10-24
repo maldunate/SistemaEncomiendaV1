@@ -1,5 +1,8 @@
 package frontend.vistas;
 
+import backend.Cliente;
+import backend.Pedido;
+import backend.SistemaEncomienda;
 import frontend.MainApp;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -23,15 +26,27 @@ public class MenuIngresarPedidoController  {
 
 	@FXML
 	private void handlerIngresarEncomiendas(){
-		System.out.println("LLEUGU");
-		mainApp.mostrarInsertarEncomiendas();
+		Cliente cliente = null;
+		//System.out.println(listaClientes.getValue());
+		for (Cliente c : SistemaEncomienda.getInstance().getListaClientes()) {
+			if(c.getNombre().equals(listaClientes.getValue())){
+				cliente = c;
+			}
+		}
+		Pedido pedido = new Pedido(cliente);
+		SistemaEncomienda.getInstance().getListaPedidos().add(pedido);
+		//System.out.println(pedido.getCliente().getNombre());
+		mainApp.mostrarInsertarEncomiendas(pedido);
 	}
 	
 	@FXML
     private void initialize() {
-    	
+    	UpdateClientes();
     }
 	
+	public void UpdateClientes(){
+		listaClientes.getItems().addAll(SistemaEncomienda.getInstance().getClientesNombre());
+	}
 	
 	public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;   

@@ -15,7 +15,7 @@ public class RootLayoutController extends Application {
 	
 	@FXML
 	private void close(){
-		mainApp.close();
+		mainApp.stop();
 	}
 	
 	public void setMainApp(MainApp mainApp) {

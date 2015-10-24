@@ -7,12 +7,14 @@ public class SistemaEncomienda implements java.io.Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	int cantidadDeClientes = 6;
 
 	private static SistemaEncomienda INSTANCE = new SistemaEncomienda(); 
 	
 	ArrayList<Pedido> listaPedidos;
 	ArrayList<Sucursal> listaSucursales;
 	ArrayList<Cliente> listaClientes;
+	String sucursalActual;
 	String[] direccion = { "dir1", "dir2", "dir3", "dir4" };
 	String[] patentes = {"patente1","patente2","patente3","patente4"};
 	String[] nombres = {"nombre1","nombre2","nombre3","nombre4","nombre5","nombre6","nombre7","nombre8","nombre9","nombre10","nombre11","nombre12","nombre13","nombre14"};
@@ -24,6 +26,7 @@ public class SistemaEncomienda implements java.io.Serializable {
 		listaSucursales = new ArrayList<>();
 		listaClientes = new ArrayList<>();
 		crearSucursales();
+		rellenarClientes();
 	}
 
 	public void comenzar(){
@@ -46,6 +49,27 @@ public class SistemaEncomienda implements java.io.Serializable {
 		
 		return lista;
 	}
+	
+	public ArrayList<String> getClientesNombre(){
+		
+		ArrayList<String> lista = new ArrayList<>();
+		for (Cliente c : listaClientes) {
+			lista.add(c.getNombre());
+		}
+		
+		return lista;
+	}
+	
+	public void rellenarClientes(){
+		for (int i = 0; i < cantidadDeClientes; i++) {
+			agregarCliente("nombre"+i, "numero"+i, "direccion"+i);
+		}
+	}
+	
+	public void agregarCliente(String nombre, String numero, String direccion){
+		listaClientes.add(new Cliente(nombre, numero, direccion));
+	}
+	
 	public void Simulacion(){
 		//Camion camion1 = new Camion();
 		//listaSucursales.add(new Sucursal())
@@ -132,6 +156,14 @@ public class SistemaEncomienda implements java.io.Serializable {
 
 	public void setNumeros(String[] numeros) {
 		this.numeros = numeros;
+	}
+
+	public String getSucursalActual() {
+		return sucursalActual;
+	}
+
+	public void setSucursalActual(String sucursalActual) {
+		this.sucursalActual = sucursalActual;
 	}
 	
 }

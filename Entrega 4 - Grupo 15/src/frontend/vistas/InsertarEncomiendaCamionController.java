@@ -43,7 +43,7 @@ public class InsertarEncomiendaCamionController {
 
 	@FXML
 	private void handlerAtras(){
-		mainApp.mostrarInsertarEncomiendas();
+		mainApp.mostrarInsertarDespachar();
 	}
 
 
@@ -53,7 +53,7 @@ public class InsertarEncomiendaCamionController {
 		
 		//rellenar
 		
-		mainApp.mostrarInsertarEncomiendas();
+		mainApp.mostrarInsertarDespachar();
 	}
 
 	@FXML
