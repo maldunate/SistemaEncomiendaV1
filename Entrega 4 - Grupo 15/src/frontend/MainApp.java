@@ -14,6 +14,7 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 
 import backend.Deserialize;
+import backend.Pedido;
 import backend.SerializeDemo;
 import backend.SistemaEncomienda;
 import frontend.vistas.CajeroOperadorController;
@@ -35,7 +36,6 @@ public class MainApp extends Application {
 
 	private Stage primaryStage;
 	private BorderPane rootLayout;
-	public String sucursalActual;
 	public SistemaEncomienda sist = null;
 	
 	@Override
@@ -48,7 +48,7 @@ public class MainApp extends Application {
 		//	// TODO Auto-generated catch block
 		//	e.printStackTrace();
 		//}
-		
+		sist = new SistemaEncomienda();
 		initRootLayout();
 		
 		showBienvenida();
@@ -98,7 +98,8 @@ public class MainApp extends Application {
 	public void mostrarMenuComo(String sucursal){
         try {
             // Load bienvenida
-        	this.sucursalActual = sucursal;
+        	this.primaryStage.setTitle("Sistema de Encomiendas: Sucursal " + sucursal);
+        	SistemaEncomienda.getInstance().setSucursalActual(sucursal);
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("vistas/CajeroOperador.fxml"));
             AnchorPane cajeroOperador = (AnchorPane)loader.load();
@@ -266,14 +267,12 @@ public class MainApp extends Application {
         }
 	}
 	
-	public void mostrarInsertarEncomiendas(){
+	public void mostrarInsertarEncomiendas(Pedido pedido){
         try {
             // Load bienvenida
         	
-            FXMLLoader loader = new FXMLLoader();
-            System.out.println("estupido");        
+            FXMLLoader loader = new FXMLLoader();   
             loader.setLocation(MainApp.class.getResource("vistas/InsertarEncomiendas.fxml"));
-            System.out.println("estupido2");
             AnchorPane generico = (AnchorPane)loader.load();
             System.out.println("estupido3");
 
@@ -283,7 +282,7 @@ public class MainApp extends Application {
             // Dar acceso al controlador de bienvenida
             InsertarEncomiendasController controllerView = loader.getController();
             
-            controllerView.setMainApp(this);
+            controllerView.setMainApp(this, pedido);
            
             
         } catch (IOException e) {
@@ -375,10 +374,11 @@ public class MainApp extends Application {
 	    });
 	}
 	
-	public void close(){
-		//SerializeDemo.serialize(sist);
-		System.exit(0);
-	}
+    @Override
+    public void stop(){
+        System.out.println("Stage is closing");
+        SerializeDemo.serialize(sist);
+    }
 	
 	
 }

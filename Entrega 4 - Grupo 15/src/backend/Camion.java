@@ -7,10 +7,12 @@ public class Camion extends Vehiculo{
 	
 	EstadoCamion estadoCamion;
     ArrayList<Encomienda> enCamion;
+	int id;
 	
-	public Camion(String patente, int capacidad, Sucursal sucursalOrigen, Sucursal sucursalDestino) {
+	public Camion(int id, String patente, int capacidad, Sucursal sucursalOrigen, Sucursal sucursalDestino) {
 		super(patente, capacidad, sucursalOrigen, sucursalDestino);
 		// TODO Auto-generated constructor stub
+		this.id = id;
 		this.estadoCamion = EstadoCamion.EnOrigen;
 	}
 

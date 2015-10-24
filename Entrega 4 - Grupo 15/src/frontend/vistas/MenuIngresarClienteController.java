@@ -1,5 +1,11 @@
 package frontend.vistas;
 
+import javax.xml.ws.Dispatch;
+
+import com.sun.javafx.property.adapter.Disposer;
+
+import backend.Cliente;
+import backend.SistemaEncomienda;
 import frontend.MainApp;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -40,7 +46,7 @@ public class MenuIngresarClienteController {
 	@FXML
 	private void handlerIngresarCliente(){
 		mainApp.mostrarMessage("Haz ingresado al cliente");
-		//rellenar
+		SistemaEncomienda.getInstance().agregarCliente(nombre.getText(), numero.getText(), direccion.getText());
 		mainApp.mostrarMenuCajero();
 	}
 	

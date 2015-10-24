@@ -1,5 +1,8 @@
 package backend;
 
+import java.lang.reflect.Array;
+import java.util.Random;
+
 enum EstadoEncomienda {EnOrigen, EnDestino, EnTransito, Entregado};
 
 public class Encomienda {
@@ -20,16 +23,22 @@ public class Encomienda {
 		this.peso = peso;
 		this.prioridad = prioridad;
 		this.estadoEncomienda = EstadoEncomienda.EnOrigen;
+		asignarNombre();
 	}
 	Sucursal sucursalOrigen;
 	Sucursal sucursalDestino;
 	int volumen;
 	int peso;
+	String nombre;
 
 	int prioridad;
 	EstadoEncomienda estadoEncomienda;
 
-	
+	public void asignarNombre(){
+		Random hola = new Random();
+		this.nombre = "soyla"+hola.nextInt(100000);
+		
+	}
 	
 	public EstadoEncomienda getEstadoEncomienda() {
 		return estadoEncomienda;

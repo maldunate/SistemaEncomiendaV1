@@ -32,6 +32,7 @@ public class Sucursal {
 		this.cajero = cajero;
 		this.listaCamiones = new ArrayList<>();
 		this.listaMensajes = new ArrayList<>();
+		this.listaEncomiendas = new ArrayList<>();
 	}
 
 
@@ -101,8 +102,10 @@ public class Sucursal {
 	
 	public void agregarCamiones(ArrayList<Sucursal> listaSucursales){
 		for (Sucursal s : listaSucursales) {
+			int i = 1;
 			if(!s.equals(this)){
-				listaCamiones.add(new Camion("ignacio", 10, this, s));
+				listaCamiones.add(new Camion(i, this.nombre + " a " + s.nombre, 10, this, s));
+			    i++;
 			}
 		}
 	}

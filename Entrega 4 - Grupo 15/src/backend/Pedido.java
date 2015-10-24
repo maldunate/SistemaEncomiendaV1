@@ -24,6 +24,8 @@ public class Pedido {
 	
 	public Pedido(Cliente cliente) {
 		this.cliente = cliente;
+		this.encomiendasPedido = new ArrayList<>();
+		this.costo = 0;
 	}
 	
 	public ArrayList<Encomienda> getEncomiendasPedido() {
