@@ -247,6 +247,26 @@ public class MainApp extends Application {
         }
 	}
 
+	public void mostrarVerClientePedido(){
+        try {
+            // Load bienvenida
+        	
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("vistas/VerClientePedido.fxml"));
+            AnchorPane generico = (AnchorPane)loader.load();
+
+            // Poner la vista del login en el centro de la ventana principal
+            rootLayout.setCenter(generico);
+
+            // Dar acceso al controlador de bienvenida
+            MenuIngresarPedidoController controllerView = loader.getController();
+            controllerView.setMainApp(this);
+           
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
 	
 	public void mostrarMenuIngresarPedido(){
         try {

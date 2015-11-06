@@ -123,6 +123,15 @@ public class SistemaEncomienda implements java.io.Serializable {
 		return lista;
 	}
 	
+	public Cliente getClienteAPartirDeNombre(String nombre){
+		for (Cliente c : listaClientes) {
+			if(c.nombre == nombre){
+				return c;
+			}
+		}
+		return null;
+	}
+	
 	public void rellenarClientes(){
 		for (int i = 0; i < cantidadDeClientes; i++) {
 			agregarCliente("nombre"+i, "numero"+i, "direccion"+i);

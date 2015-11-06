@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.vistas.InsertarEncomiendaCamionController">
+   <children>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="640.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="45.0" layoutY="14.0" prefHeight="45.0" prefWidth="536.0" text="Datos Cliente/Pedido/Encomienda" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="45.0" layoutY="59.0" prefHeight="45.0" prefWidth="164.0" text="Cliente: " textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="42.0" layoutY="178.0" prefHeight="45.0" prefWidth="164.0" text="Dirección final: " textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="42.0" layoutY="253.0" prefHeight="45.0" prefWidth="164.0" text="Volumen: " textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="42.0" layoutY="283.0" prefHeight="45.0" prefWidth="164.0" text="Prioridad: " textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="406.0" layoutY="248.0" prefHeight="45.0" prefWidth="164.0" text="Peso:" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="406.0" layoutY="280.0" prefHeight="45.0" prefWidth="164.0" text="Precio:" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Text fx:id="precio" layoutX="474.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" " textAlignment="RIGHT" wrappingWidth="82.13671875">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fx:id="prioridad" layoutX="199.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" " textAlignment="RIGHT" wrappingWidth="82.13671875">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="199.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" " textAlignment="RIGHT" wrappingWidth="82.13671875">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="474.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" " textAlignment="RIGHT" wrappingWidth="82.13671875">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fx:id="peso" layoutX="500.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" kg" textAlignment="RIGHT" wrappingWidth="82.13671875">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fx:id="volumen" layoutX="281.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="cc" textAlignment="RIGHT" wrappingWidth="31.13671875">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fx:id="direccionFinal" layoutX="198.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" " wrappingWidth="383.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="42.0" layoutY="211.0" prefHeight="45.0" prefWidth="164.0" text="Sucursal Destino: " textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Text fx:id="sucursalDestino" layoutX="198.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" " wrappingWidth="383.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <ComboBox fx:id="listaClientes" layoutX="201.0" layoutY="59.0" onAction="#handlerListaClientes" prefHeight="24.0" prefWidth="383.0" promptText="Lista de clientes..." />
+            <Button layoutX="238.0" layoutY="327.0" mnemonicParsing="false" onAction="#handlerAtras" prefHeight="45.0" prefWidth="164.0" text="Atras">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="44.0" layoutY="94.0" prefHeight="45.0" prefWidth="164.0" text="Pedido: " textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="listaPedidos" layoutX="200.0" layoutY="94.0" onAction="#handlerListaPedidos" prefHeight="24.0" prefWidth="383.0" promptText="Lista de pedidos del cliente..." />
+            <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="44.0" layoutY="130.0" prefHeight="45.0" prefWidth="164.0" text="Encomienda: " textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="listaEncomiendas" layoutX="200.0" layoutY="130.0" onAction="#handlerListaEncomiendas" prefHeight="24.0" prefWidth="383.0" promptText="Lista de encomiendas..." />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

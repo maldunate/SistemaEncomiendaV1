@@ -26,6 +26,7 @@ public class Pedido {
 		this.cliente = cliente;
 		this.encomiendasPedido = new ArrayList<>();
 		this.costo = 0;
+		cliente.listaPedidos.add(this);
 	}
 	
 	public ArrayList<Encomienda> getEncomiendasPedido() {
@@ -34,6 +35,16 @@ public class Pedido {
 
 	public void setEncomiendasPedido(ArrayList<Encomienda> encomiendasPedido) {
 		this.encomiendasPedido = encomiendasPedido;
+	}
+	
+	public void agregarEncomiendas(Encomienda e) {
+		this.encomiendasPedido.add(e);
+		costo += e.precio;
+	}
+	
+	public void sacarEncomienda(Encomienda e){
+		costo -= e.precio;
+		this.encomiendasPedido.remove(e);
 	}
 
 	public Cliente getCliente() {

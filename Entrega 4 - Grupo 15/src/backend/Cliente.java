@@ -1,9 +1,13 @@
 package backend;
 
+import java.util.ArrayList;
+
 public class Cliente extends Persona{
 
 	String numero;
 	String direccion;
+	public ArrayList<Pedido> listaPedidos;
+	
 	/**
 	 * @param numero
 	 * @param direccion
@@ -12,7 +16,9 @@ public class Cliente extends Persona{
 		super(nombre);
 		this.numero = numero;
 		this.direccion = direccion;
+		this.listaPedidos = new ArrayList<>();
 	}
+	
 	public String getNumero() {
 		return numero;
 	}
@@ -25,7 +31,18 @@ public class Cliente extends Persona{
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
-	
-	
-	
+	public int getValorTotal(){
+		int aux = 0;
+		if(listaPedidos.size()>0){
+			for (Pedido pedido : listaPedidos) {
+				aux += pedido.costo;
+			}
+			return aux;
+		} else {
+			return 0;	
+		}
+	}
 }
+	
+	
+

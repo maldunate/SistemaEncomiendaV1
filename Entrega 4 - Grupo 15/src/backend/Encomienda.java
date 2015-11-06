@@ -21,6 +21,7 @@ public class Encomienda {
 		this.sucursalDestino = sucursalDestino;
 		this.volumen = volumen;
 		this.peso = peso;
+		this.precio = peso*1000 + volumen*20;
 		this.prioridad = prioridad;
 		this.estadoEncomienda = EstadoEncomienda.EnOrigen;
 		asignarNombre();
@@ -30,7 +31,7 @@ public class Encomienda {
 	int volumen;
 	int peso;
 	public String nombre;
-
+	public int precio;
 	int prioridad;
 	EstadoEncomienda estadoEncomienda;
 
