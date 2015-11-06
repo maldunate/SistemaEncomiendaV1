@@ -50,6 +50,11 @@ public class RecibirCamionController  {
 
 	}
 	
+    @FXML
+    void handlerAtras() {
+    	mainApp.mostrarMenuOperador();
+    }
+    
 	@FXML
 	private void handlerEncomiendaActual(){
 		mainApp.mostrarEncomiendaActual(1);

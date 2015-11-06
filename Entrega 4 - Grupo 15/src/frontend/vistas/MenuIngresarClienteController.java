@@ -69,6 +69,11 @@ public class MenuIngresarClienteController {
 
 	}
 	
+    @FXML
+    void handlerAtras() {
+    	mainApp.mostrarMenuCajero();
+    }
+	
 	public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;   
     }

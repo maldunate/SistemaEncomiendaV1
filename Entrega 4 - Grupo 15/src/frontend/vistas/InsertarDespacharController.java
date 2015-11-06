@@ -100,6 +100,11 @@ public class InsertarDespacharController {
 		mainApp.mostrarMenuOperador();
 	}
 	
+    @FXML
+    void handlerAtras() {
+    	mainApp.mostrarMenuOperador();
+    }
+    
 	@FXML
 	private void handlerEncomiendaActual(){
 		mainApp.mostrarEncomiendaActual(0);

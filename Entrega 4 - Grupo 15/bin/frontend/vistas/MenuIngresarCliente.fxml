@@ -14,7 +14,7 @@
             <Font name="System Bold" size="23.0" />
          </font>
       </Label>
-      <Button layoutX="157.0" layoutY="293.0" mnemonicParsing="false" onAction="#handlerIngresarCliente" prefHeight="45.0" prefWidth="346.0" text="Ingresar cliente">
+      <Button layoutX="127.0" layoutY="293.0" mnemonicParsing="false" onAction="#handlerIngresarCliente" prefHeight="45.0" prefWidth="182.0" text="Ingresar cliente">
          <font>
             <Font size="17.0" />
          </font>
@@ -37,5 +37,10 @@
       <TextField fx:id="nombre" layoutX="157.0" layoutY="115.0" prefHeight="33.0" prefWidth="429.0" promptText="Ingresar nombre..." />
       <TextField fx:id="direccion" layoutX="157.0" layoutY="160.0" prefHeight="33.0" prefWidth="429.0" promptText="Nombre calle, 2222" />
       <TextField fx:id="numero" layoutX="157.0" layoutY="205.0" prefHeight="33.0" prefWidth="429.0" promptText="+56 9 8 2222222" />
+      <Button layoutX="372.0" layoutY="293.0" mnemonicParsing="false" onAction="#handlerAtras" prefHeight="45.0" prefWidth="182.0" text="Atras">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

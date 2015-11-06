@@ -20,7 +20,12 @@
          </font>
       </Label>
       <ComboBox fx:id="listaClientes" layoutX="157.0" layoutY="153.0" prefHeight="45.0" prefWidth="429.0" promptText="Lista de clientes en sistema..." />
-      <Button layoutX="157.0" layoutY="276.0" mnemonicParsing="false" onAction="#handlerIngresarEncomiendas" prefHeight="45.0" prefWidth="346.0" text="Ingresar encomiendas">
+      <Button layoutX="87.0" layoutY="276.0" mnemonicParsing="false" onAction="#handlerIngresarEncomiendas" prefHeight="45.0" prefWidth="212.0" text="Ingresar encomiendas">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button layoutX="372.0" layoutY="276.0" mnemonicParsing="false" onAction="#handlerAtras" prefHeight="45.0" prefWidth="212.0" text="Atras">
          <font>
             <Font size="17.0" />
          </font>

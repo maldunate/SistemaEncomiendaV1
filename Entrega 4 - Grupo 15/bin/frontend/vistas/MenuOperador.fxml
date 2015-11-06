@@ -19,17 +19,22 @@
             <Font size="17.0" />
          </font>
       </Button>
-      <Button layoutX="147.0" layoutY="194.0" mnemonicParsing="false" onAction="#handlerRecepcion" prefHeight="45.0" prefWidth="346.0" text="Entrar a sistema de recepción de camiones">
+      <Button layoutX="147.0" layoutY="185.0" mnemonicParsing="false" onAction="#handlerRecepcion" prefHeight="45.0" prefWidth="346.0" text="Entrar a sistema de recepción de camiones">
          <font>
             <Font size="17.0" />
          </font>
       </Button>
-      <Button layoutX="148.0" layoutY="257.0" mnemonicParsing="false" onAction="#handlerMensajes" prefHeight="45.0" prefWidth="346.0" text="Enviar un mensaje">
+      <Button layoutX="148.0" layoutY="239.0" mnemonicParsing="false" onAction="#handlerMensajes" prefHeight="45.0" prefWidth="346.0" text="Enviar un mensaje">
          <font>
             <Font size="17.0" />
          </font>
       </Button>
-      <Button layoutX="148.0" layoutY="315.0" mnemonicParsing="false" onAction="#handlerVerMensajes" prefHeight="45.0" prefWidth="346.0" text="Ver mensajes">
+      <Button layoutX="147.0" layoutY="290.0" mnemonicParsing="false" onAction="#handlerVerMensajes" prefHeight="45.0" prefWidth="346.0" text="Ver mensajes">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button layoutX="147.0" layoutY="341.0" mnemonicParsing="false" onAction="#handlerAtras" prefHeight="45.0" prefWidth="346.0" text="Atras">
          <font>
             <Font size="17.0" />
          </font>

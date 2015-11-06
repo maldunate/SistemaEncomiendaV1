@@ -44,6 +44,11 @@ public class MenuIngresarPedidoController  {
     	UpdateClientes();
     }
 	
+    @FXML
+    void handlerAtras() {
+    	mainApp.mostrarMenuCajero();
+    }
+	
 	public void UpdateClientes(){
 		listaClientes.getItems().addAll(SistemaEncomienda.getInstance().getClientesNombre());
 	}

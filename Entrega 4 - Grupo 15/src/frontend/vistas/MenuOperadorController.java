@@ -1,5 +1,6 @@
 package frontend.vistas;
 
+import backend.SistemaEncomienda;
 import frontend.MainApp;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -45,6 +46,11 @@ public class MenuOperadorController {
 		mainApp.mostrarVerMensaje();
 
 	}
+	
+    @FXML
+    void handlerAtras() {
+    	mainApp.mostrarMenuComo(SistemaEncomienda.getInstance().getSucursalActual());
+    }
 	
 	public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;   
