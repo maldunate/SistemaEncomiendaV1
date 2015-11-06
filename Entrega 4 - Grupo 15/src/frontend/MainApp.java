@@ -19,6 +19,7 @@ import backend.Pedido;
 import backend.SerializeDemo;
 import backend.SistemaEncomienda;
 import frontend.vistas.CajeroOperadorController;
+import frontend.vistas.DetallesPedidoController;
 import frontend.vistas.EncomiendaActualController;
 import frontend.vistas.EnviarMensajeController;
 import frontend.vistas.InsertarDespacharController;
@@ -38,7 +39,7 @@ public class MainApp extends Application {
 	private Stage primaryStage;
 	private BorderPane rootLayout;
 	public SistemaEncomienda sist = null;
-	
+
 	@Override
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;
@@ -51,30 +52,30 @@ public class MainApp extends Application {
 		//}
 		sist = new SistemaEncomienda();
 		initRootLayout();
-		
+
 		showBienvenida();
 	}
-	
+
 	public void initRootLayout(){
 		try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("vistas/RootLayout.fxml"));
             rootLayout = (BorderPane) loader.load();
-            
-            
+
+
             RootLayoutController controllerView = loader.getController();
             controllerView.setMainApp(this);
-            
+
             // Cargar escena de la venta principal
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
             primaryStage.show();
-            
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 	}
-	
+
 	public void showBienvenida(){
         try {
             // Load bienvenida
@@ -85,18 +86,18 @@ public class MainApp extends Application {
 
             // Poner la vista del login en el centro de la ventana principal
             rootLayout.setCenter(bienvenida);
-             
+
             // Dar acceso al controlador de bienvenida
             SistemaController controllerView = loader.getController();
             controllerView.setMainApp(this);
 
-            
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
 	}
-	
+
 	public void mostrarMenuComo(String sucursal){
         try {
             // Load bienvenida
@@ -112,18 +113,18 @@ public class MainApp extends Application {
             // Dar acceso al controlador de bienvenida
             CajeroOperadorController controllerView = loader.getController();
             controllerView.setMainApp(this);
-           
-            
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
 	}
-	
+
 	public void mostrarMenuOperador(){
         try {
             // Load bienvenida
-        	
+
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("vistas/MenuOperador.fxml"));
             AnchorPane menuOperador = (AnchorPane)loader.load();
@@ -134,18 +135,18 @@ public class MainApp extends Application {
             // Dar acceso al controlador de bienvenida
             MenuOperadorController controllerView = loader.getController();
             controllerView.setMainApp(this);
-           
-            
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
 	}
-	
+
 	public void mostrarMenuCajero(){
         try {
             // Load bienvenida
-        	
+
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("vistas/MenuCajero.fxml"));
             AnchorPane menuCajero = (AnchorPane)loader.load();
@@ -156,17 +157,17 @@ public class MainApp extends Application {
             // Dar acceso al controlador de bienvenida
             MenuCajeroController controllerView = loader.getController();
             controllerView.setMainApp(this);
-           
-            
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 	}
-	
+
 	public void mostrarInsertarDespachar(){
         try {
             // Load bienvenida
-        	
+
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("vistas/InsertarDespachar.fxml"));
             AnchorPane generico = (AnchorPane)loader.load();
@@ -177,17 +178,17 @@ public class MainApp extends Application {
             // Dar acceso al controlador de bienvenida
             InsertarDespacharController controllerView = loader.getController();
             controllerView.setMainApp(this);
-           
-            
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 	}
-	
+
 	public void mostrarRecibirCamion(){
         try {
             // Load bienvenida
-        	
+
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("vistas/RecibirCamion.fxml"));
             AnchorPane generico = (AnchorPane)loader.load();
@@ -198,17 +199,17 @@ public class MainApp extends Application {
             // Dar acceso al controlador de bienvenida
             RecibirCamionController controllerView = loader.getController();
             controllerView.setMainApp(this);
-           
-            
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 	}
-	
+
 	public void mostrarEncomiendaActual(int i){
         try {
             // Load bienvenida
-        	
+
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("vistas/EncomiendaActual.fxml"));
             AnchorPane generico = (AnchorPane)loader.load();
@@ -219,17 +220,17 @@ public class MainApp extends Application {
             // Dar acceso al controlador de bienvenida
             EncomiendaActualController controllerView = loader.getController();
             controllerView.setMainApp(this,i);
-           
-            
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 	}
-	
+
 	public void mostrarMenuIngresarCliente(){
         try {
             // Load bienvenida
-        	
+
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("vistas/MenuIngresarCliente.fxml"));
             AnchorPane generico = (AnchorPane)loader.load();
@@ -240,8 +241,8 @@ public class MainApp extends Application {
             // Dar acceso al controlador de bienvenida
             MenuIngresarClienteController controllerView = loader.getController();
             controllerView.setMainApp(this);
-           
-            
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -250,7 +251,7 @@ public class MainApp extends Application {
 	public void mostrarVerClientePedido(){
         try {
             // Load bienvenida
-        	
+
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("vistas/VerClientePedido.fxml"));
             AnchorPane generico = (AnchorPane)loader.load();
@@ -261,17 +262,17 @@ public class MainApp extends Application {
             // Dar acceso al controlador de bienvenida
             MenuIngresarPedidoController controllerView = loader.getController();
             controllerView.setMainApp(this);
-           
-            
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 	}
-	
+
 	public void mostrarMenuIngresarPedido(){
         try {
             // Load bienvenida
-        	
+
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("vistas/MenuIngresarPedido.fxml"));
             AnchorPane generico = (AnchorPane)loader.load();
@@ -282,18 +283,18 @@ public class MainApp extends Application {
             // Dar acceso al controlador de bienvenida
             MenuIngresarPedidoController controllerView = loader.getController();
             controllerView.setMainApp(this);
-           
-            
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 	}
-	
+
 	public void mostrarInsertarEncomiendas(Pedido pedido){
         try {
             // Load bienvenida
-        	
-            FXMLLoader loader = new FXMLLoader();   
+
+            FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("vistas/InsertarEncomiendas.fxml"));
             AnchorPane generico = (AnchorPane)loader.load();
             System.out.println("estupido3");
@@ -303,19 +304,19 @@ public class MainApp extends Application {
 
             // Dar acceso al controlador de bienvenida
             InsertarEncomiendasController controllerView = loader.getController();
-            
+
             controllerView.setMainApp(this, pedido);
-           
-            
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 	}
-	
+
 	public void mostrarInsertarEncomiendaCamion(Camion camion){
         try {
             // Load bienvenida
-        	
+
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("vistas/InsertarEncomiendaCamion.fxml"));
             AnchorPane generico = (AnchorPane)loader.load();
@@ -326,18 +327,18 @@ public class MainApp extends Application {
             // Dar acceso al controlador de bienvenida
             InsertarEncomiendaCamionController controllerView = loader.getController();
             controllerView.setMainApp(this, camion);
-           
-            
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 	}
-	
+
 	public void mostrarEnviarMensaje(){
         try {
             // Load bienvenida
-        	
-            FXMLLoader loader = new FXMLLoader();       
+
+            FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("vistas/EnviarMensaje.fxml"));
             AnchorPane generico = (AnchorPane)loader.load();
 
@@ -347,20 +348,20 @@ public class MainApp extends Application {
 
             // Dar acceso al controlador de bienvenida
             EnviarMensajeController controllerView = loader.getController();
-            
+
             controllerView.setMainApp(this);
-           
-            
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 	}
-	
+
 	public void mostrarVerMensaje(){
         try {
             // Load bienvenida
-        	
-            FXMLLoader loader = new FXMLLoader();       
+
+            FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("vistas/VerMensajes.fxml"));
             AnchorPane generico = (AnchorPane)loader.load();
 
@@ -370,10 +371,32 @@ public class MainApp extends Application {
 
             // Dar acceso al controlador de bienvenida
             VerMensajeController controllerView = loader.getController();
-            
+
             controllerView.setMainApp(this);
-           
-            
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+	public void mostrarDetallesPedido(Pedido pedido){
+		try {
+            // Load bienvenida
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("vistas/resumenPedido.fxml"));
+            AnchorPane generico = (AnchorPane)loader.load();
+
+
+            // Poner la vista del login en el centro de la ventana principal
+            rootLayout.setCenter(generico);
+
+            // Dar acceso al controlador de bienvenida
+            DetallesPedidoController controllerView = loader.getController();
+            System.out.println(pedido.getCosto());
+            controllerView.setMainApp(this, pedido);
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -382,11 +405,11 @@ public class MainApp extends Application {
 	public Stage getPrimaryStage(){
 		return primaryStage;
 	}
-	
+
 	public static void main(String[] args) {
 		launch(args);
 	}
-	
+
 	public void mostrarMessage(String message) {
 	    EventQueue.invokeLater(new Runnable() {
 	        @Override
@@ -395,12 +418,12 @@ public class MainApp extends Application {
 	        }
 	    });
 	}
-	
+
     @Override
     public void stop(){
         System.out.println("Stage is closing");
         SerializeDemo.serialize(sist);
     }
-	
-	
+
+
 }

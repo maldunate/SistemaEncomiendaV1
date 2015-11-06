@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="640.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="frontend.vistas.DetallesPedidoController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="55.0" layoutY="54.0" prefHeight="45.0" prefWidth="551.0" text="Detalles pedido" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tabla" layoutX="40.0" layoutY="106.0" prefHeight="221.0" prefWidth="500.0">
+        <columns>
+          <TableColumn fx:id="sucursal" prefWidth="100.0" text="Sucursal Destino" />
+            <TableColumn fx:id="vol" prefWidth="100.0" text="Volumen" />
+            <TableColumn fx:id="peso" prefWidth="100.0" text="Peso" />
+            <TableColumn fx:id="prioridad" prefWidth="100.0" text="Prioridad" />
+            <TableColumn fx:id="precio" prefWidth="100.0" text="Precio" />
+        </columns>
+      </TableView>
+      <Label layoutX="40.0" layoutY="342.0" text="Precio Total:" />
+      <Label fx:id="precio_final" layoutX="124.0" layoutY="342.0" prefHeight="17.0" prefWidth="65.0" text="precio" />
+      <Button fx:id="aceptar" layoutX="483.0" layoutY="338.0" mnemonicParsing="false" onAction="#handlerAceptar" text="Aceptar" />
+      <Button fx:id="cancelar" layoutX="404.0" layoutY="338.0" mnemonicParsing="false" onAction="#handlerCancel" text="Cancelar" />
+   </children>
+</AnchorPane>

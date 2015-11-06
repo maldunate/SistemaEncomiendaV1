@@ -18,19 +18,19 @@ public class InsertarEncomiendasController {
 
 	Pedido pedido = null;
 	private MainApp mainApp;
-	
+
 	@FXML
 	private ComboBox listaSucursales;
-	
+
 	@FXML
 	private ComboBox listaPrioridades;
-	
+
 	@FXML
 	private TextField volumen;
 
 	@FXML
 	private TextField peso;
-	
+
 	@FXML
 	private Text precio;
 
@@ -38,27 +38,27 @@ public class InsertarEncomiendasController {
 	private TextField direccionFinal;
 
 
-	
+
 	public InsertarEncomiendasController() {
-	
+
 	}
 
 	public void start(Stage primaryStage) {
-		
+
 	}
 
 	@FXML
 	private void handlerIngresarEncomiendas(){
 		mainApp.mostrarMessage("Haz ingresado exitosamente la encomienda, haz click en terminar cuando no quieras agregar más encomiendas");
 		Sucursal sucursalOrigen = null;
-		
+
 		for (Sucursal s : SistemaEncomienda.getInstance().getListaSucursales()) {
 			if(s.getNombre().equals(SistemaEncomienda.getInstance().getSucursalActual())){
 				sucursalOrigen = s;
 				break;
 			}
 		}
-		
+
 		Sucursal sucursalDestino = null;
 		for (Sucursal s : SistemaEncomienda.getInstance().getListaSucursales()) {
 			if(s.getNombre().equals(listaSucursales.getValue())){
@@ -81,22 +81,23 @@ public class InsertarEncomiendasController {
 	    System.out.println(pedido);
 	    //Aqui se agrega la encomienda a la lista de encomiendas de la sucursal
 	    sucursalOrigen.getListaEncomiendas().add(encomienda);
-	    
+
 		mainApp.mostrarInsertarEncomiendas(pedido);
 	}
-	
+
 	@FXML
 	private void handlerTerminarPedido(){
-		mainApp.mostrarMessage("Haz ingresado exitosamente el pedido");
+		//mainApp.mostrarMessage("Haz ingresado exitosamente el pedido");
 		//rellenar
-		mainApp.mostrarMenuCajero();
+		System.out.println(pedido.getCosto());
+		mainApp.mostrarDetallesPedido(pedido);
 	}
-	
+
 	@FXML
     private void initialize() {
     	Update();
     }
-	
+
 	public void Update(){
 		ArrayList<String> lista = new ArrayList<>();
 		for(String s : SistemaEncomienda.getInstance().getSucursalesNombre()) {
@@ -108,10 +109,10 @@ public class InsertarEncomiendasController {
 		precio.setText("1000");
 		listaPrioridades.getItems().addAll(1,2,3);
 	}
-	
-	
+
+
 	public void setMainApp(MainApp mainApp, Pedido pedido) {
-        this.mainApp = mainApp;   
+        this.mainApp = mainApp;
         this.pedido = pedido;
     }
 }

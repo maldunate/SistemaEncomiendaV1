@@ -38,9 +38,9 @@ public class Encomienda {
 	public void asignarNombre(){
 		Random hola = new Random();
 		this.nombre = "soyla"+hola.nextInt(100000);
-		
+
 	}
-	
+
 	public EstadoEncomienda getEstadoEncomienda() {
 		return estadoEncomienda;
 	}
@@ -58,5 +58,37 @@ public class Encomienda {
 	}
 	public void setSucursalDestino(Sucursal sucursalDestino) {
 		this.sucursalDestino = sucursalDestino;
+	}
+
+	public int getVolumen() {
+		return volumen;
+	}
+
+	public void setVolumen(int volumen) {
+		this.volumen = volumen;
+	}
+
+	public int getPeso() {
+		return peso;
+	}
+
+	public void setPeso(int peso) {
+		this.peso = peso;
+	}
+
+	public int getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(int precio) {
+		this.precio = precio;
+	}
+
+	public int getPrioridad() {
+		return prioridad;
+	}
+
+	public void setPrioridad(int prioridad) {
+		this.prioridad = prioridad;
 	}
 }
