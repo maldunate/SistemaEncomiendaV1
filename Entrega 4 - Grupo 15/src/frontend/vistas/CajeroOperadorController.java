@@ -26,6 +26,12 @@ public class CajeroOperadorController {
 	}
 	
 	@FXML
+	private void handlerAtras(){
+		mainApp.showBienvenida();
+	
+	}
+	
+	@FXML
     private void initialize() {
     	
 	

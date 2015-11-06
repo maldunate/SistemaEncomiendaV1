@@ -40,14 +40,27 @@ public class MenuIngresarClienteController {
 	
 	@FXML
     private void initialize() {
-    	
+    	nombre.setText("Nombre Cliente");
+    	direccion.setText("Direccion Cliente");
+    	numero.setText("Numero Cliente");
     }
 	
 	@FXML
-	private void handlerIngresarCliente(){
-		mainApp.mostrarMessage("Haz ingresado al cliente");
-		SistemaEncomienda.getInstance().agregarCliente(nombre.getText(), numero.getText(), direccion.getText());
-		mainApp.mostrarMenuCajero();
+	private void handlerIngresarCliente(){ //Nose porque no toma bien las comparaciones, arreglar para tomar cuando se ingresan dato vacios.
+		System.out.println(nombre.getText());
+		System.out.println(direccion.getText());
+		System.out.println(numero.getText());
+		if(nombre.getText() == "Nombre Cliente"){
+			mainApp.mostrarMessage("Ingresa el nombre del Cliente");
+		}else if(direccion.getText() == "Direccion Cliente"){
+			mainApp.mostrarMessage("Ingresa la direccion del Cliente");
+		}else if(numero.getText() == "Numero Cliente"){
+			mainApp.mostrarMessage("Ingresa el numero del Cliente");
+		}else{
+			mainApp.mostrarMessage("Haz ingresado al cliente");
+			SistemaEncomienda.getInstance().agregarCliente(nombre.getText(), numero.getText(), direccion.getText());
+			mainApp.mostrarMenuCajero();
+		}
 	}
 	
 	@FXML

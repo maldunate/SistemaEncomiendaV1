@@ -3,6 +3,7 @@ package frontend.vistas;
 import java.util.ArrayList;
 
 import backend.Camion;
+import backend.Cliente;
 import backend.Encomienda;
 import backend.SistemaEncomienda;
 import backend.Sucursal;
@@ -19,6 +20,9 @@ public class InsertarEncomiendaCamionController {
 	
 	Camion cam = null;
 	
+	Sucursal actual;
+	
+	ArrayList<Encomienda> encomiendas = new ArrayList<>();
 	
 	@FXML
 	private ComboBox listaEncomiendas;
@@ -49,7 +53,33 @@ public class InsertarEncomiendaCamionController {
 	public void start(Stage primaryStage) {
 		
 	}
+	
+	//Crea una lista (encomiendas) con las encomiendas que coinciden con el destino del camion
+	//actual, y luego se crea una lista de strings con los nombres respectivos.
+	private ArrayList<String> crearListaEncomiendasOrigen(){
+		encomiendas.clear();
+		actual = SistemaEncomienda.getInstance().compararSucursal(SistemaEncomienda.getInstance().getSucursalActual());
+		
+		//System.out.println(cam.getSucursalDestino().getNombre());
+		
+		for (Encomienda e : actual.getListaEncomiendas()) {
+			if(e.getSucursalDestino().equals(cam.getSucursalDestino())){
+				encomiendas.add(e);
+			}
+		}
+		
+		ArrayList<String> encomiendasPosibles = new ArrayList<>();
+    	for (Encomienda e : encomiendas) {
+				encomiendasPosibles.add(e.nombre);
+		}
+    	return encomiendasPosibles;
+	}
 
+	@FXML
+	private void handlerListaEncomiendas(){
+		
+	}
+	
 	@FXML
 	private void handlerAtras(){
 		mainApp.mostrarInsertarDespachar();
@@ -67,6 +97,7 @@ public class InsertarEncomiendaCamionController {
 
 	@FXML
     private void initialize() {
+		listaEncomiendas.getItems().addAll(crearListaEncomiendasOrigen());
 	/*	ArrayList<String> encomiendasPosibles = new ArrayList<>();
     	for (Encomienda s : cam.getSucursalOrigen().getListaEncomiendas()) {
     		System.out.println(s);

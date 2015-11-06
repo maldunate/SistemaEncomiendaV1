@@ -7,10 +7,9 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="640.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="frontend.vistas.MenuCajeroController">
+<AnchorPane prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.vistas.MenuCajeroController">
    <children>
-      <Button layoutX="148.0" layoutY="215.0" mnemonicParsing="false" onAction="#handlerIngresarCliente" prefHeight="45.0" prefWidth="346.0" text="Ingresar cliente">
+      <Button layoutX="148.0" layoutY="188.0" mnemonicParsing="false" onAction="#handlerIngresarCliente" prefHeight="45.0" prefWidth="346.0" text="Ingresar cliente">
          <font>
             <Font size="17.0" />
          </font>
@@ -20,7 +19,12 @@
             <Font name="System Bold" size="23.0" />
          </font>
       </Label>
-      <Button layoutX="148.0" layoutY="284.0" mnemonicParsing="false" onAction="#handlerIngresarPedido" prefHeight="45.0" prefWidth="346.0" text="Ingresar pedido">
+      <Button layoutX="148.0" layoutY="253.0" mnemonicParsing="false" onAction="#handlerIngresarPedido" prefHeight="45.0" prefWidth="346.0" text="Ingresar pedido">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button fx:id="Atras" layoutX="148.0" layoutY="317.0" mnemonicParsing="false" onAction="#handlerAtras" prefHeight="45.0" prefWidth="346.0" text="Atrás">
          <font>
             <Font size="17.0" />
          </font>

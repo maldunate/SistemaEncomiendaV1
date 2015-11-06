@@ -81,6 +81,7 @@ public class MainApp extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("vistas/Sistema.fxml"));
             AnchorPane bienvenida = (AnchorPane)loader.load();
+            this.primaryStage.setTitle("Sistema de Encomiendas");
 
             // Poner la vista del login en el centro de la ventana principal
             rootLayout.setCenter(bienvenida);

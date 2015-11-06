@@ -95,7 +95,7 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <ComboBox fx:id="listaEncomiendas" layoutX="201.0" layoutY="59.0" prefHeight="32.0" prefWidth="383.0" promptText="Lista de encomiendas que se pueden insertar..." />
+            <ComboBox fx:id="listaEncomiendas" layoutX="201.0" layoutY="59.0" onAction="#handlerListaEncomiendas" prefHeight="32.0" prefWidth="383.0" promptText="Lista de encomiendas que se pueden insertar..." />
             <Button layoutX="354.0" layoutY="311.0" mnemonicParsing="false" onAction="#handlerAtras" prefHeight="45.0" prefWidth="164.0" text="Atras">
                <font>
                   <Font size="17.0" />

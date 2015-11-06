@@ -1,5 +1,6 @@
 package frontend.vistas;
 
+import backend.SistemaEncomienda;
 import frontend.MainApp;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -24,7 +25,11 @@ public class MenuCajeroController  {
 	private void handlerIngresarCliente(){
 		mainApp.mostrarMenuIngresarCliente();
 
+	}
 	
+	@FXML
+	private void handlerAtras(){
+		mainApp.mostrarMenuComo(SistemaEncomienda.getInstance().getSucursalActual());
 	}
 	
 	@FXML
