@@ -80,7 +80,7 @@ public class InsertarEncomiendasController {
 	    System.out.println(sucursalOrigen);
 	    System.out.println(pedido);
 	    //Aqui se agrega la encomienda a la lista de encomiendas de la sucursal
-	    //sucursalOrigen.getListaEncomiendas().add(encomienda);
+	    sucursalOrigen.getListaEncomiendas().add(encomienda);
 
 		mainApp.mostrarInsertarEncomiendas(pedido);
 	}

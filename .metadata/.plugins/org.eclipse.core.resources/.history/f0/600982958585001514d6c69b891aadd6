@@ -95,9 +95,8 @@ public class DetallesPedidoController {
     @FXML
     void handlerAceptar() {
     	for (Encomienda e : pedido.getEncomiendasPedido()){
-    		e.getSucursalOrigen().getListaEncomiendas().add(e);
+    		e.getSucursalDestino().getListaEncomiendas().add(e);
     	}
-    	mainApp.mostrarMenuCajero();
     }
 
     @FXML

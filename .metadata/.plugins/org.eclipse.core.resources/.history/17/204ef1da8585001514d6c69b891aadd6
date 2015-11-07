@@ -97,7 +97,6 @@ public class DetallesPedidoController {
     	for (Encomienda e : pedido.getEncomiendasPedido()){
     		e.getSucursalOrigen().getListaEncomiendas().add(e);
     	}
-    	mainApp.mostrarMenuCajero();
     }
 
     @FXML
