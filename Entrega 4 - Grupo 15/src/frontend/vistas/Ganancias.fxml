@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="440.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.vistas.GananciasController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" layoutY="24.0" prefHeight="45.0" prefWidth="391.0" text="Ganancias a la fecha" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <TableView fx:id="table" layoutX="14.0" layoutY="78.0" prefHeight="276.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="sucursal_origen" prefWidth="100.0" text="Sucursal Origen" />
+            <TableColumn fx:id="sucursal_destino" prefWidth="100.0" text="Sucursal Destino" />
+            <TableColumn fx:id="volumen" prefWidth="100.0" text="Volumen" />
+            <TableColumn fx:id="peso" prefWidth="100.0" text="Peso" />
+            <TableColumn fx:id="prioridad" prefWidth="100.0" text="Prioridad" />
+            <TableColumn fx:id="precio" prefWidth="100.0" text="Precio" />
+        </columns>
+      </TableView>
+      <Label layoutX="66.0" layoutY="363.0" prefHeight="23.0" prefWidth="98.0" text="Ganancia Total:" />
+      <Label fx:id="total" layoutX="150.0" layoutY="366.0" prefHeight="17.0" prefWidth="87.0" text="total" />
+      <Button fx:id="atras" layoutX="464.0" layoutY="362.0" mnemonicParsing="false" onAction="#handlerAtras" prefHeight="25.0" prefWidth="87.0" text="ATRAS" />
+   </children>
+</AnchorPane>

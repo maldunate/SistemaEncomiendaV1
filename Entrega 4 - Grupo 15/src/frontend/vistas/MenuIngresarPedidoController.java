@@ -13,15 +13,15 @@ public class MenuIngresarPedidoController  {
 
 	@FXML
 	private ComboBox listaClientes;
-	
+
 	private MainApp mainApp;
-	
+
 	public MenuIngresarPedidoController() {
-		
+
 	}
 
 	public void start(Stage primaryStage) {
-		
+
 	}
 
 	@FXML
@@ -34,26 +34,26 @@ public class MenuIngresarPedidoController  {
 			}
 		}
 		Pedido pedido = new Pedido(cliente);
-		SistemaEncomienda.getInstance().getListaPedidos().add(pedido);
+
 		//System.out.println(pedido.getCliente().getNombre());
 		mainApp.mostrarInsertarEncomiendas(pedido);
 	}
-	
+
 	@FXML
     private void initialize() {
     	UpdateClientes();
     }
-	
+
     @FXML
     void handlerAtras() {
     	mainApp.mostrarMenuCajero();
     }
-	
+
 	public void UpdateClientes(){
 		listaClientes.getItems().addAll(SistemaEncomienda.getInstance().getClientesNombre());
 	}
-	
+
 	public void setMainApp(MainApp mainApp) {
-        this.mainApp = mainApp;   
+        this.mainApp = mainApp;
     }
 }

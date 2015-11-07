@@ -69,9 +69,8 @@ public class DetallesPedidoController {
 	public void UpdateTabla(){
 		System.out.println(pedido.encomiendasPedido);
 		for (Encomienda e: pedido.encomiendasPedido){
-			data.add(new printEncomienda(e.getSucursalDestino().getNombre(),e.getVolumen(), e.getPeso(), e.getPrioridad(), e.getPrecio()));
+			data.add(new printEncomienda(e.getSucursalOrigen().getNombre(), e.getSucursalDestino().getNombre(),e.getVolumen(), e.getPeso(), e.getPrioridad(), e.getPrecio()));
 		}
-
 
 		sucursal.setCellValueFactory(
                 new PropertyValueFactory<printEncomienda, String>("Destino"));
@@ -97,6 +96,7 @@ public class DetallesPedidoController {
     	for (Encomienda e : pedido.getEncomiendasPedido()){
     		e.getSucursalOrigen().getListaEncomiendas().add(e);
     	}
+    	SistemaEncomienda.getInstance().getListaPedidos().add(pedido);
     	mainApp.mostrarMenuCajero();
     }
 

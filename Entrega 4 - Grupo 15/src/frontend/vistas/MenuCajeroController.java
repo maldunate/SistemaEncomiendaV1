@@ -10,15 +10,14 @@ public class MenuCajeroController  {
 
 
 	private MainApp mainApp;
-	
-	
-	
+
+
 	public MenuCajeroController() {
-		
+
 	}
 
 	public void start(Stage primaryStage) {
-		
+
 	}
 
 	@FXML
@@ -26,33 +25,39 @@ public class MenuCajeroController  {
 		mainApp.mostrarMenuIngresarCliente();
 
 	}
-	
+
 	@FXML
 	private void handlerAtras(){
 		mainApp.mostrarMenuComo(SistemaEncomienda.getInstance().getSucursalActual());
 	}
-	
+
 	@FXML
     private void initialize() {
-    	
-	
-		
+
+
+
     }
-	
+
 	@FXML
 	private void handlerIngresarPedido(){
 		mainApp.mostrarMenuIngresarPedido();
 
 	}
-	
-    
+
+
     @FXML
     void handlerClientePedido() {
     	mainApp.mostrarVerClientePedido();
     }
-	
-	public void setMainApp(MainApp mainApp) {
-        this.mainApp = mainApp;   
+
+    @FXML
+    void handlerGanancias() {
+    	mainApp.mostrarGanancias();
+
     }
-	
+
+	public void setMainApp(MainApp mainApp) {
+        this.mainApp = mainApp;
+    }
+
 }

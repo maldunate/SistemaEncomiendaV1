@@ -22,6 +22,7 @@ import frontend.vistas.CajeroOperadorController;
 import frontend.vistas.DetallesPedidoController;
 import frontend.vistas.EncomiendaActualController;
 import frontend.vistas.EnviarMensajeController;
+import frontend.vistas.GananciasController;
 import frontend.vistas.InsertarDespacharController;
 import frontend.vistas.InsertarEncomiendaCamionController;
 import frontend.vistas.InsertarEncomiendasController;
@@ -401,7 +402,27 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
 	}
+	public void mostrarGanancias(){
+		try {
+            // Load bienvenida
 
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("vistas/Ganancias.fxml"));
+            AnchorPane generico = (AnchorPane)loader.load();
+
+
+            // Poner la vista del login en el centro de la ventana principal
+            rootLayout.setCenter(generico);
+
+            // Dar acceso al controlador de bienvenida
+            GananciasController controllerView = loader.getController();
+            controllerView.setMainApp(this);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
 	public Stage getPrimaryStage(){
 		return primaryStage;
 	}
