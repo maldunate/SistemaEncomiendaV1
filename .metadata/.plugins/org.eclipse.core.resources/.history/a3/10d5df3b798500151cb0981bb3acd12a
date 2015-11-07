@@ -86,7 +86,6 @@ public class InsertarDespacharController {
 				break;
 			}
 		}
-		listaEncomiendas.getItems().clear();
 		volumenTotal.setText(Integer.toString(cam.getCapacidad()));
 		volumenOcupado.setText(Integer.toString(cam.calcularCapacidad()));
 		sucursalDestino.setText(cam.getSucursalDestino().getNombre());

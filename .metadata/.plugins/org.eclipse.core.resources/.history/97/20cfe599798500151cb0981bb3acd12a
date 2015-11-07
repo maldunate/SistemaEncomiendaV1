@@ -104,7 +104,7 @@ public class InsertarEncomiendaCamionController {
 
 	@FXML
 	private void handlerInsertar(){
-		
+		mainApp.mostrarMessage("Haz insertado la encomienda");
 		
 		//rellenar
 		if(elegido == true){
@@ -114,12 +114,8 @@ public class InsertarEncomiendaCamionController {
 					actual.getListaEncomiendas().remove(e);
 				}
 			}
-			mainApp.mostrarMessage("Haz insertado la encomienda");
-			mainApp.mostrarInsertarDespachar();
-		}else{
-			mainApp.mostrarMessage("Porfavor, elija una encomienda");
 		}
-		
+		mainApp.mostrarInsertarDespachar();
 	}
 
 	@FXML
