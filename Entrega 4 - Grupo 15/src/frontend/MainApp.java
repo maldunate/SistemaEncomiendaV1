@@ -19,11 +19,15 @@ import backend.Encomienda;
 import backend.Pedido;
 import backend.SerializeDemo;
 import backend.SistemaEncomienda;
+import frontend.vistas.AdministrarCamionesController;
+import frontend.vistas.AdministrarSistemaController;
+import frontend.vistas.AdministrarSucursalController;
 import frontend.vistas.CajeroOperadorController;
 import frontend.vistas.DetallesPedidoController;
 import frontend.vistas.EncomiendaActualController;
 import frontend.vistas.EnviarMensajeController;
 import frontend.vistas.GananciasController;
+import frontend.vistas.IngresarSucursalController;
 import frontend.vistas.InsertarDespacharController;
 import frontend.vistas.InsertarEncomiendaCamionController;
 import frontend.vistas.InsertarEncomiendasController;
@@ -47,13 +51,17 @@ public class MainApp extends Application {
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Sistema de Encomiendas");
-		//try {
-		//	Deserialize.deserialize(sist.getInstance());
-		//} catch (Throwable e) {
-		//	// TODO Auto-generated catch block
-		//	e.printStackTrace();
-		//}
-		sist = new SistemaEncomienda();
+
+		try {
+			//Deserialize.deserialize(SistemaEncomienda.getInstance());
+			//Deserialize.deserialize2(SistemaEncomienda.getInstance());
+			SistemaEncomienda.getInstance().deserialize();
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//sist = new SistemaEncomienda();
+		
 		initRootLayout();
 
 		showBienvenida();
@@ -425,6 +433,94 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
 	}
+	
+	public void mostrarAdministrarSistema(){
+		try {
+            // Load bienvenida
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("vistas/AdministrarSistema.fxml"));
+            AnchorPane generico = (AnchorPane)loader.load();
+
+
+            // Poner la vista del login en el centro de la ventana principal
+            rootLayout.setCenter(generico);
+
+            // Dar acceso al controlador de bienvenida
+            AdministrarSistemaController controllerView = loader.getController();
+            controllerView.setMainApp(this);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+
+	public void mostrarIngresarSucursal(){
+		try {
+            // Load bienvenida
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("vistas/IngresarSucursal.fxml"));
+            AnchorPane generico = (AnchorPane)loader.load();
+
+
+            // Poner la vista del login en el centro de la ventana principal
+            rootLayout.setCenter(generico);
+
+            // Dar acceso al controlador de bienvenida
+            IngresarSucursalController controllerView = loader.getController();
+            controllerView.setMainApp(this);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+	
+	public void mostrarAdministrarSucursal(){
+		try {
+            // Load bienvenida
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("vistas/AdministrarSucursal.fxml"));
+            AnchorPane generico = (AnchorPane)loader.load();
+
+
+            // Poner la vista del login en el centro de la ventana principal
+            rootLayout.setCenter(generico);
+
+            // Dar acceso al controlador de bienvenida
+            AdministrarSucursalController controllerView = loader.getController();
+            controllerView.setMainApp(this);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+	
+	public void mostrarAdministrarCamiones(){
+		try {
+            // Load bienvenida
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("vistas/AdministrarCamiones.fxml"));
+            AnchorPane generico = (AnchorPane)loader.load();
+
+
+            // Poner la vista del login en el centro de la ventana principal
+            rootLayout.setCenter(generico);
+
+            // Dar acceso al controlador de bienvenida
+            AdministrarCamionesController controllerView = loader.getController();
+            controllerView.setMainApp(this);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+	
 	public Stage getPrimaryStage(){
 		return primaryStage;
 	}
@@ -445,7 +541,10 @@ public class MainApp extends Application {
     @Override
     public void stop(){
         System.out.println("Stage is closing");
-        SerializeDemo.serialize(sist);
+        System.out.println(SistemaEncomienda.getInstance());
+        //SerializeDemo.serialize(SistemaEncomienda.getInstance());
+        //SerializeDemo.serialize2(SistemaEncomienda.getInstance());
+        SistemaEncomienda.getInstance().serialize();
     }
 
 

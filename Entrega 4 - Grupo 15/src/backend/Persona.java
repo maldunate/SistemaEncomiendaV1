@@ -1,7 +1,11 @@
 package backend;
 
-public abstract class Persona {
+public abstract class Persona  implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7595850789860187821L;
 	String nombre;
 	
 	/**

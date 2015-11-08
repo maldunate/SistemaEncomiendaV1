@@ -45,7 +45,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Text fx:id="precio" layoutX="474.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" " textAlignment="RIGHT" wrappingWidth="82.13671875">
+            <Text fx:id="precio" layoutX="500.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" " textAlignment="RIGHT" wrappingWidth="82.13671875">
                <font>
                   <Font size="14.0" />
                </font>
@@ -91,7 +91,7 @@
                </font>
             </Text>
             <ComboBox fx:id="listaClientes" layoutX="201.0" layoutY="59.0" onAction="#handlerListaClientes" prefHeight="24.0" prefWidth="383.0" promptText="Lista de clientes..." />
-            <Button layoutX="238.0" layoutY="327.0" mnemonicParsing="false" onAction="#handlerAtras" prefHeight="45.0" prefWidth="164.0" text="Atras">
+            <Button layoutX="238.0" layoutY="338.0" mnemonicParsing="false" onAction="#handlerAtras" prefHeight="34.0" prefWidth="164.0" text="Atras">
                <font>
                   <Font size="17.0" />
                </font>
@@ -108,6 +108,16 @@
                </font>
             </Label>
             <ComboBox fx:id="listaEncomiendas" layoutX="200.0" layoutY="130.0" onAction="#handlerListaEncomiendas" prefHeight="24.0" prefWidth="383.0" promptText="Lista de encomiendas..." />
+            <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="406.0" layoutY="306.0" prefHeight="45.0" prefWidth="164.0" text="Estado:" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Text fx:id="estado" layoutX="500.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" " textAlignment="RIGHT" wrappingWidth="82.13671875">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
    </children>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.vistas.IngresarSucursalController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="45.0" layoutY="44.0" prefHeight="45.0" prefWidth="551.0" text="Datos del Sucursal" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <Button layoutX="127.0" layoutY="293.0" mnemonicParsing="false" onAction="#handlerIngresarSucursal" prefHeight="45.0" prefWidth="182.0" text="Ingresar sucursal">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="54.0" layoutY="115.0" prefHeight="45.0" prefWidth="164.0" text="Nombre: " textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="54.0" layoutY="160.0" prefHeight="45.0" prefWidth="164.0" text="Dirección:" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nombre" layoutX="157.0" layoutY="115.0" prefHeight="33.0" prefWidth="429.0" promptText="Ingresar nombre..." />
+      <TextField fx:id="direccion" layoutX="157.0" layoutY="160.0" prefHeight="33.0" prefWidth="429.0" promptText="Nombre calle, 2222" />
+      <Button layoutX="372.0" layoutY="293.0" mnemonicParsing="false" onAction="#handlerAtras" prefHeight="45.0" prefWidth="182.0" text="Atras">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

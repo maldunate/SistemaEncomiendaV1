@@ -5,7 +5,12 @@ import java.util.Random;
 
 enum EstadoEncomienda {EnOrigen, EnDestino, EnTransito, Entregado};
 
-public class Encomienda {
+public class Encomienda  implements java.io.Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3953647643106678875L;
 
 	/**
 	 * @param sucursalOrigen
@@ -33,7 +38,16 @@ public class Encomienda {
 	public String nombre;
 	public int precio;
 	int prioridad;
-	EstadoEncomienda estadoEncomienda;
+	String direccionFinal;
+	public EstadoEncomienda estadoEncomienda;
+
+	public String getDireccionFinal() {
+		return direccionFinal;
+	}
+
+	public void setDireccionFinal(String direccionFinal) {
+		this.direccionFinal = direccionFinal;
+	}
 
 	public void asignarNombre(){
 		Random hola = new Random();
@@ -44,6 +58,11 @@ public class Encomienda {
 	public EstadoEncomienda getEstadoEncomienda() {
 		return estadoEncomienda;
 	}
+	
+	public String getEstadoEncomiendaString() {
+		return this.estadoEncomienda.toString();
+	}
+	
 	public void setEstadoEncomienda(EstadoEncomienda estadoEncomienda) {
 		this.estadoEncomienda = estadoEncomienda;
 	}

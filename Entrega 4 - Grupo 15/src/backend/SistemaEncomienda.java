@@ -1,20 +1,24 @@
 package backend;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class SistemaEncomienda implements java.io.Serializable {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	int cantidadDeClientes = 6;
+	private static final long serialVersionUID = 65498L;
 
+	Random r = new Random();
 	private static SistemaEncomienda INSTANCE = new SistemaEncomienda(); 
 	
-	ArrayList<Pedido> listaPedidos;
-	ArrayList<Sucursal> listaSucursales;
-	ArrayList<Cliente> listaClientes;
+	ArrayList<Pedido> listaPedidos = new ArrayList<>();
+	ArrayList<Sucursal> listaSucursales = new ArrayList<>();
+	ArrayList<Cliente> listaClientes = new ArrayList<>();
 	String sucursalActual;
+	
+	int cantidadDeClientes = 6;
+	
 	String[] direccion = { "dir1", "dir2", "dir3", "dir4" };
 	String[] patentes = {"patente1","patente2","patente3","patente4"};
 	String[] nombres = {"nombre1","nombre2","nombre3","nombre4","nombre5","nombre6","nombre7","nombre8","nombre9","nombre10","nombre11","nombre12","nombre13","nombre14"};
@@ -22,11 +26,8 @@ public class SistemaEncomienda implements java.io.Serializable {
 	
 	
 	public SistemaEncomienda() {
-		listaPedidos = new ArrayList<>();
-		listaSucursales = new ArrayList<>();
-		listaClientes = new ArrayList<>();
-		crearSucursales();
-		rellenarClientes();
+		//crearSucursales();
+		//rellenarClientes();
 	}
 
 	public void comenzar(){
@@ -142,6 +143,10 @@ public class SistemaEncomienda implements java.io.Serializable {
 		listaClientes.add(new Cliente(nombre, numero, direccion));
 	}
 	
+	public void agregarUnaSucursal(String nombre, String direccion){
+		listaSucursales.add(new Sucursal(r.nextInt(99999), direccion, nombre, null, null));
+	}
+	
 	public void Simulacion(){
 		//Camion camion1 = new Camion();
 		//listaSucursales.add(new Sucursal())
@@ -198,38 +203,6 @@ public class SistemaEncomienda implements java.io.Serializable {
 		this.listaClientes = listaClientes;
 	}
 
-	public String getDireccion(int i) {
-		return direccion[i];
-	}
-
-	public void setDireccion(String[] direccion) {
-		this.direccion = direccion;
-	}
-
-	public String[] getPatentes() {
-		return patentes;
-	}
-
-	public void setPatentes(String[] patentes) {
-		this.patentes = patentes;
-	}
-
-	public String[] getNombres() {
-		return nombres;
-	}
-
-	public void setNombres(String[] nombres) {
-		this.nombres = nombres;
-	}
-
-	public String[] getNumeros() {
-		return numeros;
-	}
-
-	public void setNumeros(String[] numeros) {
-		this.numeros = numeros;
-	}
-
 	public String getSucursalActual() {
 		return sucursalActual;
 	}
@@ -238,4 +211,49 @@ public class SistemaEncomienda implements java.io.Serializable {
 		this.sucursalActual = sucursalActual;
 	}
 	
+	public Sucursal getSucursalAPartirDeNombre(String n){
+		for(Sucursal s : listaSucursales) {
+			if(s.nombre == n){
+				return s;
+			}
+		}
+		
+		return null;
+	}
+	
+	public Pedido getPedidoAPartirDeNombre(String n){
+		String aux;
+		for (Pedido p : listaPedidos) {
+			aux = Integer.toString(p.id);
+			if(aux.equals(n)){
+				return p;
+			}
+		}
+		return null;
+	}
+	
+	public Camion getCamionAPartirDeNombre(String n, Sucursal s){
+		for(Camion c : s.listaCamiones) {
+			if(c.patente == n){
+				return c;
+			}
+		}
+		
+		return null;
+	}
+	
+	public void serialize(){
+		//crearSucursales();
+	    //rellenarClientes();
+		SerializeDemo.serializeListaSucursales(listaSucursales);
+		SerializeDemo.serializeListaClientes(listaClientes);
+		SerializeDemo.serializeListaPedidos(listaPedidos);
+	}
+	
+	public void deserialize(){
+		listaSucursales = Deserialize.deserializeListaSucursales(listaSucursales);
+		listaClientes = Deserialize.deserializeListaClientes(listaClientes);
+		listaPedidos = Deserialize.deserializeListaPedidos(listaPedidos);
+		//System.out.println(listaSucursales);
+	}
 }

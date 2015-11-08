@@ -1,18 +1,23 @@
 package backend;
 import java.util.ArrayList;
+import java.util.Random;
 
-public class Sucursal {
+public class Sucursal  implements java.io.Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -187995296828159540L;
 	int id;
 	String direccion;
 	String nombre;
 	Operador operador;
-	
+	Random r = new Random();	
 	Cajero cajero;
-	ArrayList<Camion> listaCamiones;
-	ArrayList<Encomienda> listaEncomiendas;
-	ArrayList<Camion> camionesConEncomiendas;
-	ArrayList<Mensaje> listaMensajes;
+	ArrayList<Camion> listaCamiones = new ArrayList<>();;
+	ArrayList<Encomienda> listaEncomiendas = new ArrayList<>();;
+	ArrayList<Camion> camionesConEncomiendas = new ArrayList<>();;
+	ArrayList<Mensaje> listaMensajes = new ArrayList<>();;
 	
 	/**
 	 * @param id
@@ -31,10 +36,6 @@ public class Sucursal {
 		this.nombre = nombre;
 		this.operador = operador;
 		this.cajero = cajero;
-		this.listaCamiones = new ArrayList<>();
-		this.listaMensajes = new ArrayList<>();
-		this.listaEncomiendas = new ArrayList<>();
-		this.camionesConEncomiendas = new ArrayList<>();
 	}
 
 
@@ -108,6 +109,10 @@ public class Sucursal {
 
 	public void setListaMensajes(ArrayList<Mensaje> listaMensajes) {
 		this.listaMensajes = listaMensajes;
+	}
+	
+	public void agregarCamion(String patente, int capacidad, Sucursal sucursalDestino){
+		this.listaCamiones.add(new Camion(r.nextInt(99999), patente, capacidad, this, sucursalDestino));
 	}
 	
 	public void agregarCamiones(ArrayList<Sucursal> listaSucursales){

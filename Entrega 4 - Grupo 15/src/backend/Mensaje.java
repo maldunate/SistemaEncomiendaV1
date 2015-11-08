@@ -1,7 +1,11 @@
 package backend;
 
-public class Mensaje {
+public class Mensaje  implements java.io.Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1702558503349859758L;
 	public String texto;
 	public Sucursal destinatario;
 	public Sucursal origen;

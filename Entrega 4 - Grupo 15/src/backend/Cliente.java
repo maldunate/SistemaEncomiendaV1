@@ -42,6 +42,17 @@ public class Cliente extends Persona{
 			return 0;	
 		}
 	}
+	
+	public ArrayList<String> getNombrePedidos(){
+		ArrayList<String> aux = new ArrayList<>();
+		if(listaPedidos.size() < 1){
+			return aux;
+		}
+		for (Pedido p : listaPedidos) {
+			aux.add(Integer.toString(p.id));
+		}
+		return aux;
+	}
 }
 	
 	
