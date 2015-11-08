@@ -91,4 +91,12 @@ public class Encomienda {
 	public void setPrioridad(int prioridad) {
 		this.prioridad = prioridad;
 	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 }

@@ -34,6 +34,7 @@ import frontend.vistas.MenuOperadorController;
 import frontend.vistas.RecibirCamionController;
 import frontend.vistas.RootLayoutController;
 import frontend.vistas.SistemaController;
+import frontend.vistas.VerClientePedidoController;
 import frontend.vistas.VerMensajeController;
 
 public class MainApp extends Application {
@@ -262,7 +263,7 @@ public class MainApp extends Application {
             rootLayout.setCenter(generico);
 
             // Dar acceso al controlador de bienvenida
-            MenuIngresarPedidoController controllerView = loader.getController();
+            VerClientePedidoController controllerView = loader.getController();
             controllerView.setMainApp(this);
 
 

@@ -1,6 +1,10 @@
 package frontend.vistas;
 
+import java.util.ArrayList;
+
+import backend.Encomienda;
 import backend.SistemaEncomienda;
+import backend.Sucursal;
 import frontend.MainApp;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -18,9 +22,26 @@ public class MenuOperadorController {
 	public void start(Stage primaryStage) {
 		
 	}
-
+	public String msje = "Las encomiendas de mayor prioridad que no han sido enviadas son:";
+	public ArrayList<Encomienda> encom = new ArrayList<>();
+	
+	private void notificacion(){
+        System.out.println(msje);
+		Sucursal actual = SistemaEncomienda.getInstance().compararSucursal(SistemaEncomienda.getInstance().getSucursalActual());
+		for (Encomienda e: actual.getListaEncomiendas()){
+			if (e.getPrioridad() == 1){
+				encom.add(e);
+				}
+			}
+		for (Encomienda f: encom){
+			msje += " " + f.getNombre() + ", con destino a sucursal " + f.getSucursalDestino().getNombre() + ".";
+		}
+		System.out.println(msje);
+		mainApp.mostrarMessage(msje);
+		}
 	@FXML
 	private void handlerInsertarDespachar(){
+		notificacion();
 		mainApp.mostrarInsertarDespachar();
 	
 	}

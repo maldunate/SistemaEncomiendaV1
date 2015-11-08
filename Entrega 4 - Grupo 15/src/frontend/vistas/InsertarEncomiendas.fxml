@@ -48,7 +48,7 @@
       <TextField fx:id="volumen" layoutX="201.0" layoutY="192.0" prefHeight="31.0" prefWidth="186.0" promptText="500 cc" />
       <TextField fx:id="peso" layoutX="201.0" layoutY="156.0" prefHeight="31.0" prefWidth="186.0" promptText="5 kg" />
       <TextField fx:id="direccionFinal" layoutX="201.0" layoutY="111.0" prefHeight="31.0" prefWidth="383.0" promptText="Nombre calle, 2222" />
-      <ComboBox fx:id="listaPrioridades" layoutX="201.0" layoutY="243.0" prefHeight="31.0" prefWidth="383.0" promptText="Prioridad" />
+      <ComboBox fx:id="listaPrioridades" layoutX="201.0" layoutY="243.0" prefHeight="31.0" prefWidth="383.0" promptText="Prioridad" onAction="#handlerPrecio" />
       <Button layoutX="342.0" layoutY="306.0" mnemonicParsing="false" onAction="#handlerTerminarPedido" prefHeight="45.0" prefWidth="164.0" text="Terminar">
          <font>
             <Font size="17.0" />

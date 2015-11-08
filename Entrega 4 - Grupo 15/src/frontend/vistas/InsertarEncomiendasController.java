@@ -89,7 +89,6 @@ public class InsertarEncomiendasController {
 	private void handlerTerminarPedido(){
 		//mainApp.mostrarMessage("Haz ingresado exitosamente el pedido");
 		//rellenar
-		System.out.println(pedido.getCosto());
 		mainApp.mostrarDetallesPedido(pedido);
 	}
 
@@ -97,7 +96,12 @@ public class InsertarEncomiendasController {
     private void initialize() {
     	Update();
     }
+	@FXML
+	private void handlerPrecio(){
+		precio.setText(Integer.toString(Integer.parseInt(volumen.getText())*20+Integer.parseInt(peso.getText())*1000));
+		//peso*1000 + volumen*20
 
+	}
 	public void Update(){
 		ArrayList<String> lista = new ArrayList<>();
 		for(String s : SistemaEncomienda.getInstance().getSucursalesNombre()) {
@@ -106,7 +110,9 @@ public class InsertarEncomiendasController {
 			}
 		}
 		listaSucursales.getItems().addAll(lista);
-		precio.setText("1000");
+		precio.setText("");
+		volumen.setText("0");
+		peso.setText("0");
 		listaPrioridades.getItems().addAll(1,2,3);
 	}
 
