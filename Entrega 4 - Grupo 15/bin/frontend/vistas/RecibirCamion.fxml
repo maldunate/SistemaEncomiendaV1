@@ -19,7 +19,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <ComboBox fx:id="listaCamiones" editable="true" layoutX="180.0" layoutY="75.0" prefHeight="31.0" prefWidth="315.0" promptText="Lista de camiones de la sucursal en sucursal..." />
+      <ComboBox fx:id="listaCamiones" editable="true" layoutX="180.0" layoutY="75.0" onAction="#handlerListaCamiones" prefHeight="31.0" prefWidth="315.0" promptText="Lista de camiones de la sucursal en sucursal..." />
       <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="46.0" layoutY="125.0" prefHeight="45.0" prefWidth="164.0" text="Sucursal Destino: " textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="18.0" />
@@ -40,7 +40,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <ComboBox fx:id="listaEncomiendas" editable="true" layoutX="298.0" layoutY="232.0" prefHeight="45.0" prefWidth="287.0" promptText="Lista encomiendas" visibleRowCount="3" AnchorPane.bottomAnchor="123.0" AnchorPane.leftAnchor="298.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="232.0" />
+      <ComboBox fx:id="listaEncomiendas" editable="true" layoutX="298.0" layoutY="232.0" onAction="#handlerListaEncomiendas" prefHeight="45.0" prefWidth="287.0" promptText="Lista encomiendas" visibleRowCount="3" AnchorPane.bottomAnchor="123.0" AnchorPane.leftAnchor="298.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="232.0" />
       <Button layoutX="238.0" layoutY="319.0" mnemonicParsing="false" onAction="#handlerRecibir" prefHeight="45.0" prefWidth="164.0" text="Recibir">
          <font>
             <Font size="17.0" />

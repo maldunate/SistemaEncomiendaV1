@@ -11,6 +11,7 @@ public class Sucursal {
 	Cajero cajero;
 	ArrayList<Camion> listaCamiones;
 	ArrayList<Encomienda> listaEncomiendas;
+	ArrayList<Camion> camionesConEncomiendas;
 	ArrayList<Mensaje> listaMensajes;
 	
 	/**
@@ -33,6 +34,7 @@ public class Sucursal {
 		this.listaCamiones = new ArrayList<>();
 		this.listaMensajes = new ArrayList<>();
 		this.listaEncomiendas = new ArrayList<>();
+		this.camionesConEncomiendas = new ArrayList<>();
 	}
 
 
@@ -82,6 +84,14 @@ public class Sucursal {
 
 	public void setListaCamiones(ArrayList<Camion> listaCamiones) {
 		this.listaCamiones = listaCamiones;
+	}
+	
+	public ArrayList<Camion> getCamionesConEncomiendas() {
+		return camionesConEncomiendas;
+	}
+
+	public void setCamionesConEncomiendas(ArrayList<Camion> camionesConEncomiendas) {
+		this.camionesConEncomiendas = camionesConEncomiendas;
 	}
 
 	public ArrayList<Encomienda> getListaEncomiendas() {

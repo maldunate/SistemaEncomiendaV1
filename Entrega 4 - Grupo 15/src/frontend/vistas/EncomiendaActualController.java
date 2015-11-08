@@ -1,6 +1,7 @@
 package frontend.vistas;
 
 import frontend.MainApp;
+import backend.*;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
@@ -11,6 +12,7 @@ public class EncomiendaActualController {
 
 	private MainApp mainApp;
 	int i;
+	Encomienda encomienda;
 	
 	@FXML
 	private Text nombreEncomienda;
@@ -59,9 +61,21 @@ public class EncomiendaActualController {
 		
     }
 	
+	private void Update(){
+		nombreEncomienda.setText(encomienda.nombre);
+		sucursalDestino.setText(encomienda.getSucursalDestino().getNombre());
+		volumen.setText(Integer.toString(encomienda.getVolumen()));
+		peso.setText(Integer.toString(encomienda.getPeso()));
+		prioridad.setText(Integer.toString(encomienda.getPrioridad()));
+		precio.setText(Integer.toString(encomienda.getPrecio()));
+		
+	}
 	
-	public void setMainApp(MainApp mainApp, int i) {
+	
+	public void setMainApp(MainApp mainApp, int i, Encomienda encomienda) {
         this.mainApp = mainApp;  
         this.i = i;
+        this.encomienda = encomienda;
+        Update();
     }
 }

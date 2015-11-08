@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 
 import backend.Camion;
 import backend.Deserialize;
+import backend.Encomienda;
 import backend.Pedido;
 import backend.SerializeDemo;
 import backend.SistemaEncomienda;
@@ -207,7 +208,7 @@ public class MainApp extends Application {
         }
 	}
 
-	public void mostrarEncomiendaActual(int i){
+	public void mostrarEncomiendaActual(int i, Encomienda encomienda){
         try {
             // Load bienvenida
 
@@ -220,7 +221,7 @@ public class MainApp extends Application {
 
             // Dar acceso al controlador de bienvenida
             EncomiendaActualController controllerView = loader.getController();
-            controllerView.setMainApp(this,i);
+            controllerView.setMainApp(this,i,encomienda);
 
 
         } catch (IOException e) {

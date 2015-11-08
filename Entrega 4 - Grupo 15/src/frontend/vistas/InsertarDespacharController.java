@@ -17,6 +17,8 @@ public class InsertarDespacharController {
 
 	Camion cam = null;
 	
+	Boolean seleccionado = false;
+	
 	@FXML
 	private Label volumenTotal;
 	
@@ -91,14 +93,23 @@ public class InsertarDespacharController {
 		volumenOcupado.setText(Integer.toString(cam.calcularCapacidad()));
 		sucursalDestino.setText(cam.getSucursalDestino().getNombre());
 		listaEncomiendas.getItems().addAll(cam.getEncomiendaNombres());
-		
+		seleccionado = true;
 	}
 	
 	@FXML
 	private void handlerDespachar(){
-		mainApp.mostrarMessage("Haz despachado el camión");
 		//rellenar
-		mainApp.mostrarMenuOperador();
+		//Aqui se envía el camion desde la sucursal de origen hacia la de destino, por lo que
+		//se elimina de la lista en origen y se agrega a la de camiones arrivados de la destino.
+		if(seleccionado){
+			suc.getListaCamiones().remove(cam);
+			cam.getSucursalDestino().getCamionesConEncomiendas().add(cam);
+			seleccionado = false;
+			mainApp.mostrarMessage("Haz despachado el camión");
+			mainApp.mostrarMenuOperador();
+		}else{
+			mainApp.mostrarMessage("Elige un camion para despachar");
+		}
 	}
 	
     @FXML
@@ -106,11 +117,11 @@ public class InsertarDespacharController {
     	mainApp.mostrarMenuOperador();
     }
     
-	@FXML
+	/*@FXML
 	private void handlerEncomiendaActual(){
 		mainApp.mostrarEncomiendaActual(0);
 
-	}
+	}*/
 	
 	public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;   

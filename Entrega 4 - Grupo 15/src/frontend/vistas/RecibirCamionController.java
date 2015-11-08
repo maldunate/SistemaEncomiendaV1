@@ -8,6 +8,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+
+import backend.*;
+
 public class RecibirCamionController  {
 
 	@FXML
@@ -24,7 +28,16 @@ public class RecibirCamionController  {
 
 	@FXML
 	private Label direccionFinalEncomienda;
+	
+	Sucursal actual = null;
+	
+	Boolean elegida = false;
+	
+	Boolean seleccionado = false;
+	
+	Encomienda encomienda;
 
+	Camion cam = null;
 	
 	private MainApp mainApp;
 	
@@ -39,11 +52,30 @@ public class RecibirCamionController  {
 
 	@FXML
     private void initialize() {
-    			
+		//actual = SistemaEncomienda.getInstance().compararSucursal(SistemaEncomienda.getInstance().getSucursalActual());
+		for (Sucursal s : SistemaEncomienda.getInstance().getListaSucursales()) {
+			if(s.getNombre().equals(SistemaEncomienda.getInstance().getSucursalActual())){
+				actual = s;
+				break;					}
+			}
+		ArrayList<String> temp = new ArrayList<>();
+		for(Camion c : actual.getCamionesConEncomiendas()){
+			temp.add(c.getPatente());
+		}
+		listaCamiones.getItems().addAll(temp);
     }
 		
 	@FXML
 	private void handlerRecibir(){
+		if(seleccionado){
+			//Cambios respectivos al recibir el camion
+			cam.getSucursalDestino().getCamionesConEncomiendas().remove(cam);
+			cam.getSucursalOrigen().getListaCamiones().add(cam);
+			cam.enCamion.clear();
+			for(Encomienda e: cam.enCamion){
+				//e.setEstadoEncomienda(EstadoEncomienda.EnDestino);
+			}
+		}
 		mainApp.mostrarMessage("Haz recibido el camion");
 		//rellenar
 		mainApp.mostrarMenuOperador();
@@ -57,8 +89,38 @@ public class RecibirCamionController  {
     
 	@FXML
 	private void handlerEncomiendaActual(){
-		mainApp.mostrarEncomiendaActual(1);
-
+		if(elegida){
+			mainApp.mostrarEncomiendaActual(1, encomienda);
+			elegida = false;
+		}else{
+			mainApp.mostrarMessage("Elige una encomienda");
+		}
+	}
+	
+	@FXML
+	private void handlerListaEncomiendas(){
+		for(Encomienda e : cam.enCamion){
+			if(e.nombre == listaEncomiendas.getValue().toString()){
+				encomienda = e;
+				elegida = true;
+			}
+		}
+	}
+	
+	@FXML
+	private void handlerListaCamiones(){
+		Update();
+	}
+	
+	private void Update(){
+		for (Camion c : actual.getCamionesConEncomiendas()) {
+			if(c.getPatente().equals(listaCamiones.getValue().toString())){
+				cam = c;
+				break;
+			}
+		}
+		listaEncomiendas.getItems().addAll(cam.getEncomiendaNombres());
+		seleccionado = true;
 	}
 	
 	public void setMainApp(MainApp mainApp) {
