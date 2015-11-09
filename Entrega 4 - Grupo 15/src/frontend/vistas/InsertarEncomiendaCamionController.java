@@ -91,7 +91,7 @@ public class InsertarEncomiendaCamionController {
 			if(e.nombre.equals(listaEncomiendas.getValue())){
 				sucursalDestino.setText(e.getSucursalDestino().getNombre());
 				peso.setText(Integer.toString(e.getPeso()));
-				precio.setText(Integer.toString(e.getPrecio()));
+				precio.setText(String.valueOf(e.getPrecio()));
 				volumen.setText(Integer.toString(e.getVolumen()));
 				prioridad.setText(Integer.toString(e.getPrioridad()));
 			}
@@ -125,7 +125,7 @@ public class InsertarEncomiendaCamionController {
 		}
 
 	}
-	
+
 	@FXML
     private void initialize() {
 

@@ -20,10 +20,10 @@ public class VerClientePedidoController {
 	Cliente clienteActual;
 	Pedido pedidoActual;
 	Encomienda encomiendaActual;
-	
+
     @FXML
     private Text estado;
-    
+
     @FXML
     private Text sucursalDestino;
 
@@ -55,11 +55,11 @@ public class VerClientePedidoController {
     private void initialize() {
     	UpdateClientes();
     }
-	
+
 	public void UpdateClientes(){
 		listaClientes.getItems().addAll(SistemaEncomienda.getInstance().getClientesNombre());
 	}
-	
+
     @FXML
     void handlerListaClientes() {
     	clienteActual = SistemaEncomienda.getInstance().getClienteAPartirDeNombre(listaClientes.getValue().toString());
@@ -81,16 +81,16 @@ public class VerClientePedidoController {
     void handlerListaEncomiendas() {
     	encomiendaActual = pedidoActual.getEncomiendaAPartirDeNombre(listaEncomiendas.getValue().toString());
     	sucursalDestino.setText(encomiendaActual.getSucursalDestino().getNombre());
-    	precio.setText(Integer.toString(encomiendaActual.precio));
+    	precio.setText(String.valueOf(encomiendaActual.precio));
     	direccionFinal.setText(encomiendaActual.getDireccionFinal());
     	peso.setText(Integer.toString(encomiendaActual.getPeso()));
     	volumen.setText(Integer.toString(encomiendaActual.getVolumen()));
     	prioridad.setText(Integer.toString(encomiendaActual.getPrioridad()));
     	estado.setText(encomiendaActual.getEstadoEncomiendaString());
     }
-    
+
 	public void setMainApp(MainApp mainApp) {
-        this.mainApp = mainApp;   
+        this.mainApp = mainApp;
     }
 
 }

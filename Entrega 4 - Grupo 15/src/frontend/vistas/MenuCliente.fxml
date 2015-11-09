@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="440.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.vistas.MenuClienteController">
+   <children>
+      <Button layoutX="147.0" layoutY="168.0" mnemonicParsing="false" onAction="#handlerCrearPedido" prefHeight="45.0" prefWidth="346.0" text="Crear Pedido">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="45.0" layoutY="50.0" prefHeight="91.0" prefWidth="551.0" text="Haz ingresado como cliente, seleccione acción a efectuar:" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <Button layoutX="147.0" layoutY="237.0" mnemonicParsing="false" onAction="#handlerVerPedidos" prefHeight="45.0" prefWidth="346.0" text="Ver Pedidos">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button fx:id="Atras" layoutX="148.0" layoutY="303.0" mnemonicParsing="false" onAction="#handlerAtras" prefHeight="45.0" prefWidth="346.0" text="Atrás">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

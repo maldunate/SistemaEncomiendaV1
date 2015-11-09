@@ -14,6 +14,7 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 
 import backend.Camion;
+import backend.Cliente;
 import backend.Deserialize;
 import backend.Encomienda;
 import backend.Pedido;
@@ -24,6 +25,7 @@ import frontend.vistas.AdministrarSistemaController;
 import frontend.vistas.AdministrarSucursalController;
 import frontend.vistas.CajeroOperadorController;
 import frontend.vistas.DetallesPedidoController;
+import frontend.vistas.ElegirClienteController;
 import frontend.vistas.EncomiendaActualController;
 import frontend.vistas.EnviarMensajeController;
 import frontend.vistas.GananciasController;
@@ -32,6 +34,7 @@ import frontend.vistas.InsertarDespacharController;
 import frontend.vistas.InsertarEncomiendaCamionController;
 import frontend.vistas.InsertarEncomiendasController;
 import frontend.vistas.MenuCajeroController;
+import frontend.vistas.MenuClienteController;
 import frontend.vistas.MenuIngresarClienteController;
 import frontend.vistas.MenuIngresarPedidoController;
 import frontend.vistas.MenuOperadorController;
@@ -40,6 +43,7 @@ import frontend.vistas.RootLayoutController;
 import frontend.vistas.SistemaController;
 import frontend.vistas.VerClientePedidoController;
 import frontend.vistas.VerMensajeController;
+import frontend.vistas.VerPedidosClienteController;
 
 public class MainApp extends Application {
 
@@ -101,6 +105,27 @@ public class MainApp extends Application {
             // Dar acceso al controlador de bienvenida
             SistemaController controllerView = loader.getController();
             controllerView.setMainApp(this);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+	}
+	
+	public void mostrarMenuCliente(Cliente cliente){
+        try {
+            // Load bienvenida
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("vistas/MenuCliente.fxml"));
+            AnchorPane menuCliente = (AnchorPane)loader.load();
+
+            // Poner la vista del login en el centro de la ventana principal
+            rootLayout.setCenter(menuCliente);
+
+            // Dar acceso al controlador de bienvenida
+            MenuClienteController controllerView = loader.getController();
+            controllerView.setMainApp(this, cliente);
 
 
         } catch (IOException e) {
@@ -293,7 +318,28 @@ public class MainApp extends Application {
 
             // Dar acceso al controlador de bienvenida
             MenuIngresarPedidoController controllerView = loader.getController();
-            controllerView.setMainApp(this);
+            controllerView.setMainApp(this, 0);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+	
+	public void mostrarMenuIngresarPedidoCliente(){
+        try {
+            // Load bienvenida
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("vistas/ElegirCliente.fxml"));
+            AnchorPane generico = (AnchorPane)loader.load();
+
+            // Poner la vista del login en el centro de la ventana principal
+            rootLayout.setCenter(generico);
+
+            // Dar acceso al controlador de bienvenida
+            ElegirClienteController controllerView = loader.getController();
+            controllerView.setMainApp(this, 1);
 
 
         } catch (IOException e) {
@@ -301,7 +347,7 @@ public class MainApp extends Application {
         }
 	}
 
-	public void mostrarInsertarEncomiendas(Pedido pedido){
+	public void mostrarInsertarEncomiendas(Pedido pedido, int i){
         try {
             // Load bienvenida
 
@@ -316,7 +362,7 @@ public class MainApp extends Application {
             // Dar acceso al controlador de bienvenida
             InsertarEncomiendasController controllerView = loader.getController();
 
-            controllerView.setMainApp(this, pedido);
+            controllerView.setMainApp(this, pedido, i);
 
 
         } catch (IOException e) {
@@ -390,7 +436,8 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
 	}
-	public void mostrarDetallesPedido(Pedido pedido){
+	
+	public void mostrarDetallesPedido(Pedido pedido, int i){
 		try {
             // Load bienvenida
 
@@ -405,13 +452,36 @@ public class MainApp extends Application {
             // Dar acceso al controlador de bienvenida
             DetallesPedidoController controllerView = loader.getController();
             System.out.println(pedido.getCosto());
-            controllerView.setMainApp(this, pedido);
+            controllerView.setMainApp(this, pedido, i);
 
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 	}
+	
+	public void mostrarVerPedidosCliente(Cliente cliente){
+		try {
+            // Load bienvenida
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("vistas/VerPedidosCliente.fxml"));
+            AnchorPane generico = (AnchorPane)loader.load();
+
+
+            // Poner la vista del login en el centro de la ventana principal
+            rootLayout.setCenter(generico);
+
+            // Dar acceso al controlador de bienvenida
+            VerPedidosClienteController controllerView = loader.getController();
+            controllerView.setMainApp(this, cliente);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+	
 	public void mostrarGanancias(){
 		try {
             // Load bienvenida

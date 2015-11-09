@@ -12,7 +12,7 @@ public class Pedido  implements java.io.Serializable {
 	Cliente cliente;
 	
 	int costo;
-	int id;
+	public int id;
 
 	Random r = new Random();
 

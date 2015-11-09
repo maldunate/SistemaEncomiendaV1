@@ -8,7 +8,7 @@ enum EstadoEncomienda {EnOrigen, EnDestino, EnTransito, Entregado};
 public class Encomienda  implements java.io.Serializable {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = -3953647643106678875L;
 
@@ -26,7 +26,7 @@ public class Encomienda  implements java.io.Serializable {
 		this.sucursalDestino = sucursalDestino;
 		this.volumen = volumen;
 		this.peso = peso;
-		this.precio = peso*1000 + volumen*20;
+		this.precio = (double)peso*1000 + (double)volumen*20;
 		this.prioridad = prioridad;
 		this.estadoEncomienda = EstadoEncomienda.EnOrigen;
 		asignarNombre();
@@ -36,7 +36,7 @@ public class Encomienda  implements java.io.Serializable {
 	int volumen;
 	int peso;
 	public String nombre;
-	public int precio;
+	public double precio;
 	int prioridad;
 	String direccionFinal;
 	public EstadoEncomienda estadoEncomienda;
@@ -58,11 +58,11 @@ public class Encomienda  implements java.io.Serializable {
 	public EstadoEncomienda getEstadoEncomienda() {
 		return estadoEncomienda;
 	}
-	
+
 	public String getEstadoEncomiendaString() {
 		return this.estadoEncomienda.toString();
 	}
-	
+
 	public void setEstadoEncomienda(EstadoEncomienda estadoEncomienda) {
 		this.estadoEncomienda = estadoEncomienda;
 	}
@@ -95,12 +95,12 @@ public class Encomienda  implements java.io.Serializable {
 		this.peso = peso;
 	}
 
-	public int getPrecio() {
+	public double getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(int precio) {
-		this.precio = precio;
+	public void setPrecio(double precio, double coef) {
+		this.precio = precio*(1-0.3*coef);
 	}
 
 	public int getPrioridad() {

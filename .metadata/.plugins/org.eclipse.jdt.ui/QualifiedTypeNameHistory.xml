@@ -2,4 +2,10 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="backend.SistemaEncomienda"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="frontend.vistas.MenuClienteController"/>
+<fullyQualifiedTypeName name="backend.Cliente"/>
+<fullyQualifiedTypeName name="backend.Pedido"/>
+<fullyQualifiedTypeName name="frontend.vistas.ElegirClienteController"/>
+<fullyQualifiedTypeName name="frontend.vistas.VerPedidosClienteController"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

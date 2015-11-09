@@ -20,6 +20,7 @@ public class DetallesPedidoController {
 
 
 	public Pedido pedido;
+	int i;
 
 	public ObservableList<printEncomienda> data = FXCollections.observableArrayList();
 
@@ -59,16 +60,18 @@ public class DetallesPedidoController {
 
     }
 
-	public void setMainApp(MainApp mainApp, Pedido pedido) {
+	public void setMainApp(MainApp mainApp, Pedido pedido, int i) {
 		this.mainApp = mainApp;
 		this.pedido = pedido;
+		this.i = i;
 		System.out.println(pedido);
 		UpdateTabla();
 		}
 
 	public void UpdateTabla(){
-		System.out.println(pedido.encomiendasPedido);
+		pedido.getCliente().setCoeficiente_frecuente();
 		for (Encomienda e: pedido.encomiendasPedido){
+			e.setPrecio(e.getPrecio(), pedido.getCliente().getCoeficiente_frecuente());
 			data.add(new printEncomienda(e.getSucursalOrigen().getNombre(), e.getSucursalDestino().getNombre(),e.getVolumen(), e.getPeso(), e.getPrioridad(), e.getPrecio()));
 		}
 
@@ -97,7 +100,11 @@ public class DetallesPedidoController {
     		e.getSucursalOrigen().getListaEncomiendas().add(e);
     	}
     	SistemaEncomienda.getInstance().getListaPedidos().add(pedido);
-    	mainApp.mostrarMenuCajero();
+    	if(i == 0){
+    		mainApp.mostrarMenuCajero();
+    	}else{
+    		mainApp.mostrarMenuComo(SistemaEncomienda.getInstance().getSucursalActual());
+    	}
     }
 
     @FXML

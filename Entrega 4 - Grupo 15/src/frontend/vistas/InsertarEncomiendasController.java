@@ -18,6 +18,13 @@ public class InsertarEncomiendasController {
 
 	Pedido pedido = null;
 	private MainApp mainApp;
+	int i;
+	
+	Boolean llenado1 = false;
+	Boolean llenado2 = false;
+	Boolean llenado3 = false;
+	Boolean llenado4 = false;
+	Boolean llenado5 = false;
 
 	@FXML
 	private ComboBox listaSucursales;
@@ -46,10 +53,34 @@ public class InsertarEncomiendasController {
 	public void start(Stage primaryStage) {
 
 	}
+	
+	@FXML
+	private void handlerDireccion(){
+		llenado1 = true;
+	}
+	
+	@FXML
+	private void handlerVolumen(){
+		llenado2 = true;
+	}
+	
+	@FXML
+	private void handlerPeso(){
+		llenado3 = true;
+	}
+	
+	@FXML
+	private void handlerSucursal(){
+		llenado5 = true;
+	}
 
 	@FXML
 	private void handlerIngresarEncomiendas(){
+		//
+		if(llenado5 && llenado1 && llenado2 && llenado3 && llenado4){
+		llenado5 = false;
 		Sucursal sucursalOrigen = null;
+		
 		
 		if(listaSucursales.getValue().toString().length() < 2){
 			mainApp.mostrarMessage("Selecciona bien los datos");
@@ -90,22 +121,27 @@ public class InsertarEncomiendasController {
 	    //Aqui se agrega la encomienda a la lista de encomiendas de la sucursal
 	    //sucursalOrigen.getListaEncomiendas().add(encomienda);
 
-		mainApp.mostrarInsertarEncomiendas(pedido);
+		mainApp.mostrarInsertarEncomiendas(pedido, i);
+		}else{
+			mainApp.mostrarMessage("Seleccione bien los datos.");
+		}
 	}
 
 	@FXML
 	private void handlerTerminarPedido(){
 		//mainApp.mostrarMessage("Haz ingresado exitosamente el pedido");
 		//rellenar
-		mainApp.mostrarDetallesPedido(pedido);
+		mainApp.mostrarDetallesPedido(pedido, i);
 	}
 
 	@FXML
     private void initialize() {
     	Update();
     }
+	
 	@FXML
 	private void handlerPrecio(){
+		llenado4 = true;
 		precio.setText(Integer.toString(Integer.parseInt(volumen.getText())*20+Integer.parseInt(peso.getText())*1000));
 		//peso*1000 + volumen*20
 
@@ -125,8 +161,9 @@ public class InsertarEncomiendasController {
 	}
 
 
-	public void setMainApp(MainApp mainApp, Pedido pedido) {
+	public void setMainApp(MainApp mainApp, Pedido pedido, int i) {
         this.mainApp = mainApp;
         this.pedido = pedido;
+        this.i = i;
     }
 }

@@ -75,7 +75,9 @@ public class RecibirCamionController  {
 			for(Encomienda e: cam.enCamion){
 				//e.setEstadoEncomienda(EstadoEncomienda.EnDestino);
 			}
+			seleccionado = false;
 		}
+		
 		mainApp.mostrarMessage("Haz recibido el camion");
 		//rellenar
 		mainApp.mostrarMenuOperador();

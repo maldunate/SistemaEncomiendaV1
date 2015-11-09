@@ -15,9 +15,13 @@ public class MenuIngresarPedidoController  {
 	private ComboBox listaClientes;
 
 	private MainApp mainApp;
+	
+	Boolean seleccionado = false;
+	
+	int i;
 
 	public MenuIngresarPedidoController() {
-
+		
 	}
 
 	public void start(Stage primaryStage) {
@@ -26,23 +30,32 @@ public class MenuIngresarPedidoController  {
 
 	@FXML
 	private void handlerIngresarEncomiendas(){
-		Cliente cliente = null;
-		//System.out.println(listaClientes.getValue());
-		for (Cliente c : SistemaEncomienda.getInstance().getListaClientes()) {
-			if(c.getNombre().equals(listaClientes.getValue())){
-				cliente = c;
+		if(seleccionado){
+			Cliente cliente = null;
+			//System.out.println(listaClientes.getValue());
+			for (Cliente c : SistemaEncomienda.getInstance().getListaClientes()) {
+				if(c.getNombre().equals(listaClientes.getValue())){
+					cliente = c;
+				}
 			}
+			Pedido pedido = new Pedido(cliente);
+			seleccionado = false;
+			//System.out.println(pedido.getCliente().getNombre());
+			mainApp.mostrarInsertarEncomiendas(pedido, i);
+		}else{
+			mainApp.mostrarMessage("Elige un cliente porfavor");
 		}
-		Pedido pedido = new Pedido(cliente);
-
-		//System.out.println(pedido.getCliente().getNombre());
-		mainApp.mostrarInsertarEncomiendas(pedido);
 	}
 
 	@FXML
     private void initialize() {
     	UpdateClientes();
     }
+	
+	 @FXML
+	    void handlerCliente() {
+	    	seleccionado = true;
+	    }
 
     @FXML
     void handlerAtras() {
@@ -53,7 +66,8 @@ public class MenuIngresarPedidoController  {
 		listaClientes.getItems().addAll(SistemaEncomienda.getInstance().getClientesNombre());
 	}
 
-	public void setMainApp(MainApp mainApp) {
+	public void setMainApp(MainApp mainApp, int i) {
         this.mainApp = mainApp;
+        this.i = i;
     }
 }
