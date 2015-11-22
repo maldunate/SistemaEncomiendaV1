@@ -62,6 +62,22 @@ public class Encomienda  implements java.io.Serializable {
 	public String getEstadoEncomiendaString() {
 		return this.estadoEncomienda.toString();
 	}
+	
+	public void setEstadoEntregado(){
+		estadoEncomienda = EstadoEncomienda.Entregado;
+	}
+	
+	public void setEstadoEnTransito(){
+		estadoEncomienda = EstadoEncomienda.EnTransito;
+	}
+	
+	public void setEstadoEnDestino(){
+		estadoEncomienda = EstadoEncomienda.EnDestino;
+	}
+	
+	public void setEstadoEnOrigen(){
+		estadoEncomienda = EstadoEncomienda.EnOrigen;
+	}
 
 	public void setEstadoEncomienda(EstadoEncomienda estadoEncomienda) {
 		this.estadoEncomienda = estadoEncomienda;

@@ -1,6 +1,7 @@
 package frontend.vistas;
 
 import backend.Camion;
+import backend.Encomienda;
 import backend.SistemaEncomienda;
 import backend.Sucursal;
 import backend.main;
@@ -106,6 +107,13 @@ public class InsertarDespacharController {
 			suc.getListaCamiones().remove(cam);
 			cam.getSucursalDestino().getCamionesConEncomiendas().add(cam);
 			seleccionado = false;
+			
+			//Aqui se cambian los estados de las encomiendas y del camion
+			cam.setEstadoEnDestino();
+			for(Encomienda e : cam.enCamion){
+				e.setEstadoEnDestino();
+			}
+			
 			mainApp.mostrarMessage("Haz despachado el camión");
 			mainApp.mostrarMenuOperador();
 		}else{

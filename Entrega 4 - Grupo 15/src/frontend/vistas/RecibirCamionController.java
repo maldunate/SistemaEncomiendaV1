@@ -75,7 +75,7 @@ public class RecibirCamionController  {
 			cam.getSucursalOrigen().getListaCamiones().add(cam);
 			cam.enCamion.clear();
 			for(Encomienda e: cam.enCamion){
-				//e.setEstadoEncomienda(EstadoEncomienda.EnDestino);
+				e.setEstadoEntregado();
 			}
 			seleccionado = false;
 			mainApp.mostrarMessage("Haz recibido el camion");

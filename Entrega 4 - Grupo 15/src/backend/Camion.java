@@ -20,6 +20,14 @@ public class Camion extends Vehiculo{
 	public EstadoCamion getEstadoCamion() {
 		return estadoCamion;
 	}
+	
+	public void setEstadoEnOrigen() {
+		estadoCamion = EstadoCamion.EnOrigen;
+	}
+	
+	public void setEstadoEnDestino() {
+		estadoCamion = EstadoCamion.EnDestino;
+	}
 
 	public void setEstadoCamion(EstadoCamion estadoCamion) {
 		this.estadoCamion = estadoCamion;

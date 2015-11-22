@@ -114,6 +114,7 @@ public class InsertarEncomiendaCamionController {
 		if(elegido == true){
 			for (Encomienda e : encomiendas) {
 				if(e.nombre.equals(listaEncomiendas.getValue())){
+					e.setEstadoEnTransito();
 					cam.enCamion.add(e);
 					actual.getListaEncomiendas().remove(e);
 				}
