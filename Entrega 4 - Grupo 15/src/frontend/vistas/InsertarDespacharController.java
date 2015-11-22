@@ -52,6 +52,8 @@ public class InsertarDespacharController {
 	@FXML
     private void initialize() {
 		
+		listaCamiones.setEditable(false);
+		listaEncomiendas.setEditable(false);
 		for (Sucursal s : SistemaEncomienda.getInstance().getListaSucursales()) {
 			if(s.getNombre().equals(SistemaEncomienda.getInstance().getSucursalActual())){
 				suc = s;

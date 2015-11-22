@@ -52,6 +52,8 @@ public class RecibirCamionController  {
 
 	@FXML
     private void initialize() {
+		listaCamiones.setEditable(false);
+		listaEncomiendas.setEditable(false);
 		//actual = SistemaEncomienda.getInstance().compararSucursal(SistemaEncomienda.getInstance().getSucursalActual());
 		for (Sucursal s : SistemaEncomienda.getInstance().getListaSucursales()) {
 			if(s.getNombre().equals(SistemaEncomienda.getInstance().getSucursalActual())){
@@ -76,11 +78,15 @@ public class RecibirCamionController  {
 				//e.setEstadoEncomienda(EstadoEncomienda.EnDestino);
 			}
 			seleccionado = false;
+			mainApp.mostrarMessage("Haz recibido el camion");
+			mainApp.mostrarMenuOperador();
+		}else{
+			mainApp.mostrarMessage("Elige un cambión que recibir.");
 		}
 		
-		mainApp.mostrarMessage("Haz recibido el camion");
+		
 		//rellenar
-		mainApp.mostrarMenuOperador();
+		
 
 	}
 	

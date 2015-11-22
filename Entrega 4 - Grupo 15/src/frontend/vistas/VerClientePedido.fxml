@@ -55,22 +55,22 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text layoutX="199.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" " textAlignment="RIGHT" wrappingWidth="82.13671875">
+            <Text fx:id="volumen" layoutX="199.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" " textAlignment="RIGHT" wrappingWidth="82.13671875">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text layoutX="474.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" " textAlignment="RIGHT" wrappingWidth="82.13671875">
+            <Text fx:id="peso" layoutX="474.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" " textAlignment="RIGHT" wrappingWidth="82.13671875">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text fx:id="peso" layoutX="500.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" kg" textAlignment="RIGHT" wrappingWidth="82.13671875">
+            <Text layoutX="500.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" kg" textAlignment="RIGHT" wrappingWidth="82.13671875">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text fx:id="volumen" layoutX="281.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="cc" textAlignment="RIGHT" wrappingWidth="31.13671875">
+            <Text layoutX="281.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="cc" textAlignment="RIGHT" wrappingWidth="31.13671875">
                <font>
                   <Font size="14.0" />
                </font>

@@ -16,6 +16,8 @@ public class ElegirClienteController  {
 
 	private MainApp mainApp;
 	
+	Boolean elegido;
+	
 	int i;
 
 	public ElegirClienteController() {
@@ -25,24 +27,33 @@ public class ElegirClienteController  {
 	public void start(Stage primaryStage) {
 
 	}
+	
+	@FXML
+	private void handlerElegirCliente(){
+		elegido = true;
+	}
 
 	@FXML
 	private void handlerIngresarEncomiendas(){
-	
-		Cliente cliente = null;
-		//System.out.println(listaClientes.getValue());
-		for (Cliente c : SistemaEncomienda.getInstance().getListaClientes()) {
+		if(elegido){
+			Cliente cliente = null;
+			//System.out.println(listaClientes.getValue());
+			for (Cliente c : SistemaEncomienda.getInstance().getListaClientes()) {
 			if(c.getNombre().equals(listaClientes.getValue())){
 				cliente = c;
+				}
 			}
+			mainApp.mostrarMenuCliente(cliente);
+			elegido = false;
+		}else{
+			mainApp.mostrarMessage("Elija un Cliente");
 		}
-		mainApp.mostrarMenuCliente(cliente);
-		
 	}
 
 	@FXML
     private void initialize() {
     	UpdateClientes();
+    	elegido = false;
     }
 
     @FXML

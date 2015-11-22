@@ -34,9 +34,9 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="nombre" layoutX="157.0" layoutY="115.0" prefHeight="33.0" prefWidth="429.0" promptText="Ingresar nombre..." />
-      <TextField fx:id="direccion" layoutX="157.0" layoutY="160.0" prefHeight="33.0" prefWidth="429.0" promptText="Nombre calle, 2222" />
-      <TextField fx:id="numero" layoutX="157.0" layoutY="205.0" prefHeight="33.0" prefWidth="429.0" promptText="+56 9 8 2222222" />
+      <TextField fx:id="nombre" layoutX="157.0" layoutY="115.0" onKeyPressed="#handlerNombre" prefHeight="33.0" prefWidth="429.0" promptText="Ingresar nombre..." />
+      <TextField fx:id="direccion" layoutX="157.0" layoutY="160.0" onKeyPressed="#handlerDireccion" prefHeight="33.0" prefWidth="429.0" promptText="Nombre calle, 2222" />
+      <TextField fx:id="numero" layoutX="157.0" layoutY="205.0" onKeyPressed="#handlerNumero" prefHeight="33.0" prefWidth="429.0" promptText="+56 9 8 2222222" />
       <Button layoutX="372.0" layoutY="293.0" mnemonicParsing="false" onAction="#handlerAtras" prefHeight="45.0" prefWidth="182.0" text="Atras">
          <font>
             <Font size="17.0" />
