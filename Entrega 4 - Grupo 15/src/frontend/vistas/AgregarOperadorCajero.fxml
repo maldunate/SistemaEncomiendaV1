@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="449.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.vistas.AgregarOperadorCajeroController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="131.0" layoutY="20.0" prefHeight="91.0" prefWidth="379.0" text="Agregar Operador/Cajero" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <Button layoutX="147.0" layoutY="296.0" mnemonicParsing="false" onAction="#handlerAgregar" prefHeight="45.0" prefWidth="346.0" text="Agregar Operador/Cajero">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button layoutX="147.0" layoutY="354.0" mnemonicParsing="false" onAction="#handlerAtras" prefHeight="45.0" prefWidth="346.0" text="Atras">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <TextField fx:id="nombre" layoutX="238.0" layoutY="171.0" onKeyPressed="#handlerNombre" prefHeight="36.0" prefWidth="259.0" promptText="Nombre de operador o cajero" />
+      <Label layoutX="147.0" layoutY="171.0" prefHeight="36.0" prefWidth="71.0" text="Nombre :" />
+      <Label layoutX="147.0" layoutY="225.0" prefHeight="36.0" prefWidth="71.0" text="Clave :" />
+      <TextField fx:id="clave" layoutX="238.0" layoutY="225.0" onKeyPressed="#handlerClave" prefHeight="36.0" prefWidth="259.0" promptText="Clave de operador o cajero" />
+      <ComboBox fx:id="opcion" layoutX="238.0" layoutY="111.0" onAction="#handlerOpcion" prefHeight="31.0" prefWidth="259.0" promptText="Operador o Cajero" />
+      <Label layoutX="147.0" layoutY="109.0" prefHeight="36.0" prefWidth="71.0" text="Tipo :" />
+   </children>
+</AnchorPane>

@@ -6,12 +6,14 @@ public class Operador extends Persona{
 
 	Sucursal sucursal;
 	public int numeroError;
+	public String clave;
 	
 	public ArrayList<MensajeError> listaErrores = new ArrayList<>();;
 	
-	public Operador(String nombre) {
+	public Operador(String nombre, String clave) {
 		super(nombre);
 		numeroError = 1;
+		this.clave = clave;
 		//this.sucursal = sucursal;
 		// TODO Auto-generated constructor stub
 	}

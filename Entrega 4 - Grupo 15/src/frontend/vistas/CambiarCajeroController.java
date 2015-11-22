@@ -1,6 +1,8 @@
 package frontend.vistas;
 
+
 import java.util.ArrayList;
+import javafx.scene.control.TextField;
 
 import backend.Cajero;
 import backend.Operador;
@@ -24,20 +26,27 @@ MainApp mainApp;
 	
     @FXML
     private ComboBox listaCajeros;
+    
+    @FXML
+    private TextField clave;
 
     @FXML
     void handlerAtras() {
-    	mainApp.mostrarAdministrarSistema();
+    	mainApp.mostrarMenuComo(SistemaEncomienda.getInstance().getSucursalActual());
     }
 
     @FXML
     void handlerCambiarCajero() {
-    	if(seleccionado){
+    	if(seleccionado == false){
+    		mainApp.mostrarMessage("Elige un cajero");	
+    	}else if(clave.getText().equals(cajero.clave)){
     		actual.setCajero(cajero);
-    		mainApp.mostrarMessage("Haz cambiado el cajero de la sucurusal " + actual.getNombre() + " a " + cajero.getNombre());
-    		mainApp.mostrarAdministrarSistema();
+    		mainApp.mostrarMessage("Haz ingresado como " + cajero.getNombre());
+    		mainApp.mostrarMenuCajero();	
     	}else{
-    		mainApp.mostrarMessage("Elige un cajero");
+    		System.out.println(clave.getText());
+    		System.out.println(cajero.clave);
+    		mainApp.mostrarMessage("La clave es incorrecta, intente denuevo");
     	}
     }
 

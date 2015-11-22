@@ -1,5 +1,6 @@
 package frontend.vistas;
 
+import java.awt.Label;
 import java.util.ArrayList;
 
 import backend.Encomienda;
@@ -13,6 +14,7 @@ import javafx.stage.Stage;
 public class MenuOperadorController {
 
 
+	
 	private MainApp mainApp;
 	
 	public MenuOperadorController() {
@@ -58,7 +60,6 @@ public class MenuOperadorController {
 	
 	@FXML
     private void initialize() {
-    	
     }
 	
 	@FXML

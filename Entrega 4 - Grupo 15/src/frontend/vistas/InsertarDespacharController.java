@@ -50,8 +50,7 @@ public class InsertarDespacharController {
 
 	
 	@FXML
-    private void initialize() {
-		
+    private void initialize() {	
 		listaCamiones.setEditable(false);
 		listaEncomiendas.setEditable(false);
 		for (Sucursal s : SistemaEncomienda.getInstance().getListaSucursales()) {

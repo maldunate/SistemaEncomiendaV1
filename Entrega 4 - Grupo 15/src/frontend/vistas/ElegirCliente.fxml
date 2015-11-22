@@ -14,12 +14,12 @@
             <Font name="System Bold" size="23.0" />
          </font>
       </Label>
-      <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="53.0" layoutY="165.0" prefHeight="45.0" prefWidth="164.0" text="Cliente: " textAlignment="CENTER" wrapText="true">
+      <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="51.0" layoutY="139.0" prefHeight="45.0" prefWidth="164.0" text="Cliente : " textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <ComboBox fx:id="listaClientes" layoutX="157.0" layoutY="153.0" onAction="#handlerElegirCliente" prefHeight="45.0" prefWidth="429.0" promptText="Lista de clientes en sistema..." />
+      <ComboBox fx:id="listaClientes" layoutX="158.0" layoutY="129.0" onAction="#handlerElegirCliente" prefHeight="45.0" prefWidth="429.0" promptText="Lista de clientes en sistema..." />
       <Button layoutX="87.0" layoutY="276.0" mnemonicParsing="false" onAction="#handlerIngresarEncomiendas" prefHeight="45.0" prefWidth="212.0" text="Ingresar">
          <font>
             <Font size="17.0" />
@@ -30,5 +30,11 @@
             <Font size="17.0" />
          </font>
       </Button>
+      <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="51.0" layoutY="192.0" prefHeight="45.0" prefWidth="164.0" text="Clave : " textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="clave" layoutX="158.0" layoutY="192.0" prefHeight="31.0" prefWidth="429.0" />
    </children>
 </AnchorPane>

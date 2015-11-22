@@ -1,5 +1,6 @@
 package frontend.vistas;
 
+import javafx.scene.control.TextField;
 import java.util.ArrayList;
 
 import backend.Operador;
@@ -19,22 +20,30 @@ public class CambiarOperadorController {
 	
 	Operador operador;
 	
+
+    @FXML
+    private TextField clave;
+	
     @FXML
     private ComboBox listaOperadores;
 
     @FXML
     void handlerAtras() {
-    	mainApp.mostrarAdministrarSistema();
+    	mainApp.mostrarMenuComo(SistemaEncomienda.getInstance().getSucursalActual());
     }
 
     @FXML
     void handlerCambiarOperador() {
-    	if(seleccionado){
+    	if(seleccionado == false){
+    		mainApp.mostrarMessage("Elige un operador");	
+    	}else if(clave.getText().equals(operador.clave)){
     		actual.setOperador(operador);
-    		mainApp.mostrarMessage("Haz cambiado el operador de la sucurusal " + actual.getNombre() + " a " + operador.getNombre());
-    		mainApp.mostrarAdministrarSistema();
+    		mainApp.mostrarMessage("Haz ingresado como " + operador.getNombre());
+    		mainApp.mostrarMenuOperador();	
     	}else{
-    		mainApp.mostrarMessage("Elige un operador");
+    		System.out.println(clave.getText());
+    		System.out.println(operador.clave);
+    		mainApp.mostrarMessage("La clave es incorrecta, intente denuevo");
     	}
     }
 

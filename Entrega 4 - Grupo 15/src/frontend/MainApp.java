@@ -23,6 +23,7 @@ import backend.SistemaEncomienda;
 import frontend.vistas.AdministrarCamionesController;
 import frontend.vistas.AdministrarSistemaController;
 import frontend.vistas.AdministrarSucursalController;
+import frontend.vistas.AgregarOperadorCajeroController;
 import frontend.vistas.CajeroOperadorController;
 import frontend.vistas.CambiarCajeroController;
 import frontend.vistas.CambiarOperadorController;
@@ -174,6 +175,28 @@ public class MainApp extends Application {
 
             // Dar acceso al controlador de bienvenida
             MenuOperadorController controllerView = loader.getController();
+            controllerView.setMainApp(this);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+	}
+	
+	public void mostrarAgregarOperadorCajero(){
+        try {
+            // Load bienvenida
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("vistas/AgregarOperadorCajero.fxml"));
+            AnchorPane menuOperador = (AnchorPane)loader.load();
+
+            // Poner la vista del login en el centro de la ventana principal
+            rootLayout.setCenter(menuOperador);
+
+            // Dar acceso al controlador de bienvenida
+            AgregarOperadorCajeroController controllerView = loader.getController();
             controllerView.setMainApp(this);
 
 

@@ -6,6 +6,7 @@ public class Cliente extends Persona{
 
 	String numero;
 	String direccion;
+	public String clave;
 	public ArrayList<Pedido> listaPedidos;
 	double coeficiente_frecuente;
 
@@ -13,12 +14,13 @@ public class Cliente extends Persona{
 	 * @param numero
 	 * @param direccion
 	 */
-	public Cliente(String nombre, String numero, String direccion) {
+	public Cliente(String nombre, String numero, String direccion, String clave) {
 		super(nombre);
 		this.numero = numero;
 		this.direccion = direccion;
 		this.listaPedidos = new ArrayList<>();
 		this.coeficiente_frecuente = 0;
+		this.clave = clave;
 	}
 
 	public String getNumero() {

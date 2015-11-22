@@ -148,12 +148,12 @@ public class SistemaEncomienda implements java.io.Serializable {
 	
 	public void rellenarClientes(){
 		for (int i = 0; i < cantidadDeClientes; i++) {
-			agregarCliente("nombre"+i, "numero"+i, "direccion"+i);
+			agregarCliente("nombre"+i, "numero"+i, "direccion"+i, Integer.toString(i));
 		}
 	}
 	
-	public void agregarCliente(String nombre, String numero, String direccion){
-		listaClientes.add(new Cliente(nombre, numero, direccion));
+	public void agregarCliente(String nombre, String numero, String direccion, String clave){
+		listaClientes.add(new Cliente(nombre, numero, direccion, clave));
 	}
 	
 	public void agregarUnaSucursal(String nombre, String direccion){
@@ -167,22 +167,22 @@ public class SistemaEncomienda implements java.io.Serializable {
 	}
 	
 	public void crearSucursales(){
-		Sucursal s1 = new Sucursal(0, direccion[0], "Las Condes", new Operador("Manuel"), new Cajero("Lucas",this));
+		Sucursal s1 = new Sucursal(0, direccion[0], "Las Condes", new Operador("Manuel", "operador"), new Cajero("Lucas",this,"cajero"));
 		s1.cajero.setSucursal(s1);
 		s1.operador.setSucursal(s1);
 		listaSucursales.add(s1);
 		
-		Sucursal s2 = new Sucursal(1, direccion[1], "La Reina", new Operador("Manuel2"), new Cajero("Lucas2",this));
+		Sucursal s2 = new Sucursal(1, direccion[1], "La Reina", new Operador("Manuel2", "operador"), new Cajero("Lucas2",this,"cajero"));
 		s2.cajero.setSucursal(s2);
 		s2.operador.setSucursal(s2);
 		listaSucursales.add(s2);
 		
-		Sucursal s3 = new Sucursal(2, direccion[2], "Chicureo", new Operador("Manuel3"), new Cajero("Lucas3",this));
+		Sucursal s3 = new Sucursal(2, direccion[2], "Chicureo", new Operador("Manuel3", "operador"), new Cajero("Lucas3",this,"cajero"));
 		s3.cajero.setSucursal(s3);
 		s3.operador.setSucursal(s3);
 		listaSucursales.add(s3);
 		
-		Sucursal s4 = new Sucursal(3, direccion[3], "San Joaquin", new Operador("Manuel4"), new Cajero("Lucas4",this));
+		Sucursal s4 = new Sucursal(3, direccion[3], "San Joaquin", new Operador("Manuel4", "operador"), new Cajero("Lucas4",this,"cajero"));
 		s4.cajero.setSucursal(s4);
 		s4.operador.setSucursal(s4);
 		listaSucursales.add(s4);

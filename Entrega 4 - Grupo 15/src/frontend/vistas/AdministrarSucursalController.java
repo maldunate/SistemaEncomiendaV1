@@ -21,11 +21,15 @@ public class AdministrarSucursalController extends Application {
     private Label sucursal;
 
     @FXML
-    void handlerOperador() {
+    void handlerOperadorCajero() {
+    	mainApp.mostrarAgregarOperadorCajero();
+    	
+    	/*
     	Operador op = new Operador(nombre.getText());
     	SistemaEncomienda.getInstance().getSucursalAPartirDeNombre(SistemaEncomienda.getInstance().getSucursalActual()).listaOperadores.add(op);
     	mainApp.mostrarMessage("Haz agregado al operador " + nombre.getText() + " a la sucursal " + SistemaEncomienda.getInstance().getSucursalActual());
-    }
+    
+    */}
     
     @FXML
     void handlerCambiarOperador() {
@@ -34,9 +38,13 @@ public class AdministrarSucursalController extends Application {
 
     @FXML
     void handlerCajero() {
+    	
+    	
+    	/*
     	Cajero cajero = new Cajero(nombre.getText(), SistemaEncomienda.getInstance());
     	SistemaEncomienda.getInstance().getSucursalAPartirDeNombre(SistemaEncomienda.getInstance().getSucursalActual()).listaCajeros.add(cajero);
     	mainApp.mostrarMessage("Haz agregado al cajero " + nombre.getText() + " a la sucursal " + SistemaEncomienda.getInstance().getSucursalActual());
+   */
     }
     
     @FXML

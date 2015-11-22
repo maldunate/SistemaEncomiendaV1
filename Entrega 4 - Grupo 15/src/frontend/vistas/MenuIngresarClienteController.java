@@ -21,6 +21,9 @@ public class MenuIngresarClienteController {
 
 	@FXML
 	private TextField direccion;
+	
+    @FXML
+    private TextField Clave;
 
 	@FXML
 	private TextField numero;
@@ -28,6 +31,7 @@ public class MenuIngresarClienteController {
 	Boolean nombreCambiado;
 	Boolean direccionCambiada;
 	Boolean numeroCambiado;
+	Boolean claveCambiada;
 	
 	public MenuIngresarClienteController() {
 		
@@ -36,6 +40,11 @@ public class MenuIngresarClienteController {
 	public void start(Stage primaryStage) {
 		
 	}
+	
+	@FXML
+    void handlerClave() {
+		claveCambiada = true;
+    }
 
 	@FXML
 	private void handlerInsertarDespachar(){
@@ -59,13 +68,14 @@ public class MenuIngresarClienteController {
 	
 	@FXML
     private void initialize() {
-    	nombre.setText("Nombre Cliente");
-    	direccion.setText("Direccion Cliente");
-    	numero.setText("Numero Cliente");
+    	//nombre.setText("Nombre Cliente");
+    	//direccion.setText("Direccion Cliente");
+    	//numero.setText("Numero Cliente");
     	
     	nombreCambiado = false;
     	direccionCambiada = false;
     	numeroCambiado = false;
+    	claveCambiada = false;
     }
 	
 	@FXML
@@ -79,9 +89,11 @@ public class MenuIngresarClienteController {
 			mainApp.mostrarMessage("Ingresa la direccion del Cliente");
 		}else if(numeroCambiado == false){
 			mainApp.mostrarMessage("Ingresa el numero del Cliente");
+		}else if(claveCambiada == false){
+			mainApp.mostrarMessage("Ingresa la clave");
 		}else{
 			mainApp.mostrarMessage("Haz ingresado al cliente");
-			SistemaEncomienda.getInstance().agregarCliente(nombre.getText(), numero.getText(), direccion.getText());
+			SistemaEncomienda.getInstance().agregarCliente(nombre.getText(), numero.getText(), direccion.getText(), Clave.getText());
 			mainApp.mostrarMenuCajero();
 		}
 	}
