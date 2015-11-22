@@ -1,10 +1,17 @@
 package backend;
 
+import java.util.ArrayList;
+
 public class Operador extends Persona{
 
 	Sucursal sucursal;
+	public int numeroError;
+	
+	public ArrayList<MensajeError> listaErrores = new ArrayList<>();;
+	
 	public Operador(String nombre) {
 		super(nombre);
+		numeroError = 1;
 		//this.sucursal = sucursal;
 		// TODO Auto-generated constructor stub
 	}
@@ -18,6 +25,10 @@ public class Operador extends Persona{
 				return;
 			}
 		}
+	}
+	
+	public void IncrementarError(){
+		numeroError ++;
 	}
 	
     public Encomienda ElegirEncomienda (){

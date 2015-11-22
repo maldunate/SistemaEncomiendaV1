@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.vistas.VerErroresOperariosController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="74.0" layoutY="14.0" prefHeight="45.0" prefWidth="509.0" text="Ver Errores Operarios" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <Button layoutX="238.0" layoutY="319.0" mnemonicParsing="false" onAction="#handlerEliminar" prefHeight="45.0" prefWidth="164.0" text="Eliminar">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button layoutX="421.0" layoutY="319.0" mnemonicParsing="false" onAction="#handlerAtras" prefHeight="45.0" prefWidth="164.0" text="Atras">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <TextArea fx:id="Registro" layoutX="74.0" layoutY="149.0" onKeyPressed="#handlerTexto" prefHeight="155.0" prefWidth="509.0" />
+      <ComboBox fx:id="listaOperadores" layoutX="194.0" layoutY="68.0" onAction="#handlerListaOperadores" prefHeight="31.0" prefWidth="253.0" promptText="Lista Operadores" />
+      <Label layoutX="75.0" layoutY="68.0" prefHeight="31.0" prefWidth="100.0" text="Operario :" />
+      <Label layoutX="75.0" layoutY="106.0" prefHeight="31.0" prefWidth="108.0" text="Error Número :" />
+      <ComboBox fx:id="Errores" layoutX="194.0" layoutY="106.0" onAction="#handlerErrores" prefHeight="31.0" prefWidth="253.0" promptText="Errores" />
+   </children>
+</AnchorPane>

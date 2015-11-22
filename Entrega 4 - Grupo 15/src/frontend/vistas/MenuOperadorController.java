@@ -48,7 +48,7 @@ public class MenuOperadorController {
 	
 	@FXML
 	private void handlerVerErrores(){
-		
+		mainApp.mostrarVerErroresOperarios();
 	}
 	
 	@FXML

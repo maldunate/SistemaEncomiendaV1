@@ -26,6 +26,9 @@ public class SistemaEncomienda implements java.io.Serializable {
 	
 	
 	public SistemaEncomienda() {
+		//listaPedidos.clear();
+		//listaClientes.clear();
+		//listaSucursales.clear();
 		//crearSucursales();
 		//rellenarClientes();
 	}
@@ -102,7 +105,7 @@ public class SistemaEncomienda implements java.io.Serializable {
 	public void registrarError(Sucursal sucursal, Mensaje mensaje){
 		for(Sucursal s : listaSucursales){
 			if(s == sucursal){
-				s.listaErrores.add(mensaje);
+				//s.listaErrores.add(mensaje);
 			}
 		}
 	}
@@ -256,6 +259,10 @@ public class SistemaEncomienda implements java.io.Serializable {
 		
 		//crearSucursales();
 	    //rellenarClientes();
+	    //listaPedidos.clear();
+		//listaClientes.clear();
+		//listaSucursales.clear();
+		
 		SerializeDemo.serializeListaSucursales(listaSucursales);
 		SerializeDemo.serializeListaClientes(listaClientes);
 		SerializeDemo.serializeListaPedidos(listaPedidos);

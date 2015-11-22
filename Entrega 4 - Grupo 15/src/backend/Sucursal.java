@@ -14,11 +14,11 @@ public class Sucursal  implements java.io.Serializable {
 	Operador operador;
 	Random r = new Random();	
 	Cajero cajero;
+	public ArrayList<Operador> listaOperadores = new ArrayList<>();;
 	ArrayList<Camion> listaCamiones = new ArrayList<>();;
 	ArrayList<Encomienda> listaEncomiendas = new ArrayList<>();;
 	ArrayList<Camion> camionesConEncomiendas = new ArrayList<>();;
 	ArrayList<Mensaje> listaMensajes = new ArrayList<>();;
-	public ArrayList<Mensaje> listaErrores = new ArrayList<>();;
 	
 	/**
 	 * @param id
@@ -36,6 +36,7 @@ public class Sucursal  implements java.io.Serializable {
 		this.direccion = direccion;
 		this.nombre = nombre;
 		this.operador = operador;
+		listaOperadores.add(this.operador);
 		this.cajero = cajero;
 	}
 

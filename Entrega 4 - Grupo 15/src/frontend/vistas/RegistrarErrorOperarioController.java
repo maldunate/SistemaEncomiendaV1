@@ -1,6 +1,7 @@
 package frontend.vistas;
 
 
+import backend.MensajeError;
 import backend.SistemaEncomienda;
 import backend.Sucursal;
 import frontend.MainApp;
@@ -32,7 +33,12 @@ public class RegistrarErrorOperarioController {
     void handlerRegistrar() {
     	if(cambiado){
     		//System.out.println(actual.getOperador().getNombre());
-    		actual.listaErrores.add(SistemaEncomienda.getInstance().devolverMensaje(Registro.getText(), actual, actual, actual.getOperador().getNombre()));
+    		//actual.listaErrores.add(SistemaEncomienda.getInstance().devolverMensaje(Registro.getText(), actual, actual, actual.getOperador().getNombre()));
+    		
+    		MensajeError mensajeError = new MensajeError(Registro.getText(), actual.getOperador().numeroError);
+    		actual.getOperador().IncrementarError();
+    		actual.getOperador().listaErrores.add(mensajeError);
+    		
     		mainApp.mostrarMenuOperador();
     		mainApp.mostrarMessage("Haz registrado el error");
     	}else{
