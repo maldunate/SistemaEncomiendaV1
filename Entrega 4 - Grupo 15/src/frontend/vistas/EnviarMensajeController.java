@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 public class EnviarMensajeController {
 
-private MainApp mainApp;
+	private MainApp mainApp;
 	
 	@FXML
 	private ComboBox combo; //listaSucursales

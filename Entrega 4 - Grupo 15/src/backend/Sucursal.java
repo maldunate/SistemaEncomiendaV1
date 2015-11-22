@@ -18,6 +18,7 @@ public class Sucursal  implements java.io.Serializable {
 	ArrayList<Encomienda> listaEncomiendas = new ArrayList<>();;
 	ArrayList<Camion> camionesConEncomiendas = new ArrayList<>();;
 	ArrayList<Mensaje> listaMensajes = new ArrayList<>();;
+	public ArrayList<Mensaje> listaErrores = new ArrayList<>();;
 	
 	/**
 	 * @param id

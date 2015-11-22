@@ -39,6 +39,7 @@ import frontend.vistas.MenuIngresarClienteController;
 import frontend.vistas.MenuIngresarPedidoController;
 import frontend.vistas.MenuOperadorController;
 import frontend.vistas.RecibirCamionController;
+import frontend.vistas.RegistrarErrorOperarioController;
 import frontend.vistas.RootLayoutController;
 import frontend.vistas.SistemaController;
 import frontend.vistas.VerClientePedidoController;
@@ -475,6 +476,28 @@ public class MainApp extends Application {
             // Dar acceso al controlador de bienvenida
             VerPedidosClienteController controllerView = loader.getController();
             controllerView.setMainApp(this, cliente);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+	
+	public void mostrarRegistrarError(){
+		try {
+            // Load bienvenida
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("vistas/RegistrarErrorOperario.fxml"));
+            AnchorPane generico = (AnchorPane)loader.load();
+
+
+            // Poner la vista del login en el centro de la ventana principal
+            rootLayout.setCenter(generico);
+
+            // Dar acceso al controlador de bienvenida
+            RegistrarErrorOperarioController controllerView = loader.getController();
+            controllerView.setMainApp(this);
 
 
         } catch (IOException e) {

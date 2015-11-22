@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.vistas.RegistrarErrorOperarioController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="23.0" prefHeight="45.0" prefWidth="509.0" text="Registrar Error" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <Button layoutX="238.0" layoutY="319.0" mnemonicParsing="false" onAction="#handlerRegistrar" prefHeight="45.0" prefWidth="164.0" text="Registrar">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button layoutX="421.0" layoutY="319.0" mnemonicParsing="false" onAction="#handlerAtras" prefHeight="45.0" prefWidth="164.0" text="Atras">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <TextArea fx:id="Registro" layoutX="74.0" layoutY="84.0" onKeyPressed="#handlerTexto" prefHeight="201.0" prefWidth="509.0" />
+   </children>
+</AnchorPane>

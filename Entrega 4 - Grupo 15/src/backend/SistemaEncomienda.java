@@ -97,6 +97,16 @@ public class SistemaEncomienda implements java.io.Serializable {
 		return mensaje;
 	}
 	
+	//El mensaje tiene como primer input el texto del error, el 2ndo y 3ero la sucursal del
+	//operador, y el 4to es el nombre del operador. Se hizo así para mantener la clase mensaje.
+	public void registrarError(Sucursal sucursal, Mensaje mensaje){
+		for(Sucursal s : listaSucursales){
+			if(s == sucursal){
+				s.listaErrores.add(mensaje);
+			}
+		}
+	}
+	
 	public void enviarMensaje(Sucursal sucursal, Mensaje mensaje){
 		for(Sucursal s : listaSucursales){
 			if(s == sucursal){
@@ -243,6 +253,7 @@ public class SistemaEncomienda implements java.io.Serializable {
 	}
 	
 	public void serialize(){
+		
 		//crearSucursales();
 	    //rellenarClientes();
 		SerializeDemo.serializeListaSucursales(listaSucursales);

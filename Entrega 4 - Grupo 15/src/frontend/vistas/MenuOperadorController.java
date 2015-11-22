@@ -47,6 +47,16 @@ public class MenuOperadorController {
 	}
 	
 	@FXML
+	private void handlerVerErrores(){
+		
+	}
+	
+	@FXML
+	private void handlerRegistrarError(){
+		mainApp.mostrarRegistrarError();
+	}
+	
+	@FXML
     private void initialize() {
     	
     }
