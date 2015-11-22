@@ -22,14 +22,26 @@ public class AdministrarSucursalController extends Application {
 
     @FXML
     void handlerOperador() {
-    	SistemaEncomienda.getInstance().getSucursalAPartirDeNombre(SistemaEncomienda.getInstance().getSucursalActual()).setOperador(new Operador(nombre.getText()));
-    	mainApp.mostrarMessage("Haz seteado al operador " + nombre.getText() + " en " + SistemaEncomienda.getInstance().getSucursalActual());
+    	Operador op = new Operador(nombre.getText());
+    	SistemaEncomienda.getInstance().getSucursalAPartirDeNombre(SistemaEncomienda.getInstance().getSucursalActual()).listaOperadores.add(op);
+    	mainApp.mostrarMessage("Haz agregado al operador " + nombre.getText() + " a la sucursal " + SistemaEncomienda.getInstance().getSucursalActual());
+    }
+    
+    @FXML
+    void handlerCambiarOperador() {
+    	mainApp.mostrarCambiarOperador();
     }
 
     @FXML
     void handlerCajero() {
-    	SistemaEncomienda.getInstance().getSucursalAPartirDeNombre(SistemaEncomienda.getInstance().getSucursalActual()).setCajero(new Cajero(nombre.getText(), SistemaEncomienda.getInstance()));
-    	mainApp.mostrarMessage("Haz seteado al cajero " + nombre.getText() + " en " + SistemaEncomienda.getInstance().getSucursalActual());
+    	Cajero cajero = new Cajero(nombre.getText(), SistemaEncomienda.getInstance());
+    	SistemaEncomienda.getInstance().getSucursalAPartirDeNombre(SistemaEncomienda.getInstance().getSucursalActual()).listaCajeros.add(cajero);
+    	mainApp.mostrarMessage("Haz agregado al cajero " + nombre.getText() + " a la sucursal " + SistemaEncomienda.getInstance().getSucursalActual());
+    }
+    
+    @FXML
+    void handlerCambiarCajero() {
+    	mainApp.mostrarCambiarCajero();
     }
 
     @FXML

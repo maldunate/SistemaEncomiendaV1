@@ -24,6 +24,8 @@ import frontend.vistas.AdministrarCamionesController;
 import frontend.vistas.AdministrarSistemaController;
 import frontend.vistas.AdministrarSucursalController;
 import frontend.vistas.CajeroOperadorController;
+import frontend.vistas.CambiarCajeroController;
+import frontend.vistas.CambiarOperadorController;
 import frontend.vistas.DetallesPedidoController;
 import frontend.vistas.ElegirClienteController;
 import frontend.vistas.EncomiendaActualController;
@@ -564,6 +566,50 @@ public class MainApp extends Application {
 
             // Dar acceso al controlador de bienvenida
             AdministrarSistemaController controllerView = loader.getController();
+            controllerView.setMainApp(this);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+	
+	public void mostrarCambiarOperador(){
+		try {
+            // Load bienvenida
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("vistas/CambiarOperador.fxml"));
+            AnchorPane generico = (AnchorPane)loader.load();
+
+
+            // Poner la vista del login en el centro de la ventana principal
+            rootLayout.setCenter(generico);
+
+            // Dar acceso al controlador de bienvenida
+            CambiarOperadorController controllerView = loader.getController();
+            controllerView.setMainApp(this);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+	
+	public void mostrarCambiarCajero(){
+		try {
+            // Load bienvenida
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("vistas/CambiarCajero.fxml"));
+            AnchorPane generico = (AnchorPane)loader.load();
+
+
+            // Poner la vista del login en el centro de la ventana principal
+            rootLayout.setCenter(generico);
+
+            // Dar acceso al controlador de bienvenida
+            CambiarCajeroController controllerView = loader.getController();
             controllerView.setMainApp(this);
 
 

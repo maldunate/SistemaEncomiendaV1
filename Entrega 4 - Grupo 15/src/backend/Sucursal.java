@@ -14,6 +14,7 @@ public class Sucursal  implements java.io.Serializable {
 	Operador operador;
 	Random r = new Random();	
 	Cajero cajero;
+	public ArrayList<Cajero> listaCajeros = new ArrayList<>();;
 	public ArrayList<Operador> listaOperadores = new ArrayList<>();;
 	ArrayList<Camion> listaCamiones = new ArrayList<>();;
 	ArrayList<Encomienda> listaEncomiendas = new ArrayList<>();;
@@ -38,6 +39,7 @@ public class Sucursal  implements java.io.Serializable {
 		this.operador = operador;
 		listaOperadores.add(this.operador);
 		this.cajero = cajero;
+		listaCajeros.add(this.cajero);
 	}
 
 
