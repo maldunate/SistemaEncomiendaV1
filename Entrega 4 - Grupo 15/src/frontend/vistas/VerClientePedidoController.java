@@ -3,6 +3,7 @@ import backend.SistemaEncomienda;
 import frontend.MainApp;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 import backend.Cliente;
 import backend.Encomienda;
@@ -51,6 +52,9 @@ public class VerClientePedidoController {
     @FXML
     private Text prioridad;
 
+    @FXML
+    private Label hora;
+
 	@FXML
     private void initialize() {
     	UpdateClientes();
@@ -87,6 +91,7 @@ public class VerClientePedidoController {
     	volumen.setText(Integer.toString(encomiendaActual.getVolumen()));
     	prioridad.setText(Integer.toString(encomiendaActual.getPrioridad()));
     	estado.setText(encomiendaActual.getEstadoEncomiendaString());
+    	hora.setText(encomiendaActual.getStrdate());
     }
 
 	public void setMainApp(MainApp mainApp) {

@@ -1,6 +1,7 @@
 package frontend.vistas;
 
 import java.awt.Button;
+import java.time.LocalDateTime;
 
 import backend.Encomienda;
 import backend.Pedido;
@@ -11,6 +12,7 @@ import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -40,6 +42,11 @@ public class GananciasController extends Application {
     private TableColumn<printEncomienda, String> sucursal_destino;
 
     @FXML
+    private ComboBox<String> desde;
+
+    @FXML
+    private ComboBox<String> hasta;
+    @FXML
     private TableView<printEncomienda> table;
 
     @FXML
@@ -51,16 +58,29 @@ public class GananciasController extends Application {
 
 	public void setMainApp(MainApp mainApp) {
 		this.mainApp = mainApp;
-		UpdateTabla();
+		UpdateCombo();
 		}
 	@Override
 	public void start(Stage primaryStage) {
 
 	}
-	public void UpdateTabla(){
+
+	public void UpdateCombo(){
+		int i;
+		for(i=2015; i>=2010; i -= 1 ){
+			hasta.getItems().addAll(Integer.toString(i));
+			desde.getItems().addAll(Integer.toString(i));
+		}
+	}
+	public void UpdateTabla(int antes, int despues){
+		LocalDateTime antess = LocalDateTime.of(antes, 1, 1, 0, 0);
+		LocalDateTime despuess = LocalDateTime.of(despues, 12, 31, 23, 59);
 		for (Pedido p: SistemaEncomienda.getInstance().getListaPedidos()){
 			for (Encomienda e: p.getEncomiendasPedido()){
-				data.add(new printEncomienda(e.getSucursalOrigen().getNombre(), e.getSucursalDestino().getNombre(),e.getVolumen(), e.getPeso(), e.getPrioridad(), e.getPrecio()));
+				System.out.println(e.getPago().isAfter(antess)+" "+e.getPago().isAfter(despuess)+" ");
+				if (e.getPago().isAfter(antess) && e.getPago().isBefore(despuess)){
+					data.add(new printEncomienda(e.getSucursalOrigen().getNombre(), e.getSucursalDestino().getNombre(),e.getVolumen(), e.getPeso(), e.getPrioridad(), e.getPrecio()));
+			}
 			}
 		}
 		sucursal_destino.setCellValueFactory(
@@ -83,12 +103,18 @@ public class GananciasController extends Application {
 		total.setText(Integer.toString(suma));
 
 	}
+	@FXML
+	void handlerOk(){
+		data.clear();
+		UpdateTabla(Integer.parseInt(desde.getValue()), Integer.parseInt(hasta.getValue()));
+	}
 
 	@FXML
     void handlerAtras() {
 		mainApp.mostrarMenuCajero();
 
     }
+
 	public static void main(String[] args) {
 		launch(args);
 	}

@@ -51,7 +51,7 @@ public class RecibirCamionController  {
 	}
 
 	@FXML
-    private void initialize() {
+    private void inicio() {
 		listaCamiones.setEditable(false);
 		listaEncomiendas.setEditable(false);
 		//actual = SistemaEncomienda.getInstance().compararSucursal(SistemaEncomienda.getInstance().getSucursalActual());
@@ -83,13 +83,26 @@ public class RecibirCamionController  {
 		}else{
 			mainApp.mostrarMessage("Elige un cambión que recibir.");
 		}
-		
+		inicio();
 		
 		//rellenar
 		
 
 	}
 	
+	@FXML
+	void handlerDevolver(){
+		if(seleccionado){
+			cam.getSucursalDestino().getCamionesConEncomiendas().remove(cam);
+			cam.getSucursalOrigen().getListaCamiones().add(cam);
+			seleccionado = false;
+			MensajeError mensajeError = new MensajeError("Camion enviado con un error", cam.getSucursalOrigen().getOperador().numeroError);
+    		cam.getSucursalOrigen().getOperador().IncrementarError();
+    		cam.getSucursalOrigen().getOperador().listaErrores.add(mensajeError);
+    		Update();
+    		inicio();
+		}
+	}
     @FXML
     void handlerAtras() {
     	mainApp.mostrarMenuOperador();
@@ -113,11 +126,13 @@ public class RecibirCamionController  {
 				elegida = true;
 			}
 		}
+		inicio();
 	}
 	
 	@FXML
 	private void handlerListaCamiones(){
 		Update();
+		
 	}
 	
 	private void Update(){
@@ -133,5 +148,6 @@ public class RecibirCamionController  {
 	
 	public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;   
+        inicio();
     }
 }

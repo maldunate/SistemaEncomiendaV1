@@ -120,5 +120,6 @@
             </Text>
          </children>
       </AnchorPane>
+      <Label fx:id="hora" layoutX="416.0" layoutY="339.0" prefHeight="19.0" prefWidth="164.0" />
    </children>
 </AnchorPane>

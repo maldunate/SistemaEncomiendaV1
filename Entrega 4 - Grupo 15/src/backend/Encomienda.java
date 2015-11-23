@@ -1,6 +1,8 @@
 package backend;
 
 import java.lang.reflect.Array;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
 enum EstadoEncomienda {EnOrigen, EnDestino, EnTransito, Entregado};
@@ -29,6 +31,9 @@ public class Encomienda  implements java.io.Serializable {
 		this.precio = (double)peso*1000 + (double)volumen*20;
 		this.prioridad = prioridad;
 		this.estadoEncomienda = EstadoEncomienda.EnOrigen;
+		this.date = LocalDateTime.now();
+		this.pago = LocalDateTime.now();
+		this.strdate = date.format(formater);
 		asignarNombre();
 	}
 	Sucursal sucursalOrigen;
@@ -40,6 +45,35 @@ public class Encomienda  implements java.io.Serializable {
 	int prioridad;
 	String direccionFinal;
 	public EstadoEncomienda estadoEncomienda;
+	LocalDateTime date;
+	LocalDateTime pago;
+	DateTimeFormatter formater = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+	String strdate;
+
+	public LocalDateTime getDate() {
+		return date;
+	}
+
+	public void setDate() {
+		this.date = LocalDateTime.now();
+		this.strdate = date.format(formater);
+	}
+
+	public LocalDateTime getPago() {
+		return pago;
+	}
+
+	public void setPago(LocalDateTime pago) {
+		this.pago = pago;
+	}
+
+	public String getStrdate() {
+		return strdate;
+	}
+
+	public void setStrdate(String strdate) {
+		this.strdate = strdate;
+	}
 
 	public String getDireccionFinal() {
 		return direccionFinal;

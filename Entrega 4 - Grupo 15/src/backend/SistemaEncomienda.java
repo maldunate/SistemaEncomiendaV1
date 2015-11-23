@@ -257,11 +257,11 @@ public class SistemaEncomienda implements java.io.Serializable {
 	
 	public void serialize(){
 		
-		//crearSucursales();
-	    //rellenarClientes();
-	    //listaPedidos.clear();
+		//listaPedidos.clear();
 		//listaClientes.clear();
 		//listaSucursales.clear();
+		//crearSucursales();
+		//rellenarClientes();
 		
 		SerializeDemo.serializeListaSucursales(listaSucursales);
 		SerializeDemo.serializeListaClientes(listaClientes);

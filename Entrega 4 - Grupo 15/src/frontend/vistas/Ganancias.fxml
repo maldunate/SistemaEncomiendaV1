@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="440.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.vistas.GananciasController">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" layoutY="24.0" prefHeight="45.0" prefWidth="391.0" text="Ganancias a la fecha" textAlignment="CENTER" wrapText="true">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" prefHeight="45.0" prefWidth="391.0" text="Ganancias a la fecha" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="System Bold" size="23.0" />
          </font>
@@ -23,8 +23,14 @@
             <TableColumn fx:id="precio" prefWidth="100.0" text="Precio" />
         </columns>
       </TableView>
-      <Label layoutX="27.0" layoutY="363.0" prefHeight="23.0" prefWidth="123.0" text="Ganancia Total:" />
+      <Label layoutX="27.0" layoutY="361.0" prefHeight="23.0" prefWidth="123.0" text="Ganancia Total:" />
       <Label fx:id="total" layoutX="150.0" layoutY="364.0" prefHeight="17.0" prefWidth="87.0" text="total" />
       <Button fx:id="atras" layoutX="464.0" layoutY="362.0" mnemonicParsing="false" onAction="#handlerAtras" prefHeight="25.0" prefWidth="87.0" text="ATRAS" />
+      <Text layoutX="27.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Desde:" />
+      <ComboBox fx:id="desde" layoutX="69.0" layoutY="47.0" prefHeight="25.0" prefWidth="87.0" promptText="año" />
+      <ComboBox fx:id="hasta" layoutX="206.0" layoutY="47.0" prefHeight="25.0" prefWidth="87.0" promptText="año" />
+      <Text layoutX="161.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hasta:" />
+      <Button layoutX="314.0" layoutY="47.0" mnemonicParsing="false" onAction="#handlerOk" text="OK" />
    </children>
 </AnchorPane>
+
