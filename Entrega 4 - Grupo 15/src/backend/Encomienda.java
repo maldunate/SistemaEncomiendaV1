@@ -1,6 +1,7 @@
 package backend;
 
 import java.lang.reflect.Array;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
@@ -33,7 +34,7 @@ public class Encomienda  implements java.io.Serializable {
 		this.estadoEncomienda = EstadoEncomienda.EnOrigen;
 		this.date = LocalDateTime.now();
 		this.pago = LocalDateTime.now();
-		this.strdate = date.format(formater);
+		this.strdate = date.toString();
 		asignarNombre();
 	}
 	Sucursal sucursalOrigen;
@@ -47,7 +48,6 @@ public class Encomienda  implements java.io.Serializable {
 	public EstadoEncomienda estadoEncomienda;
 	LocalDateTime date;
 	LocalDateTime pago;
-	DateTimeFormatter formater = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 	String strdate;
 
 	public LocalDateTime getDate() {
@@ -56,7 +56,7 @@ public class Encomienda  implements java.io.Serializable {
 
 	public void setDate() {
 		this.date = LocalDateTime.now();
-		this.strdate = date.format(formater);
+		this.strdate = date.toString();
 	}
 
 	public LocalDateTime getPago() {
@@ -96,21 +96,25 @@ public class Encomienda  implements java.io.Serializable {
 	public String getEstadoEncomiendaString() {
 		return this.estadoEncomienda.toString();
 	}
-	
+
 	public void setEstadoEntregado(){
 		estadoEncomienda = EstadoEncomienda.Entregado;
+		setDate();
 	}
-	
+
 	public void setEstadoEnTransito(){
 		estadoEncomienda = EstadoEncomienda.EnTransito;
+		setDate();
 	}
-	
+
 	public void setEstadoEnDestino(){
 		estadoEncomienda = EstadoEncomienda.EnDestino;
+		setDate();
 	}
-	
+
 	public void setEstadoEnOrigen(){
 		estadoEncomienda = EstadoEncomienda.EnOrigen;
+		setDate();
 	}
 
 	public void setEstadoEncomienda(EstadoEncomienda estadoEncomienda) {
