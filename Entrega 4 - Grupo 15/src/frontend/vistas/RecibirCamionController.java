@@ -54,8 +54,6 @@ public class RecibirCamionController  {
     private void inicio() {
 		listaCamiones.setEditable(false);
 		listaEncomiendas.setEditable(false);
-		nombreSucursalActual.setText(SistemaEncomienda.getInstance().getSucursalActual());
-		sucursalDestino.setText(cam.getSucursalDestino().getNombre());
 		//actual = SistemaEncomienda.getInstance().compararSucursal(SistemaEncomienda.getInstance().getSucursalActual());
 		for (Sucursal s : SistemaEncomienda.getInstance().getListaSucursales()) {
 			if(s.getNombre().equals(SistemaEncomienda.getInstance().getSucursalActual())){
