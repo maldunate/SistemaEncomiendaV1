@@ -6,21 +6,21 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="640.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="frontend.vistas.DetallesPedidoController">
+<AnchorPane prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.vistas.DetallesPedidoController">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="55.0" layoutY="54.0" prefHeight="45.0" prefWidth="551.0" text="Detalles pedido" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="System Bold" size="23.0" />
          </font>
       </Label>
-      <TableView fx:id="tabla" layoutX="40.0" layoutY="106.0" prefHeight="221.0" prefWidth="500.0">
+      <TableView fx:id="tabla" layoutX="22.0" layoutY="106.0" prefHeight="221.0" prefWidth="609.0">
         <columns>
           <TableColumn fx:id="sucursal" prefWidth="100.0" text="Sucursal Destino" />
             <TableColumn fx:id="vol" prefWidth="100.0" text="Volumen" />
-            <TableColumn fx:id="peso" prefWidth="100.0" text="Peso" />
-            <TableColumn fx:id="prioridad" prefWidth="100.0" text="Prioridad" />
-            <TableColumn fx:id="precio" prefWidth="100.0" text="Precio" />
+            <TableColumn fx:id="peso" minWidth="0.0" prefWidth="88.0" text="Peso" />
+            <TableColumn fx:id="prioridad" prefWidth="127.0" text="Prioridad" />
+            <TableColumn fx:id="precio" prefWidth="95.0" text="Precio" />
+            <TableColumn fx:id="tipo" prefWidth="98.0" text="Tipo" />
         </columns>
       </TableView>
       <Label layoutX="40.0" layoutY="342.0" text="Precio Total:" />

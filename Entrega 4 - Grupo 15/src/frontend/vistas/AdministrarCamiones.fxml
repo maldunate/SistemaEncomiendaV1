@@ -58,5 +58,11 @@
       <TextField fx:id="patente" layoutX="209.0" layoutY="170.0" prefHeight="25.0" prefWidth="284.0" promptText="Patente..." />
       <TextField fx:id="capacidad" layoutX="209.0" layoutY="210.0" prefHeight="25.0" prefWidth="284.0" promptText="Capacidad en metros cúbicos..." />
       <ComboBox fx:id="sucursalDestino" editable="true" layoutX="211.0" layoutY="125.0" onAction="#handlerSucursalDestino" prefHeight="31.0" prefWidth="284.0" promptText="Lista Sucursales..." />
+      <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="46.0" layoutY="245.0" prefHeight="45.0" prefWidth="224.0" text="Tipo:" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="tipoCamion" editable="true" layoutX="211.0" layoutY="252.0" onAction="#handlerTipo" prefHeight="31.0" prefWidth="284.0" promptText="Tipo Camion..." />
    </children>
 </AnchorPane>

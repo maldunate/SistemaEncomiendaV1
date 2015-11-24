@@ -62,17 +62,12 @@ public class MainApp extends Application {
 		this.primaryStage.setTitle("Sistema de Encomiendas");
 
 		try {
-			//Deserialize.deserialize(SistemaEncomienda.getInstance());
-			//Deserialize.deserialize2(SistemaEncomienda.getInstance());
 			SistemaEncomienda.getInstance().deserialize();
 		} catch (Throwable e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//sist = new SistemaEncomienda();
 		
 		initRootLayout();
-
 		showBienvenida();
 	}
 
@@ -111,6 +106,8 @@ public class MainApp extends Application {
             SistemaController controllerView = loader.getController();
             controllerView.setMainApp(this);
 
+            mostrarMessage("Saludos Grupo 15: Lucas Lorenzini, Ignacio Toresano y Manuel Aldunate\nSea Benévolo");
+            mostrarMessage("Contraseñas por default: \n   Clientes: el numero de cliente.\n   Cajero: 'cajero'.\n   Operador: 'operador'.\nCarpe Diem.");
 
         } catch (IOException e) {
             e.printStackTrace();

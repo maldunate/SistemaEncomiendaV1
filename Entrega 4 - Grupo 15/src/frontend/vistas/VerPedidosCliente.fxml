@@ -113,6 +113,16 @@
                </font>
             </Text>
             <Label fx:id="hora" layoutX="406.0" layoutY="329.0" prefHeight="19.0" prefWidth="164.0" />
+            <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="42.0" layoutY="306.0" prefHeight="45.0" prefWidth="164.0" text="Tipo: " textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Text fx:id="tipo" layoutX="179.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" " textAlignment="RIGHT" wrappingWidth="101.13671875">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
    </children>

@@ -24,6 +24,7 @@ public class MenuOperadorController {
 	public void start(Stage primaryStage) {
 		
 	}
+	public String original = "Las encomiendas de mayor prioridad que no han sido enviadas son:";
 	public String msje = "Las encomiendas de mayor prioridad que no han sido enviadas son:";
 	public ArrayList<Encomienda> encom = new ArrayList<>();
 	
@@ -39,8 +40,13 @@ public class MenuOperadorController {
 			msje += " " + f.getNombre() + ", con destino a sucursal " + f.getSucursalDestino().getNombre() + ".";
 		}
 		System.out.println(msje);
-		mainApp.mostrarMessage(msje);
+		if(msje.equals(original)){
+			mainApp.mostrarMessage("No hay encomiendas de prioridad alta en bodega");
+		} else {
+			mainApp.mostrarMessage(msje);
 		}
+	}
+	
 	@FXML
 	private void handlerInsertarDespachar(){
 		notificacion();

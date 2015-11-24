@@ -19,6 +19,7 @@ public class SistemaEncomienda implements java.io.Serializable {
 	
 	int cantidadDeClientes = 6;
 	
+	String[] tipos = { "Normal", "Frio", "Caliente", "Fragil", "Radiactivo" };
 	String[] direccion = { "dir1", "dir2", "dir3", "dir4" };
 	String[] patentes = {"patente1","patente2","patente3","patente4"};
 	String[] nombres = {"nombre1","nombre2","nombre3","nombre4","nombre5","nombre6","nombre7","nombre8","nombre9","nombre10","nombre11","nombre12","nombre13","nombre14"};
@@ -33,6 +34,14 @@ public class SistemaEncomienda implements java.io.Serializable {
 		//rellenarClientes();
 	}
 
+	public ArrayList<String> listaTipos(){
+		ArrayList<String> aux = new ArrayList<>();
+		for (int i = 0; i < tipos.length; i++) {
+			aux.add(tipos[i]);
+		}
+		return aux;
+	}
+	
 	public void comenzar(){
 		System.out.println("comienza el sistema");
 	}
@@ -116,6 +125,15 @@ public class SistemaEncomienda implements java.io.Serializable {
 				s.listaMensajes.add(mensaje);
 			}
 		}
+	}
+	
+	public Boolean isTipo(String s){
+		for (String string : tipos) {
+			if (string.equals(s)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public void eliminarMensaje(Sucursal sucursal, Mensaje mensaje){
@@ -256,16 +274,16 @@ public class SistemaEncomienda implements java.io.Serializable {
 	}
 	
 	public void serialize(){
+		SerializeDemo.serializeListaSucursales(listaSucursales);
+		SerializeDemo.serializeListaClientes(listaClientes);
+		SerializeDemo.serializeListaPedidos(listaPedidos);
 		
+
 		//listaPedidos.clear();
 		//listaClientes.clear();
 		//listaSucursales.clear();
 		//crearSucursales();
 		//rellenarClientes();
-		
-		SerializeDemo.serializeListaSucursales(listaSucursales);
-		SerializeDemo.serializeListaClientes(listaClientes);
-		SerializeDemo.serializeListaPedidos(listaPedidos);
 	}
 	
 	public void deserialize(){

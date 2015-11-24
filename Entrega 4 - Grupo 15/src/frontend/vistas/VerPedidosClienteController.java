@@ -29,6 +29,9 @@ public class VerPedidosClienteController {
     private Text estado;
 
     @FXML
+    private Text tipo;
+
+    @FXML
     private Text sucursalDestino;
 
     @FXML
@@ -75,6 +78,7 @@ public class VerPedidosClienteController {
     @FXML
     void handlerListaEncomiendas() {
     	encomiendaActual = pedidoActual.getEncomiendaAPartirDeNombre(listaEncomiendas.getValue().toString());
+    	if(encomiendaActual != null){
     	sucursalDestino.setText(encomiendaActual.getSucursalDestino().getNombre());
     	precio.setText(String.valueOf(encomiendaActual.precio));
     	direccionFinal.setText(encomiendaActual.getDireccionFinal());
@@ -83,6 +87,11 @@ public class VerPedidosClienteController {
     	prioridad.setText(Integer.toString(encomiendaActual.getPrioridad()));
     	estado.setText(encomiendaActual.getEstadoEncomiendaString());
     	hora.setText(encomiendaActual.getStrdate());
+    	tipo.setText(encomiendaActual.nombreTipo());
+    
+    	} else {
+    		mainApp.mostrarMessage("Error de eleccion de encomienda");
+    	}
     }
 
 	public void setMainApp(MainApp mainApp, Cliente cliente) {

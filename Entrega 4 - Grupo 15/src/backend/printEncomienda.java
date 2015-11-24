@@ -1,7 +1,7 @@
 package backend;
 
 public class printEncomienda {
-	public printEncomienda(String origen, String destino, int volumen, int peso, int prioridad, double precio) {
+	public printEncomienda(String origen, String destino, int volumen, int peso, int prioridad, double precio, String tipo) {
 		super();
 		this.destino = destino;
 		this.volumen = volumen;
@@ -9,9 +9,11 @@ public class printEncomienda {
 		this.prioridad = prioridad;
 		this.precio = precio;
 		this.origen = origen;
+		this.tipo = tipo;
 	}
 	public String origen;
 	public String destino;
+	public String tipo;
 	public int volumen;
 	public int peso;
 	public int prioridad;
@@ -51,6 +53,12 @@ public class printEncomienda {
 	}
 	public void setOrigen(String origen) {
 		this.origen = origen;
+	}
+	public String getTipo() {
+		return tipo;
+	}
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 }

@@ -115,8 +115,10 @@ public class Sucursal  implements java.io.Serializable {
 		this.listaMensajes = listaMensajes;
 	}
 	
-	public void agregarCamion(String patente, int capacidad, Sucursal sucursalDestino){
-		this.listaCamiones.add(new Camion(r.nextInt(99999), patente, capacidad, this, sucursalDestino));
+	public void agregarCamion(String patente, int capacidad, Sucursal sucursalDestino, String tipo){
+		Camion c = new Camion(r.nextInt(99999), patente, capacidad, this, sucursalDestino);
+		c.setearTipo(tipo);
+		this.listaCamiones.add(c);	
 	}
 	
 	public void agregarCamiones(ArrayList<Sucursal> listaSucursales){

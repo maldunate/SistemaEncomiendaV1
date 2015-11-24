@@ -65,7 +65,9 @@ MainApp mainApp;
         actual = SistemaEncomienda.getInstance().compararSucursal(SistemaEncomienda.getInstance().getSucursalActual());
         ArrayList<String> lista = new ArrayList<>();
 		for(Cajero c : actual.listaCajeros) {
-			lista.add(c.getNombre());
+			if(c != null){
+				lista.add(c.getNombre());
+			}
 		}
 		listaCajeros.getItems().addAll(lista);
         seleccionado = false;

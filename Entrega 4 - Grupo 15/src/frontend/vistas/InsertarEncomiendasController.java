@@ -25,12 +25,17 @@ public class InsertarEncomiendasController {
 	Boolean llenado3 = false;
 	Boolean llenado4 = false;
 	Boolean llenado5 = false;
-
+	Boolean llenado6 = false;
+	
 	@FXML
 	private ComboBox listaSucursales;
 
 	@FXML
 	private ComboBox listaPrioridades;
+
+
+	@FXML
+	private ComboBox tipo;
 
 	@FXML
 	private TextField volumen;
@@ -69,6 +74,12 @@ public class InsertarEncomiendasController {
 		llenado3 = true;
 	}
 	
+
+	@FXML
+	private void handlerTipo(){
+		llenado6 = true;
+	}
+	
 	@FXML
 	private void handlerSucursal(){
 		llenado5 = true;
@@ -77,7 +88,7 @@ public class InsertarEncomiendasController {
 	@FXML
 	private void handlerIngresarEncomiendas(){
 		//
-		if(llenado5 && llenado1 && llenado2 && llenado3 && llenado4){
+		if(llenado5 && llenado1 && llenado2 && llenado3 && llenado4 && llenado6){
 		llenado5 = false;
 		Sucursal sucursalOrigen = null;
 		
@@ -111,6 +122,7 @@ public class InsertarEncomiendasController {
 		System.out.println(Integer.parseInt(listaPrioridades.getValue().toString()));
 		//Aqui se crea la encomienda con los datos rellenados
 		Encomienda encomienda = new Encomienda(sucursalOrigen, sucursalDestino, Integer.parseInt(volumen.getText()), Integer.parseInt(peso.getText()), Integer.parseInt(listaPrioridades.getValue().toString()));
+		encomienda.setearTipo(tipo.getValue().toString());
 		//Aqui se agrega la encomienda a la lista de encomiendas del pedido
 	    pedido.getEncomiendasPedido().add(encomienda);
 	    encomienda.setDireccionFinal(direccionFinal.getText());
@@ -144,8 +156,8 @@ public class InsertarEncomiendasController {
 		llenado4 = true;
 		precio.setText(Integer.toString(Integer.parseInt(volumen.getText())*20+Integer.parseInt(peso.getText())*1000));
 		//peso*1000 + volumen*20
-
 	}
+	
 	public void Update(){
 		ArrayList<String> lista = new ArrayList<>();
 		for(String s : SistemaEncomienda.getInstance().getSucursalesNombre()) {
@@ -153,11 +165,17 @@ public class InsertarEncomiendasController {
 				lista.add(s);
 			}
 		}
+		
 		listaSucursales.getItems().addAll(lista);
 		precio.setText("");
 		volumen.setText("0");
 		peso.setText("0");
 		listaPrioridades.getItems().addAll(1,2,3);
+        tipo.getItems().add("Normal");
+        tipo.getItems().add("Fragil");
+        tipo.getItems().add("Frio");
+        tipo.getItems().add("Caliente");
+        tipo.getItems().add("Radiactivo");
 	}
 
 

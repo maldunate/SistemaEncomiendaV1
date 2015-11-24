@@ -36,6 +36,9 @@ public class InsertarEncomiendaCamionController {
 	private Text sucursalDestino;
 
 	@FXML
+	private Text tipo;
+
+	@FXML
 	private Text direccionFinal;
 
 	@FXML
@@ -94,6 +97,7 @@ public class InsertarEncomiendaCamionController {
 				precio.setText(String.valueOf(e.getPrecio()));
 				volumen.setText(Integer.toString(e.getVolumen()));
 				prioridad.setText(Integer.toString(e.getPrioridad()));
+			    tipo.setText(e.nombreTipo());
 			}
 		}
 		elegido = true;
@@ -109,22 +113,28 @@ public class InsertarEncomiendaCamionController {
 	@FXML
 	private void handlerInsertar(){
 
-
+		Boolean camionEncomienda = false;
 		//rellenar
 		if(elegido == true){
 			for (Encomienda e : encomiendas) {
 				if(e.nombre.equals(listaEncomiendas.getValue())){
-					e.setEstadoEnTransito();
-					cam.enCamion.add(e);
-					actual.getListaEncomiendas().remove(e);
+					if(e.nombreTipo().equals(cam.nombreTipo())){
+						camionEncomienda = true;
+						e.setEstadoEnTransito();
+						cam.enCamion.add(e);
+						actual.getListaEncomiendas().remove(e);
+					}else {
+						mainApp.mostrarMessage("El camión solo puede llevar " + cam.nombreTipo() + " y esta encomienda es de tipo " + e.nombreTipo() + " por lo tanto cambiar camión o encomienda para que sean del mismo tipo. Gracias");
+					}
 				}
 			}
-			mainApp.mostrarMessage("Haz insertado la encomienda");
-			mainApp.mostrarInsertarDespachar();
+			if(camionEncomienda){
+				mainApp.mostrarMessage("Haz insertado la encomienda");
+				mainApp.mostrarInsertarDespachar();
+			}
 		}else{
 			mainApp.mostrarMessage("Porfavor, elija una encomienda");
 		}
-
 	}
 
 	@FXML

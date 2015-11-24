@@ -15,13 +15,20 @@ import javafx.stage.Stage;
 public class InsertarDespacharController {
 
 	private MainApp mainApp;
-
+	
+	Boolean seleccionado2 = false;
+	
 	Camion cam = null;
 	
 	Boolean seleccionado = false;
 	
+	Encomienda aux;
+	
 	@FXML
 	private Label volumenTotal;
+	
+	@FXML
+	private Label tipo;
 	
 	@FXML
 	private Label nombreSucursalActual;
@@ -82,6 +89,11 @@ public class InsertarDespacharController {
 	
 	}
 	
+	@FXML
+	private void handlerListaEncomiendas(){
+		seleccionado2 = true;
+	}
+	
 	public void Update(){
 		
 		for (Camion c : suc.getListaCamiones()) {
@@ -95,6 +107,7 @@ public class InsertarDespacharController {
 		volumenOcupado.setText(Integer.toString(cam.calcularCapacidad()));
 		sucursalDestino.setText(cam.getSucursalDestino().getNombre());
 		listaEncomiendas.getItems().addAll(cam.getEncomiendaNombres());
+		tipo.setText(cam.nombreTipo());
 		seleccionado = true;
 	}
 	
@@ -126,13 +139,28 @@ public class InsertarDespacharController {
     	mainApp.mostrarMenuOperador();
     }
     
-	/*@FXML
+	@FXML
 	private void handlerEncomiendaActual(){
-		mainApp.mostrarEncomiendaActual(0);
+		if(seleccionado2){			
+			for (Encomienda e : cam.enCamion) {
+				if(e.nombre.equals(listaEncomiendas.getValue().toString())){
+					aux = e;
+				}
+			}
+			if(aux != null){
+				mainApp.mostrarEncomiendaActual(0, aux);
+			} else {
+				mainApp.mostrarMessage("algo pasó");
+			}
 
-	}*/
+		} else {
+			mainApp.mostrarMessage("Elige encomienda");
+		}
+	}
 	
 	public void setMainApp(MainApp mainApp) {
-        this.mainApp = mainApp;   
-    }
+        this.mainApp = mainApp;
+        seleccionado = false;
+        seleccionado2 = false;
+	}
 }

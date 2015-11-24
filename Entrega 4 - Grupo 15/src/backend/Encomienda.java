@@ -35,6 +35,7 @@ public class Encomienda  implements java.io.Serializable {
 		this.date = LocalDateTime.now();
 		this.pago = LocalDateTime.now();
 		this.strdate = date.toString();
+		this.tipo = TipoCamion.Normal;
 		asignarNombre();
 	}
 	Sucursal sucursalOrigen;
@@ -49,9 +50,38 @@ public class Encomienda  implements java.io.Serializable {
 	LocalDateTime date;
 	LocalDateTime pago;
 	String strdate;
-
+    TipoCamion tipo;
+	
 	public LocalDateTime getDate() {
 		return date;
+	}
+
+
+	public Boolean setearTipo(String s){
+		if (s.equals(TipoCamion.Caliente)) {
+			this.tipo = TipoCamion.Caliente;
+			return true;
+		}
+		
+		else if (s.equals(TipoCamion.Fragil)) {
+			this.tipo = TipoCamion.Fragil;
+			return true;
+		}
+		
+		else if (s.equals(TipoCamion.Radiactivo)) {
+			this.tipo = TipoCamion.Radiactivo;
+			return true;
+		}
+		
+		else if (s.equals(TipoCamion.Frio)) {
+			this.tipo = TipoCamion.Frio;
+			return true;
+		}
+		
+		else if (s.equals(TipoCamion.Normal)) {
+			return true;
+		}
+		return false;
 	}
 
 	public void setDate() {
@@ -65,6 +95,10 @@ public class Encomienda  implements java.io.Serializable {
 
 	public void setPago(LocalDateTime pago) {
 		this.pago = pago;
+	}
+
+	public String nombreTipo() {
+		return tipo.name();
 	}
 
 	public String getStrdate() {

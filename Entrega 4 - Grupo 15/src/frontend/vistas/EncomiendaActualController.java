@@ -17,7 +17,9 @@ public class EncomiendaActualController {
 	@FXML
 	private Text nombreEncomienda;
 
-
+	@FXML
+	private Text tipo;
+	
 	@FXML
 	private Text sucursalDestino;
 
@@ -47,7 +49,7 @@ public class EncomiendaActualController {
 	@FXML
 	private void handlerAtras(){
 		if (i==1){
-		mainApp.mostrarRecibirCamion();
+			mainApp.mostrarRecibirCamion();
 		} else if (i==0) {
 			mainApp.mostrarInsertarDespachar();
 
@@ -62,13 +64,17 @@ public class EncomiendaActualController {
     }
 
 	private void Update(){
-		nombreEncomienda.setText(encomienda.nombre);
-		sucursalDestino.setText(encomienda.getSucursalDestino().getNombre());
-		volumen.setText(Integer.toString(encomienda.getVolumen()));
-		peso.setText(Integer.toString(encomienda.getPeso()));
-		prioridad.setText(Integer.toString(encomienda.getPrioridad()));
-		precio.setText(String.valueOf(encomienda.getPrecio()));
-
+		if(encomienda != null){
+			nombreEncomienda.setText(encomienda.nombre);
+			sucursalDestino.setText(encomienda.getSucursalDestino().getNombre());
+			volumen.setText(Integer.toString(encomienda.getVolumen()));
+			peso.setText(Integer.toString(encomienda.getPeso()));
+			prioridad.setText(Integer.toString(encomienda.getPrioridad()));
+			precio.setText(String.valueOf(encomienda.getPrecio()));
+			tipo.setText(encomienda.nombreTipo());
+		} else {
+			mainApp.mostrarMessage("Error con la elección de la encomienda");
+		}
 	}
 
 

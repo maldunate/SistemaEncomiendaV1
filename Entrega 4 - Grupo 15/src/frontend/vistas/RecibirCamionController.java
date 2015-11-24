@@ -81,7 +81,7 @@ public class RecibirCamionController  {
 			mainApp.mostrarMessage("Haz recibido el camion");
 			mainApp.mostrarMenuOperador();
 		}else{
-			mainApp.mostrarMessage("Elige un cambión que recibir.");
+			mainApp.mostrarMessage("Elige un camión que recibir.");
 		}
 		inicio();
 		
