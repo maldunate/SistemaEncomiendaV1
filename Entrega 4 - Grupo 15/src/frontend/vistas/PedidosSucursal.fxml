@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.vistas.PedidosSucursalController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="51.0" layoutY="20.0" prefHeight="45.0" prefWidth="551.0" text="Detalles pedido" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tabla" layoutX="16.0" layoutY="65.0" prefHeight="286.0" prefWidth="609.0">
+        <columns>
+          <TableColumn fx:id="sucursal1" prefWidth="150.0" text="Sucursal Destino" />
+            <TableColumn fx:id="fecha1" prefWidth="159.0" text="Fecha" />
+            <TableColumn fx:id="nombre1" prefWidth="150.0" text="Nombre" />
+            <TableColumn fx:id="estado1" minWidth="0.0" prefWidth="150.0" text="Estado" />
+        </columns>
+      </TableView>
+      <Button fx:id="aceptar" layoutX="545.0" layoutY="357.0" mnemonicParsing="false" onAction="#handlerAceptar" text="Aceptar" />
+   </children>
+</AnchorPane>

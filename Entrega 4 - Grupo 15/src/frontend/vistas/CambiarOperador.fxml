@@ -27,6 +27,6 @@
       <ComboBox fx:id="listaOperadores" layoutX="190.0" layoutY="115.0" onAction="#handlerListaOperadores" prefHeight="31.0" prefWidth="247.0" promptText="Operadores" />
       <Label layoutX="96.0" layoutY="115.0" prefHeight="31.0" prefWidth="92.0" text="Operadores :" />
       <Label layoutX="96.0" layoutY="159.0" prefHeight="31.0" prefWidth="92.0" text="Clave :" />
-      <TextField fx:id="clave" layoutX="190.0" layoutY="159.0" prefHeight="31.0" prefWidth="247.0" />
+      <PasswordField fx:id="clave" layoutX="190.0" layoutY="159.0" prefHeight="31.0" prefWidth="247.0" />
    </children>
 </AnchorPane>

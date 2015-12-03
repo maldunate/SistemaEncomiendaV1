@@ -59,5 +59,10 @@ public class MenuCajeroController  {
 	public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
     }
+	
+	@FXML
+	void handlerPedidos(){
+		mainApp.mostrarPedidosSucursal();
+	}
 
 }

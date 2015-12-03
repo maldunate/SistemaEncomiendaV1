@@ -41,6 +41,7 @@ import frontend.vistas.MenuClienteController;
 import frontend.vistas.MenuIngresarClienteController;
 import frontend.vistas.MenuIngresarPedidoController;
 import frontend.vistas.MenuOperadorController;
+import frontend.vistas.PedidosSucursalController;
 import frontend.vistas.RecibirCamionController;
 import frontend.vistas.RegistrarErrorOperarioController;
 import frontend.vistas.RootLayoutController;
@@ -66,7 +67,7 @@ public class MainApp extends Application {
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
-		
+
 		initRootLayout();
 		showBienvenida();
 	}
@@ -114,7 +115,7 @@ public class MainApp extends Application {
         }
 
 	}
-	
+
 	public void mostrarMenuCliente(Cliente cliente){
         try {
             // Load bienvenida
@@ -180,7 +181,7 @@ public class MainApp extends Application {
         }
 
 	}
-	
+
 	public void mostrarAgregarOperadorCajero(){
         try {
             // Load bienvenida
@@ -349,7 +350,7 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
 	}
-	
+
 	public void mostrarMenuIngresarPedidoCliente(){
         try {
             // Load bienvenida
@@ -460,7 +461,7 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
 	}
-	
+
 	public void mostrarDetallesPedido(Pedido pedido, int i){
 		try {
             // Load bienvenida
@@ -483,7 +484,7 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
 	}
-	
+
 	public void mostrarVerPedidosCliente(Cliente cliente){
 		try {
             // Load bienvenida
@@ -505,7 +506,7 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
 	}
-	
+
 	public void mostrarRegistrarError(){
 		try {
             // Load bienvenida
@@ -527,7 +528,7 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
 	}
-	
+
 	public void mostrarVerErroresOperarios(){
 		try {
             // Load bienvenida
@@ -549,7 +550,7 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
 	}
-	
+
 	public void mostrarGanancias(){
 		try {
             // Load bienvenida
@@ -571,7 +572,7 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
 	}
-	
+
 	public void mostrarAdministrarSistema(){
 		try {
             // Load bienvenida
@@ -593,7 +594,7 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
 	}
-	
+
 	public void mostrarCambiarOperador(){
 		try {
             // Load bienvenida
@@ -615,7 +616,7 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
 	}
-	
+
 	public void mostrarCambiarCajero(){
 		try {
             // Load bienvenida
@@ -659,7 +660,7 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
 	}
-	
+
 	public void mostrarAdministrarSucursal(){
 		try {
             // Load bienvenida
@@ -681,7 +682,7 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
 	}
-	
+
 	public void mostrarAdministrarCamiones(){
 		try {
             // Load bienvenida
@@ -702,7 +703,29 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
 	}
-	
+
+	public void mostrarPedidosSucursal(){
+		try {
+            // Load bienvenida
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("vistas/PedidosSucursal.fxml"));
+            AnchorPane generico = (AnchorPane)loader.load();
+
+
+            // Poner la vista del login en el centro de la ventana principal
+            rootLayout.setCenter(generico);
+
+            // Dar acceso al controlador de bienvenida
+            PedidosSucursalController controllerView = loader.getController();
+            controllerView.setMainApp(this);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+
 	public Stage getPrimaryStage(){
 		return primaryStage;
 	}

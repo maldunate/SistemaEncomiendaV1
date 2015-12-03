@@ -75,7 +75,7 @@ public class DetallesPedidoController {
 		pedido.getCliente().setCoeficiente_frecuente();
 		for (Encomienda e: pedido.encomiendasPedido){
 			e.setPrecio(e.getPrecio(), pedido.getCliente().getCoeficiente_frecuente());
-			data.add(new printEncomienda(e.getSucursalOrigen().getNombre(), e.getSucursalDestino().getNombre(),e.getVolumen(), e.getPeso(), e.getPrioridad(), e.getPrecio(), e.nombreTipo()));
+			data.add(new printEncomienda(e.getSucursalOrigen().getNombre(), e.getSucursalDestino().getNombre(),e.getVolumen(), e.getPeso(), e.getPrioridad(), e.getPrecio(), e.nombreTipo(), e.getStrdate(), e.getNombre(), pedido.getCliente().getNombre()));
 		}
 
 		sucursal.setCellValueFactory(

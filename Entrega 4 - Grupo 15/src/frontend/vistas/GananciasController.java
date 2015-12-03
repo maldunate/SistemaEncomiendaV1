@@ -82,7 +82,7 @@ public class GananciasController extends Application {
 			for (Encomienda e: p.getEncomiendasPedido()){
 				System.out.println(e.getPago().isAfter(antess)+" "+e.getPago().isAfter(despuess)+" ");
 				if (e.getPago().isAfter(antess) && e.getPago().isBefore(despuess)){
-					data.add(new printEncomienda(e.getSucursalOrigen().getNombre(), e.getSucursalDestino().getNombre(),e.getVolumen(), e.getPeso(), e.getPrioridad(), e.getPrecio(), e.nombreTipo()));
+					data.add(new printEncomienda(e.getSucursalOrigen().getNombre(), e.getSucursalDestino().getNombre(),e.getVolumen(), e.getPeso(), e.getPrioridad(), e.getPrecio(), e.nombreTipo(), e.getStrdate(), e.getNombre(), p.getCliente().getNombre()));
 			}
 			}
 		}
@@ -102,7 +102,7 @@ public class GananciasController extends Application {
                 new PropertyValueFactory<printEncomienda, String>("Tipo"));
 		table.setItems(data);
 
-		
+
 		for (printEncomienda p: data){
 			suma += p.getPrecio();
 		}
