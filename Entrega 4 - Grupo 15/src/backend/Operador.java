@@ -1,10 +1,19 @@
 package backend;
 
+import java.util.ArrayList;
+
 public class Operador extends Persona{
 
 	Sucursal sucursal;
-	public Operador(String nombre) {
+	public int numeroError;
+	public String clave;
+	
+	public ArrayList<MensajeError> listaErrores = new ArrayList<>();;
+	
+	public Operador(String nombre, String clave) {
 		super(nombre);
+		numeroError = 1;
+		this.clave = clave;
 		//this.sucursal = sucursal;
 		// TODO Auto-generated constructor stub
 	}
@@ -18,6 +27,10 @@ public class Operador extends Persona{
 				return;
 			}
 		}
+	}
+	
+	public void IncrementarError(){
+		numeroError ++;
 	}
 	
     public Encomienda ElegirEncomienda (){
@@ -49,7 +62,7 @@ public class Operador extends Persona{
 				}
 				// SI EL CAMION SE QUEDA CON UNA ENCOMIENDA, ENTONCES HAY QUE CREAR UN MENSAJE
 				if (camion.enCamion.size() > 0){
-					Mensaje m1 = new Mensaje("Encomienda enviada a sucursal equivocada", camion.getSucursalOrigen(), camion.getSucursalDestino());
+					Mensaje m1 = new Mensaje("Encomienda enviada a sucursal equivocada", camion.getSucursalOrigen(), camion.getSucursalDestino(), "Encomienda enviada a sucursal equivocada");
 					EnviarMensaje(m1);
 				}
 				camion.setEstadoCamion(EstadoCamion.EnOrigen);

@@ -1,11 +1,19 @@
 package backend;
 
 import java.lang.reflect.Array;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
 enum EstadoEncomienda {EnOrigen, EnDestino, EnTransito, Entregado};
 
-public class Encomienda {
+public class Encomienda  implements java.io.Serializable {
+
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = -3953647643106678875L;
 
 	/**
 	 * @param sucursalOrigen
@@ -23,26 +31,126 @@ public class Encomienda {
 		this.peso = peso;
 		this.prioridad = prioridad;
 		this.estadoEncomienda = EstadoEncomienda.EnOrigen;
+		this.date = LocalDateTime.now();
+		this.pago = LocalDateTime.now();
+		this.strdate = date.toString();
+		this.tipo = TipoCamion.Normal;
+		this.precio = ((double)peso*1000 + (double)volumen*20)*(1+(3.001-prioridad)/10);
 		asignarNombre();
 	}
 	Sucursal sucursalOrigen;
 	Sucursal sucursalDestino;
 	int volumen;
 	int peso;
-	String nombre;
-
+	public String nombre;
+	public double precio;
 	int prioridad;
-	EstadoEncomienda estadoEncomienda;
+	String direccionFinal;
+	public EstadoEncomienda estadoEncomienda;
+	LocalDateTime date;
+	LocalDateTime pago;
+	String strdate;
+    TipoCamion tipo;
+	
+	public LocalDateTime getDate() {
+		return date;
+	}
+
+
+	public Boolean setearTipo(String s){
+		if (s.equals(TipoCamion.Caliente)) {
+			this.tipo = TipoCamion.Caliente;
+			return true;
+		}
+		
+		else if (s.equals(TipoCamion.Fragil)) {
+			this.tipo = TipoCamion.Fragil;
+			return true;
+		}
+		
+		else if (s.equals(TipoCamion.Radiactivo)) {
+			this.tipo = TipoCamion.Radiactivo;
+			return true;
+		}
+		
+		else if (s.equals(TipoCamion.Frio)) {
+			this.tipo = TipoCamion.Frio;
+			return true;
+		}
+		
+		else if (s.equals(TipoCamion.Normal)) {
+			return true;
+		}
+		return false;
+	}
+
+	public void setDate() {
+		this.date = LocalDateTime.now();
+		this.strdate = date.toString();
+	}
+
+	public LocalDateTime getPago() {
+		return pago;
+	}
+
+	public void setPago(LocalDateTime pago) {
+		this.pago = pago;
+	}
+
+	public String nombreTipo() {
+		return tipo.name();
+	}
+
+	public String getStrdate() {
+		return strdate;
+	}
+
+	public void setStrdate(String strdate) {
+		this.strdate = strdate;
+	}
+
+	public String getDireccionFinal() {
+		return direccionFinal;
+	}
+
+	public void setDireccionFinal(String direccionFinal) {
+		this.direccionFinal = direccionFinal;
+	}
 
 	public void asignarNombre(){
 		Random hola = new Random();
 		this.nombre = "soyla"+hola.nextInt(100000);
-		
+
 	}
-	
+
 	public EstadoEncomienda getEstadoEncomienda() {
 		return estadoEncomienda;
 	}
+
+	public String getEstadoEncomiendaString() {
+		return this.estadoEncomienda.toString();
+	}
+
+	public void setEstadoEntregado(){
+		estadoEncomienda = EstadoEncomienda.Entregado;
+		setDate();
+	}
+
+	public void setEstadoEnTransito(){
+		estadoEncomienda = EstadoEncomienda.EnTransito;
+		setDate();
+	}
+
+	public void setEstadoEnDestino(){
+		estadoEncomienda = EstadoEncomienda.EnDestino;
+		setDate();
+	}
+
+	public void setEstadoEnOrigen(){
+		estadoEncomienda = EstadoEncomienda.EnOrigen;
+		setDate();
+	}
+
 	public void setEstadoEncomienda(EstadoEncomienda estadoEncomienda) {
 		this.estadoEncomienda = estadoEncomienda;
 	}
@@ -57,5 +165,45 @@ public class Encomienda {
 	}
 	public void setSucursalDestino(Sucursal sucursalDestino) {
 		this.sucursalDestino = sucursalDestino;
+	}
+
+	public int getVolumen() {
+		return volumen;
+	}
+
+	public void setVolumen(int volumen) {
+		this.volumen = volumen;
+	}
+
+	public int getPeso() {
+		return peso;
+	}
+
+	public void setPeso(int peso) {
+		this.peso = peso;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio, double coef) {
+		this.precio = precio*(1-0.3*coef);
+	}
+
+	public int getPrioridad() {
+		return prioridad;
+	}
+
+	public void setPrioridad(int prioridad) {
+		this.prioridad = prioridad;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 }

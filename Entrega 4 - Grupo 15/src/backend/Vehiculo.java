@@ -1,7 +1,11 @@
 package backend;
 
-public abstract class Vehiculo {
+public abstract class Vehiculo  implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1761148224517024159L;
 	String patente;
 	int capacidad;
 	Sucursal sucursalOrigen;

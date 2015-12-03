@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.vistas.AdministrarCamionesController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="23.0" prefHeight="45.0" prefWidth="391.0" text="Camiones sucursal" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="46.0" layoutY="75.0" prefHeight="45.0" prefWidth="164.0" text="Camión: " textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="listaCamiones" editable="false" layoutX="180.0" layoutY="75.0" onAction="#handlerListaCamiones" prefHeight="31.0" prefWidth="315.0" promptText="Lista de camiones de la sucursal en sucursal..." />
+      <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="46.0" layoutY="125.0" prefHeight="45.0" prefWidth="164.0" text="Sucursal Destino: " textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="46.0" layoutY="210.0" prefHeight="45.0" prefWidth="224.0" text="Capacidad:" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="46.0" layoutY="165.0" prefHeight="45.0" prefWidth="237.0" text="Patente:" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="238.0" layoutY="319.0" mnemonicParsing="false" onAction="#handlerQuitar" prefHeight="45.0" prefWidth="164.0" text="Quitar">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Label fx:id="nombreSucursalActual" contentDisplay="CENTER" layoutX="378.0" layoutY="23.0" prefHeight="45.0" prefWidth="195.0" text="SucursalX" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <Button layoutX="46.0" layoutY="319.0" mnemonicParsing="false" onAction="#handlerAgregar" prefHeight="45.0" prefWidth="164.0" text="Agregar" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="421.0" layoutY="319.0" mnemonicParsing="false" onAction="#handlerAtras" prefHeight="45.0" prefWidth="164.0" text="Atras">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <TextField fx:id="patente" layoutX="209.0" layoutY="170.0" prefHeight="25.0" prefWidth="284.0" promptText="Patente..." />
+      <TextField fx:id="capacidad" layoutX="209.0" layoutY="210.0" prefHeight="25.0" prefWidth="284.0" promptText="Capacidad en metros cúbicos..." />
+      <ComboBox fx:id="sucursalDestino" editable="false" layoutX="211.0" layoutY="125.0" onAction="#handlerSucursalDestino" prefHeight="31.0" prefWidth="284.0" promptText="Lista Sucursales..." />
+      <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="46.0" layoutY="245.0" prefHeight="45.0" prefWidth="224.0" text="Tipo:" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="tipoCamion" editable="false" layoutX="211.0" layoutY="252.0" onAction="#handlerTipo" prefHeight="31.0" prefWidth="284.0" promptText="Tipo Camion..." />
+   </children>
+</AnchorPane>

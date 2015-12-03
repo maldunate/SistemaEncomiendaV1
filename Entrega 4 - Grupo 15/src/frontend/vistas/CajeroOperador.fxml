@@ -14,15 +14,21 @@
             <Font name="System Bold" size="27.0" />
          </font>
       </Label>
-      <Button layoutX="147.0" layoutY="193.0" mnemonicParsing="false" onAction="#handlerOperador" prefHeight="45.0" prefWidth="346.0" text="OPERADOR">
+      <Button layoutX="147.0" layoutY="125.0" mnemonicParsing="false" onAction="#handlerOperador" prefHeight="45.0" prefWidth="346.0" text="OPERADOR">
          <font>
             <Font size="17.0" />
          </font>
       </Button>
-      <Button layoutX="147.0" layoutY="290.0" mnemonicParsing="false" onAction="#handlerCajero" prefHeight="45.0" prefWidth="346.0" text="CAJERO">
+      <Button layoutX="147.0" layoutY="184.0" mnemonicParsing="false" onAction="#handlerCajero" prefHeight="45.0" prefWidth="346.0" text="CAJERO">
          <font>
             <Font size="17.0" />
          </font>
       </Button>
+      <Button layoutX="147.0" layoutY="298.0" mnemonicParsing="false" onAction="#handlerAtras" prefHeight="45.0" prefWidth="346.0" text="Atras">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button layoutX="148.0" layoutY="240.0" mnemonicParsing="false" onAction="#handlerCliente" prefHeight="45.0" prefWidth="346.0" text="CLIENTE" />
    </children>
 </AnchorPane>

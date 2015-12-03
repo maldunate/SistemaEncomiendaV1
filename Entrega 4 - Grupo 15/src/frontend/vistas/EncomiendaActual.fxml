@@ -59,22 +59,22 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Text layoutX="202.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT" wrappingWidth="82.13671875">
+      <Text fx:id="volumen" layoutX="202.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT" wrappingWidth="82.13671875">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text layoutX="477.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT" wrappingWidth="82.13671875">
+      <Text fx:id="peso" layoutX="477.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT" wrappingWidth="82.13671875">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fx:id="peso" layoutX="504.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="kg" textAlignment="RIGHT" wrappingWidth="82.13671875">
+      <Text layoutX="504.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="kg" textAlignment="RIGHT" wrappingWidth="82.13671875">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fx:id="volumen" layoutX="237.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="cc" textAlignment="RIGHT" wrappingWidth="82.13671875">
+      <Text layoutX="237.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="cc" textAlignment="RIGHT" wrappingWidth="82.13671875">
          <font>
             <Font size="18.0" />
          </font>
@@ -95,6 +95,16 @@
          </font>
       </Text>
       <Text fx:id="nombreEncomienda" layoutX="201.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre EncomiendaX" wrappingWidth="383.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="45.0" layoutY="274.0" prefHeight="45.0" prefWidth="164.0" text="Tipo: " textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Text fx:id="tipo" layoutX="202.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT" wrappingWidth="82.13671875">
          <font>
             <Font size="18.0" />
          </font>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.vistas.AdministrarSistemaController">
+   <children>
+      <ComboBox fx:id="listaSucursales" layoutX="159.0" layoutY="124.0" prefHeight="45.0" prefWidth="346.0" promptText="Elegir Sucursal..." onAction="#handlerListaSucursales"/>
+      <Button layoutX="320.0" layoutY="237.0" mnemonicParsing="false" onAction="#buttonAdministrarSucursal" prefHeight="45.0" prefWidth="188.0" text="Administrar Sucursal">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Label contentDisplay="CENTER" layoutX="45.0" layoutY="46.0" prefHeight="45.0" prefWidth="551.0" text="Administrar Sistema de Encomiendas" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Button layoutX="109.0" layoutY="237.0" mnemonicParsing="false" onAction="#buttonAgragarSucursal" prefHeight="45.0" prefWidth="188.0" text="Agregar Sucursal">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button layoutX="210.0" layoutY="302.0" mnemonicParsing="false" onAction="#handlerMenuPrincipal" prefHeight="45.0" prefWidth="188.0" text="Menu Principal">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="380.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.vistas.CambiarOperadorController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="131.0" layoutY="14.0" prefHeight="91.0" prefWidth="379.0" text="Ingresar Como Operador" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <Button layoutX="190.0" layoutY="281.0" mnemonicParsing="false" onAction="#handlerAtras" prefHeight="45.0" prefWidth="247.0" text="Atras">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button layoutX="190.0" layoutY="225.0" mnemonicParsing="false" onAction="#handlerCambiarOperador" prefHeight="45.0" prefWidth="247.0" text="Ingresar">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="listaOperadores" layoutX="190.0" layoutY="115.0" onAction="#handlerListaOperadores" prefHeight="31.0" prefWidth="247.0" promptText="Operadores" />
+      <Label layoutX="96.0" layoutY="115.0" prefHeight="31.0" prefWidth="92.0" text="Operadores :" />
+      <Label layoutX="96.0" layoutY="159.0" prefHeight="31.0" prefWidth="92.0" text="Clave :" />
+      <PasswordField fx:id="clave" layoutX="190.0" layoutY="159.0" prefHeight="31.0" prefWidth="247.0" />
+   </children>
+</AnchorPane>

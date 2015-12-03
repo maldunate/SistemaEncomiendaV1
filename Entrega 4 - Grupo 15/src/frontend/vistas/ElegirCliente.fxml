@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.vistas.ElegirClienteController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="45.0" layoutY="44.0" prefHeight="45.0" prefWidth="551.0" text="Elegir Cliente" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="51.0" layoutY="139.0" prefHeight="45.0" prefWidth="164.0" text="Cliente : " textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="listaClientes" layoutX="158.0" layoutY="129.0" onAction="#handlerElegirCliente" prefHeight="45.0" prefWidth="429.0" promptText="Lista de clientes en sistema..." />
+      <Button layoutX="87.0" layoutY="276.0" mnemonicParsing="false" onAction="#handlerIngresarEncomiendas" prefHeight="45.0" prefWidth="212.0" text="Ingresar">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button layoutX="372.0" layoutY="276.0" mnemonicParsing="false" onAction="#handlerAtras" prefHeight="45.0" prefWidth="212.0" text="Atras">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="51.0" layoutY="192.0" prefHeight="45.0" prefWidth="164.0" text="Clave : " textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="clave" layoutX="158.0" layoutY="192.0" prefHeight="31.0" prefWidth="429.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="440.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.vistas.GananciasController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" prefHeight="45.0" prefWidth="391.0" text="Ganancias a la fecha" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <TableView fx:id="table" layoutX="4.0" layoutY="78.0" prefHeight="276.0" prefWidth="634.0">
+        <columns>
+          <TableColumn fx:id="sucursal_origen" prefWidth="100.0" text="Sucursal Origen" />
+            <TableColumn fx:id="sucursal_destino" prefWidth="100.0" text="Sucursal Destino" />
+            <TableColumn fx:id="volumen" prefWidth="100.0" text="Volumen" />
+            <TableColumn fx:id="peso" prefWidth="79.0" text="Peso" />
+            <TableColumn fx:id="prioridad" prefWidth="71.0" text="Prioridad" />
+            <TableColumn fx:id="tipo" minWidth="0.0" prefWidth="90.0" text="Tipo" />
+            <TableColumn fx:id="precio" prefWidth="93.0" text="Precio" />
+        </columns>
+      </TableView>
+      <Label layoutX="27.0" layoutY="361.0" prefHeight="23.0" prefWidth="123.0" text="Ganancia Total:" />
+      <Label fx:id="total" layoutX="150.0" layoutY="364.0" prefHeight="17.0" prefWidth="87.0" text="total" />
+      <Button fx:id="atras" layoutX="464.0" layoutY="362.0" mnemonicParsing="false" onAction="#handlerAtras" prefHeight="25.0" prefWidth="87.0" text="ATRAS" />
+      <Text layoutX="27.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Desde:" />
+      <Text layoutX="247.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hasta:" />
+      <Button layoutX="464.0" layoutY="47.0" mnemonicParsing="false" onAction="#handlerOk" text="OK" />
+      <DatePicker fx:id="desde" layoutX="63.0" layoutY="47.0" />
+      <DatePicker fx:id="hasta" layoutX="279.0" layoutY="47.0" />
+   </children>
+</AnchorPane>

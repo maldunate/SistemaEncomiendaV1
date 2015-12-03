@@ -21,7 +21,20 @@ public class CajeroOperadorController {
 
 	@FXML
 	private void handlerCajero(){
-		mainApp.mostrarMenuCajero();
+		mainApp.mostrarCambiarCajero();
+		//mainApp.mostrarMenuCajero();
+	
+	}
+	
+	@FXML
+	private void handlerCliente(){
+		mainApp.mostrarMenuIngresarPedidoCliente();
+	
+	}
+	
+	@FXML
+	private void handlerAtras(){
+		mainApp.showBienvenida();
 	
 	}
 	
@@ -34,7 +47,8 @@ public class CajeroOperadorController {
 	
 	@FXML
 	private void handlerOperador(){
-		mainApp.mostrarMenuOperador();
+		mainApp.mostrarCambiarOperador();
+		//mainApp.mostrarMenuOperador();
 
 	}
 	

@@ -7,7 +7,7 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.vistas.MenuOperadorController">
+<AnchorPane prefHeight="500.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.vistas.MenuOperadorController">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="45.0" layoutY="29.0" prefHeight="91.0" prefWidth="551.0" text="Haz ingresado como operador, seleccione acción a efectuar:" textAlignment="CENTER" wrapText="true">
          <font>
@@ -19,17 +19,32 @@
             <Font size="17.0" />
          </font>
       </Button>
-      <Button layoutX="147.0" layoutY="194.0" mnemonicParsing="false" onAction="#handlerRecepcion" prefHeight="45.0" prefWidth="346.0" text="Entrar a sistema de recepción de camiones">
+      <Button layoutX="148.0" layoutY="184.0" mnemonicParsing="false" onAction="#handlerRecepcion" prefHeight="45.0" prefWidth="346.0" text="Entrar a sistema de recepción de camiones">
          <font>
             <Font size="17.0" />
          </font>
       </Button>
-      <Button layoutX="148.0" layoutY="257.0" mnemonicParsing="false" onAction="#handlerMensajes" prefHeight="45.0" prefWidth="346.0" text="Enviar un mensaje">
+      <Button layoutX="148.0" layoutY="337.0" mnemonicParsing="false" onAction="#handlerMensajes" prefHeight="45.0" prefWidth="346.0" text="Enviar un mensaje">
          <font>
             <Font size="17.0" />
          </font>
       </Button>
-      <Button layoutX="148.0" layoutY="315.0" mnemonicParsing="false" onAction="#handlerVerMensajes" prefHeight="45.0" prefWidth="346.0" text="Ver mensajes">
+      <Button layoutX="147.0" layoutY="390.0" mnemonicParsing="false" onAction="#handlerVerMensajes" prefHeight="45.0" prefWidth="346.0" text="Ver mensajes">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button layoutX="147.0" layoutY="235.0" mnemonicParsing="false" onAction="#handlerRegistrarError" prefHeight="45.0" prefWidth="346.0" text="Registrar error operario">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button layoutX="147.0" layoutY="286.0" mnemonicParsing="false" onAction="#handlerVerErrores" prefHeight="45.0" prefWidth="346.0" text="Ver errores operarios">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button layoutX="147.0" layoutY="441.0" mnemonicParsing="false" onAction="#handlerAtras" prefHeight="45.0" prefWidth="346.0" text="Atras">
          <font>
             <Font size="17.0" />
          </font>

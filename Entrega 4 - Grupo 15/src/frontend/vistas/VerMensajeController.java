@@ -1,5 +1,9 @@
 package frontend.vistas;
 
+import backend.*;
+import java.util.ArrayList;
+
+import backend.SistemaEncomienda;
 import frontend.MainApp;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -21,6 +25,10 @@ public class VerMensajeController  {
 	
 	private MainApp mainApp;
 	
+	Mensaje temp;
+	
+	Boolean elegido;
+	
 	public VerMensajeController() {
 		
 	}
@@ -31,11 +39,23 @@ public class VerMensajeController  {
 
 	@FXML
 	private void handlerEliminar(){
-		mainApp.mostrarMessage("Haz eliminado el mensaje");
+		if(elegido == true){
+			mainApp.mostrarMessage("Haz eliminado el mensaje");
 		
-		//rellenar
-
-		mainApp.mostrarVerMensaje();
+			ArrayList<Mensaje> lista = SistemaEncomienda.getInstance().getMensajes(SistemaEncomienda.getInstance().compararSucursal(SistemaEncomienda.getInstance().getSucursalActual()));
+		
+			for(Mensaje m : lista){
+				if(m.asunto == listaMensajes.getValue().toString()){
+					temp = m;
+				}
+			}
+			SistemaEncomienda.getInstance().eliminarMensaje(SistemaEncomienda.getInstance().compararSucursal(SistemaEncomienda.getInstance().getSucursalActual()), temp);
+		
+			mainApp.mostrarVerMensaje();
+			elegido = false;
+		}else{
+			mainApp.mostrarMessage("Elige un mensaje que eliminar.");
+		}
 	}
 	
 	@FXML
@@ -45,9 +65,33 @@ public class VerMensajeController  {
 	
 	@FXML
     private void initialize() {
-    	
+    	UpdateAsuntos();
+    	elegido = false;
     }
 	
+	@FXML
+	private void handlerCombobox(){
+		Actualizar();
+	}
+	
+	private void Actualizar(){
+		ArrayList<Mensaje> lista = SistemaEncomienda.getInstance().getMensajes(SistemaEncomienda.getInstance().compararSucursal(SistemaEncomienda.getInstance().getSucursalActual()));
+		
+		for(Mensaje m : lista){
+			if(m.asunto == listaMensajes.getValue().toString()){
+				temp = m;
+			}
+		}
+		mensaje.setText(temp.texto);
+		sucursal.setText(temp.origen.getNombre());
+		elegido = true;
+	}
+	
+	public void UpdateAsuntos(){
+		
+		listaMensajes.getItems().addAll(SistemaEncomienda.getInstance().getMensajesAsuntos(SistemaEncomienda.getInstance().compararSucursal(SistemaEncomienda.getInstance().getSucursalActual())));
+		
+	}
 	
 	public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;   

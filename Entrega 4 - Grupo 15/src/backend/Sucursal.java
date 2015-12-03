@@ -1,17 +1,25 @@
 package backend;
 import java.util.ArrayList;
+import java.util.Random;
 
-public class Sucursal {
+public class Sucursal  implements java.io.Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -187995296828159540L;
 	int id;
 	String direccion;
 	String nombre;
 	Operador operador;
-	
+	Random r = new Random();	
 	Cajero cajero;
-	ArrayList<Camion> listaCamiones;
-	ArrayList<Encomienda> listaEncomiendas;
-	ArrayList<Mensaje> listaMensajes;
+	public ArrayList<Cajero> listaCajeros = new ArrayList<>();;
+	public ArrayList<Operador> listaOperadores = new ArrayList<>();;
+	ArrayList<Camion> listaCamiones = new ArrayList<>();;
+	ArrayList<Encomienda> listaEncomiendas = new ArrayList<>();;
+	ArrayList<Camion> camionesConEncomiendas = new ArrayList<>();;
+	ArrayList<Mensaje> listaMensajes = new ArrayList<>();;
 	
 	/**
 	 * @param id
@@ -29,10 +37,9 @@ public class Sucursal {
 		this.direccion = direccion;
 		this.nombre = nombre;
 		this.operador = operador;
+		listaOperadores.add(this.operador);
 		this.cajero = cajero;
-		this.listaCamiones = new ArrayList<>();
-		this.listaMensajes = new ArrayList<>();
-		this.listaEncomiendas = new ArrayList<>();
+		listaCajeros.add(this.cajero);
 	}
 
 
@@ -83,6 +90,14 @@ public class Sucursal {
 	public void setListaCamiones(ArrayList<Camion> listaCamiones) {
 		this.listaCamiones = listaCamiones;
 	}
+	
+	public ArrayList<Camion> getCamionesConEncomiendas() {
+		return camionesConEncomiendas;
+	}
+
+	public void setCamionesConEncomiendas(ArrayList<Camion> camionesConEncomiendas) {
+		this.camionesConEncomiendas = camionesConEncomiendas;
+	}
 
 	public ArrayList<Encomienda> getListaEncomiendas() {
 		return listaEncomiendas;
@@ -100,11 +115,17 @@ public class Sucursal {
 		this.listaMensajes = listaMensajes;
 	}
 	
+	public void agregarCamion(String patente, int capacidad, Sucursal sucursalDestino, String tipo){
+		Camion c = new Camion(r.nextInt(99999), patente, capacidad, this, sucursalDestino);
+		c.setearTipo(tipo);
+		this.listaCamiones.add(c);	
+	}
+	
 	public void agregarCamiones(ArrayList<Sucursal> listaSucursales){
 		for (Sucursal s : listaSucursales) {
 			int i = 1;
 			if(!s.equals(this)){
-				listaCamiones.add(new Camion(i, this.nombre + " a " + s.nombre, 10, this, s));
+				listaCamiones.add(new Camion(i, this.nombre + " a " + s.nombre, 100000, this, s));
 			    i++;
 			}
 		}

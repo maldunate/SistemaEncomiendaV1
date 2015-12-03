@@ -17,7 +17,12 @@ public class RootLayoutController extends Application {
 	private void close(){
 		mainApp.stop();
 	}
-	
+
+    @FXML
+    void handerAdministrador() {
+    	this.mainApp.mostrarAdministrarSistema();
+    }
+    
 	public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;   
     }

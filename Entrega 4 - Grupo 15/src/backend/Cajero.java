@@ -4,10 +4,12 @@ public class Cajero extends Persona {
 
 	Sucursal sucursal;
 	SistemaEncomienda sistema;
+	public String clave;
 	//Calculadora calculadora = new Calculadora();
 	
-	public Cajero(String nombre, SistemaEncomienda sistema) {
+	public Cajero(String nombre, SistemaEncomienda sistema, String clave) {
 		super(nombre);
+		this.clave = clave;
 		//this.sucursal = sucursal;
 		this.sistema = sistema;
 		
@@ -30,7 +32,7 @@ public class Cajero extends Persona {
 	}
 	
     public Cliente IngresarCliente(String nombre, String numero, String direccion){
-    	return new Cliente(nombre, numero,direccion);
+    	return new Cliente(nombre, numero,direccion, clave);
     }
 	
 	public void CambiarSucursalEncomienda (Encomienda encomienda, Sucursal sucursal){

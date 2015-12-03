@@ -1,0 +1,29 @@
+package frontend.vistas;
+
+import frontend.MainApp;
+import javafx.application.Application;
+import javafx.fxml.FXML;
+import javafx.stage.Stage;
+import javafx.stage.Stage;
+
+public class MenuClienteController extends Application {
+
+	@Override
+	public void start(Stage primaryStage) {
+		
+	}
+	
+	@FXML
+	private void handlerVerPedidos(){
+		
+	}
+	
+	@FXML 
+	private void handlerCrearPedido(){
+		
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
+}
