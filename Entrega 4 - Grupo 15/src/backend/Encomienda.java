@@ -29,13 +29,13 @@ public class Encomienda  implements java.io.Serializable {
 		this.sucursalDestino = sucursalDestino;
 		this.volumen = volumen;
 		this.peso = peso;
-		this.precio = (double)peso*1000 + (double)volumen*20;
 		this.prioridad = prioridad;
 		this.estadoEncomienda = EstadoEncomienda.EnOrigen;
 		this.date = LocalDateTime.now();
 		this.pago = LocalDateTime.now();
 		this.strdate = date.toString();
 		this.tipo = TipoCamion.Normal;
+		this.precio = ((double)peso*1000 + (double)volumen*20)*(1+(3.001-prioridad)/10);
 		asignarNombre();
 	}
 	Sucursal sucursalOrigen;

@@ -31,6 +31,9 @@ public class DetallesPedidoController {
     private TableColumn<printEncomienda, String> precio;
 
     @FXML
+    private Label desc;
+    
+    @FXML
     private TableColumn<printEncomienda, String> tipo;
 
     @FXML
@@ -97,6 +100,7 @@ public class DetallesPedidoController {
 			suma += p.getPrecio();
 		}
 		precio_final.setText(Integer.toString(suma));
+		desc.setText(Double.toString(pedido.getCliente().getCoeficiente_frecuente()*30).substring(0, 4)+"%");
 	}
 
     @FXML
