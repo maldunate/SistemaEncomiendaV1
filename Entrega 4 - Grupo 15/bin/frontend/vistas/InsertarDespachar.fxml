@@ -35,7 +35,7 @@
          </font>
       </Label>
       <ComboBox fx:id="listaCamiones" editable="true" layoutX="180.0" layoutY="75.0" onAction="#handlerListaCamiones" prefHeight="31.0" prefWidth="315.0" promptText="Lista de camiones de la sucursal en sucursal..." />
-      <Button layoutX="223.0" layoutY="304.0" mnemonicParsing="false" onAction="#handlerIngresarEncomienda" prefHeight="53.0" prefWidth="195.0" text="Ingresar una encomienda en este camión" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="178.0" layoutY="304.0" mnemonicParsing="false" onAction="#handlerIngresarEncomienda" prefHeight="53.0" prefWidth="164.0" text="Ingresar encomienda en camión" textAlignment="CENTER" wrapText="true" />
       <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="46.0" layoutY="125.0" prefHeight="45.0" prefWidth="164.0" text="Sucursal Destino: " textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="18.0" />
@@ -56,7 +56,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="46.0" layoutY="304.0" mnemonicParsing="false" onAction="#handlerDespachar" prefHeight="53.0" prefWidth="164.0" text="Despachar">
+      <Button layoutX="46.0" layoutY="304.0" mnemonicParsing="false" onAction="#handlerDespachar" prefHeight="53.0" prefWidth="125.0" text="Despachar">
          <font>
             <Font size="17.0" />
          </font>
@@ -76,7 +76,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="435.0" layoutY="304.0" mnemonicParsing="false" onAction="#handlerAtras" prefHeight="53.0" prefWidth="164.0" text="Atras">
+      <Button layoutX="499.0" layoutY="304.0" mnemonicParsing="false" onAction="#handlerAtras" prefHeight="53.0" prefWidth="100.0" text="Atras">
          <font>
             <Font size="17.0" />
          </font>
@@ -92,5 +92,6 @@
          </font>
       </Label>
       <ComboBox fx:id="listaEncomiendas" editable="true" layoutX="270.0" layoutY="251.0" onAction="#handlerListaEncomiendas" prefHeight="31.0" prefWidth="315.0" promptText="Lista encomiendas..." />
+      <Button layoutX="347.0" layoutY="304.0" mnemonicParsing="false" onAction="#handlerDescargarEncomienda" prefHeight="53.0" prefWidth="148.0" text="Descargar encomienda" textAlignment="CENTER" wrapText="true" />
    </children>
 </AnchorPane>

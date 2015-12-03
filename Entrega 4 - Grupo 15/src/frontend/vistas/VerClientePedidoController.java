@@ -70,6 +70,7 @@ public class VerClientePedidoController {
 
     @FXML
     void handlerListaClientes() {
+    	listaPedidos.getItems().clear();
     	clienteActual = SistemaEncomienda.getInstance().getClienteAPartirDeNombre(listaClientes.getValue().toString());
     	listaPedidos.getItems().addAll(clienteActual.getNombrePedidos());
     }
@@ -81,6 +82,7 @@ public class VerClientePedidoController {
 
     @FXML
     void handlerListaPedidos() {
+    	listaEncomiendas.getItems().clear();
     	pedidoActual = SistemaEncomienda.getInstance().getPedidoAPartirDeNombre(listaPedidos.getValue().toString());
     	listaEncomiendas.getItems().addAll(pedidoActual.getNombresEncomiendas());
     }

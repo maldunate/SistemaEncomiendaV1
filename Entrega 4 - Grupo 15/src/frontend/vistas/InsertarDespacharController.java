@@ -90,6 +90,23 @@ public class InsertarDespacharController {
 	}
 	
 	@FXML
+	private void handlerDescargarEncomienda(){
+		if(seleccionado2){
+			for(Encomienda e: cam.enCamion){
+				if(listaEncomiendas.getValue().equals(e.getNombre())){
+					aux = e;
+				}
+			}
+			cam.enCamion.remove(aux);
+			suc.getListaEncomiendas().add(aux);
+			mainApp.mostrarMessage("Haz descargado la encomienda " + aux.getNombre());
+			mainApp.mostrarInsertarDespachar();
+		}else{
+			mainApp.mostrarMessage("Elige una encomienda que descargar.");
+		}
+	}
+	
+	@FXML
 	private void handlerListaEncomiendas(){
 		seleccionado2 = true;
 	}
