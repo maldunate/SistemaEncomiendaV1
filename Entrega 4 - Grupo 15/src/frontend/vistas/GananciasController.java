@@ -1,6 +1,7 @@
 package frontend.vistas;
 
 import java.awt.Button;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import backend.Encomienda;
@@ -13,6 +14,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -45,10 +47,10 @@ public class GananciasController extends Application {
     private TableColumn<printEncomienda, String> tipo;
 
     @FXML
-    private ComboBox<String> desde;
+    private DatePicker desde;
 
     @FXML
-    private ComboBox<String> hasta;
+    private DatePicker hasta;
     @FXML
     private TableView<printEncomienda> table;
 
@@ -58,31 +60,23 @@ public class GananciasController extends Application {
     private MainApp mainApp;
 
     public int suma;
+    
 
 	public void setMainApp(MainApp mainApp) {
 		this.mainApp = mainApp;
-		UpdateCombo();
 		}
 	@Override
 	public void start(Stage primaryStage) {
 
 	}
 
-	public void UpdateCombo(){
-		int i;
-		for(i=2015; i>=2010; i -= 1 ){
-			hasta.getItems().addAll(Integer.toString(i));
-			desde.getItems().addAll(Integer.toString(i));
-		}
-	}
-	public void UpdateTabla(int antes, int despues){
-		LocalDateTime antess = LocalDateTime.of(antes, 1, 1, 0, 0);
-		LocalDateTime despuess = LocalDateTime.of(despues, 12, 31, 23, 59);
+	public void UpdateTabla(){
+		LocalDateTime antess = LocalDateTime.of(desde.getValue().getYear(), desde.getValue().getMonthValue(), desde.getValue().getDayOfMonth(), 00, 00);
+		LocalDateTime despuess = LocalDateTime.of(hasta.getValue().getYear(), hasta.getValue().getMonthValue(), hasta.getValue().getDayOfMonth(), 23, 59);
 		for (Pedido p: SistemaEncomienda.getInstance().getListaPedidos()){
 			for (Encomienda e: p.getEncomiendasPedido()){
-				System.out.println(e.getPago().isAfter(antess)+" "+e.getPago().isAfter(despuess)+" ");
 				if (e.getPago().isAfter(antess) && e.getPago().isBefore(despuess)){
-					data.add(new printEncomienda(e.getSucursalOrigen().getNombre(), e.getSucursalDestino().getNombre(),e.getVolumen(), e.getPeso(), e.getPrioridad(), e.getPrecio(), e.nombreTipo(), e.getStrdate(), e.getNombre(), p.getCliente().getNombre()));
+					data.add(new printEncomienda(e.getSucursalOrigen().getNombre(), e.getSucursalDestino().getNombre(),e.getVolumen(), e.getPeso(), e.getPrioridad(), e.getPrecio(), e.nombreTipo(), e.getStrdate(), e.getNombre(), e.getEstadoEncomiendaString()));
 			}
 			}
 		}
@@ -112,7 +106,10 @@ public class GananciasController extends Application {
 	@FXML
 	void handlerOk(){
 		data.clear();
-		UpdateTabla(Integer.parseInt(desde.getValue()), Integer.parseInt(hasta.getValue()));
+		suma = 0;
+		if (desde.getValue() != null && hasta.getValue() != null){
+			UpdateTabla();
+		}
 	}
 
 	@FXML
@@ -125,3 +122,4 @@ public class GananciasController extends Application {
 		launch(args);
 	}
 }
+

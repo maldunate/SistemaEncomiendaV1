@@ -125,7 +125,7 @@ public class Sucursal  implements java.io.Serializable {
 		for (Sucursal s : listaSucursales) {
 			int i = 1;
 			if(!s.equals(this)){
-				listaCamiones.add(new Camion(i, this.nombre + " a " + s.nombre, 10, this, s));
+				listaCamiones.add(new Camion(i, this.nombre + " a " + s.nombre, 100000, this, s));
 			    i++;
 			}
 		}

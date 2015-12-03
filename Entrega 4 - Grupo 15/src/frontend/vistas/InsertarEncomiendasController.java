@@ -19,14 +19,14 @@ public class InsertarEncomiendasController {
 	Pedido pedido = null;
 	private MainApp mainApp;
 	int i;
-	
+
 	Boolean llenado1 = false;
 	Boolean llenado2 = false;
 	Boolean llenado3 = false;
 	Boolean llenado4 = false;
 	Boolean llenado5 = false;
 	Boolean llenado6 = false;
-	
+
 	@FXML
 	private ComboBox listaSucursales;
 
@@ -58,28 +58,28 @@ public class InsertarEncomiendasController {
 	public void start(Stage primaryStage) {
 
 	}
-	
+
 	@FXML
 	private void handlerDireccion(){
 		llenado1 = true;
 	}
-	
+
 	@FXML
 	private void handlerVolumen(){
 		llenado2 = true;
 	}
-	
+
 	@FXML
 	private void handlerPeso(){
 		llenado3 = true;
 	}
-	
+
 
 	@FXML
 	private void handlerTipo(){
 		llenado6 = true;
 	}
-	
+
 	@FXML
 	private void handlerSucursal(){
 		llenado5 = true;
@@ -91,16 +91,18 @@ public class InsertarEncomiendasController {
 		if(llenado5 && llenado1 && llenado2 && llenado3 && llenado4 && llenado6){
 		llenado5 = false;
 		Sucursal sucursalOrigen = null;
-		
-		
-		if(listaSucursales.getValue().toString().length() < 2){
-			mainApp.mostrarMessage("Selecciona bien los datos");
+
+
+		if (!volumen.getText().matches("[0-9]+") | volumen.getText().length() < 1) {
+			mainApp.mostrarMessage("Ingresa un volumen/peso correcto");
 			return;
 		}
-		
-		
+		if (!peso.getText().matches("[0-9]+") | peso.getText().length() < 1){
+			mainApp.mostrarMessage("Ingresa un volumen/peso correcto");
+			return;
+		}
 		mainApp.mostrarMessage("Haz ingresado exitosamente la encomienda, haz click en terminar cuando no quieras agregar más encomiendas");
-		
+
 		for (Sucursal s : SistemaEncomienda.getInstance().getListaSucursales()) {
 			if(s.getNombre().equals(SistemaEncomienda.getInstance().getSucursalActual())){
 				sucursalOrigen = s;
@@ -150,14 +152,22 @@ public class InsertarEncomiendasController {
     private void initialize() {
     	Update();
     }
-	
+
 	@FXML
 	private void handlerPrecio(){
+		if (!volumen.getText().matches("[0-9]+") | volumen.getText().length() < 1) {
+			mainApp.mostrarMessage("Ingresa un volumen/peso correcto");
+			return;
+		}
+		if (!peso.getText().matches("[0-9]+") | peso.getText().length() < 1){
+			mainApp.mostrarMessage("Ingresa un volumen/peso correcto");
+			return;
+		}
 		llenado4 = true;
 		precio.setText(Integer.toString(Integer.parseInt(volumen.getText())*20+Integer.parseInt(peso.getText())*1000));
 		//peso*1000 + volumen*20
 	}
-	
+
 	public void Update(){
 		ArrayList<String> lista = new ArrayList<>();
 		for(String s : SistemaEncomienda.getInstance().getSucursalesNombre()) {
@@ -165,7 +175,7 @@ public class InsertarEncomiendasController {
 				lista.add(s);
 			}
 		}
-		
+
 		listaSucursales.getItems().addAll(lista);
 		precio.setText("");
 		volumen.setText("0");

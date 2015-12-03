@@ -35,7 +35,7 @@ public class VerClientePedidoController {
     private Text direccionFinal;
 
     @FXML
-    private ComboBox listaEncomiendas;
+    private ComboBox<String> listaEncomiendas;
 
     @FXML
     private ComboBox listaPedidos;
@@ -49,7 +49,7 @@ public class VerClientePedidoController {
 
     @FXML
     private Text tipo;
-    
+
     @FXML
     private ComboBox listaClientes;
 
@@ -85,10 +85,12 @@ public class VerClientePedidoController {
     	listaEncomiendas.getItems().clear();
     	pedidoActual = SistemaEncomienda.getInstance().getPedidoAPartirDeNombre(listaPedidos.getValue().toString());
     	listaEncomiendas.getItems().addAll(pedidoActual.getNombresEncomiendas());
+
     }
 
     @FXML
     void handlerListaEncomiendas() {
+    	encomiendaActual = SistemaEncomienda.getInstance().getEncomiendaAPartirDeNombre(listaEncomiendas.getValue(), pedidoActual);
     	if(encomiendaActual != null){
     	sucursalDestino.setText(encomiendaActual.getSucursalDestino().getNombre());
     	precio.setText(String.valueOf(encomiendaActual.precio));
@@ -99,9 +101,9 @@ public class VerClientePedidoController {
     	estado.setText(encomiendaActual.getEstadoEncomiendaString());
     	hora.setText(encomiendaActual.getStrdate());
     	tipo.setText(encomiendaActual.nombreTipo());
-    
+
     	} else {
-    		mainApp.mostrarMessage("Error de eleccion de encomienda");
+    		//mainApp.mostrarMessage("Error de eleccion de encomienda");
     	}
     }
 
